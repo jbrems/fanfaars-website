@@ -6,10 +6,12 @@ import { firebaseConfig } from './firebase-config';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent
   ],
   imports: [
     AngularFireModule.initializeApp(firebaseConfig),
