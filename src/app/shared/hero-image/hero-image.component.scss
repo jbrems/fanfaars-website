@@ -1,0 +1,57 @@
+@import '../../colors';
+
+.hero-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    margin-top: -25px;
+  }
+
+  .overlay {
+    position: relative;
+    width: 100%;
+    height: 201px;
+
+    margin-top: -219px;
+
+    background-color: #FFFFFFAA;
+  }
+
+  .quote {
+    position: relative;
+    width: 75%;
+    padding: 0 10px;
+    margin: -170px auto 0 auto;
+
+    border-left: solid 5px $ff-red-dark;
+
+    font-size: 28px;
+    font-weight: 300;
+  }
+
+  .button {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    width: 200px;
+    height: 20px;
+    margin: 35px auto;
+    padding: 10px 0;
+
+    color: $ff-red-dark;
+    background-color: #FFFFFF88;
+    border: solid 1.5px $ff-red-dark;
+    border-radius: 20px;
+
+    span {
+      display: inline-block;
+      font-size: 20px;
+      font-weight: 300;
+      margin: -3px auto 0 auto;
+    }
+  }
+}

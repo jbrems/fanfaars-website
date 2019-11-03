@@ -1,12 +1,15 @@
 <div class="header">
   <div class="header-logo"></div>
   <div class="header-branding">
-    <div class="branding-top">Koninklijke fanfare</div>
+    <div class="branding-top">Koninklijke Fanfare</div>
     <div class="branding">De Vrienden van 't Recht</div>
     <div class="branding-bottom">VZW Blaasveld</div>
   </div>
-  <div class="header-menu">
-    <span>Menu</span>
-    <i class="material-icons">menu</i>
+  <div class="header-menu" (click)="menuOpen = !menuOpen">
+    <span *ngIf="!menuOpen">&nbsp; Menu</span>
+    <i *ngIf="!menuOpen" class="material-icons">menu</i>
+    <span *ngIf="menuOpen">Sluiten</span>
+    <i *ngIf="menuOpen" class="material-icons">close</i>
   </div>
+  <app-menu *ngIf="menuOpen"></app-menu>
 </div>

@@ -7,11 +7,15 @@ import { firebaseConfig } from './firebase-config';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
+import { MenuComponent } from './header/menu/menu.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    MenuComponent,
+    FooterComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(firebaseConfig),
