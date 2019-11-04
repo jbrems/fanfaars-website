@@ -2,7 +2,7 @@
   "name": "functions",
   "scripts": {
     "lint": "tslint --project tsconfig.json",
-    "build": "node copy-angular && tsc",
+    "build": "node copy-angular && tsc --project tsconfig.json",
     "serve": "npm run build && firebase serve --only functions",
     "shell": "npm run build && firebase functions:shell",
     "start": "npm run shell",
@@ -10,6 +10,9 @@
     "logs": "firebase functions:log"
   },
   "main": "lib/index.js",
+  "engines": {
+    "node": "8"
+  },
   "dependencies": {
     "firebase-admin": "~6.0.0",
     "firebase-functions": "^2.1.0",
