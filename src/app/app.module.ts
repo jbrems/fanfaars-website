@@ -6,22 +6,22 @@ import { firebaseConfig } from './firebase-config';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { MenuComponent } from './header/menu/menu.component';
-import { FooterComponent } from './footer/footer.component';
+import { FooterModule } from './shared/footer/footer.module';
+import { HeaderModule } from './shared/header/header.module';
+import { PhotoAlbumModule } from './shared/photo-album/photo-album.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    MenuComponent,
-    FooterComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
     AppRoutingModule,
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    FooterModule,
+    HeaderModule,
+    PhotoAlbumModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

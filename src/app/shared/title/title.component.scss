@@ -1,0 +1,43 @@
+@import '../../colors';
+
+.title {
+  padding: 10px;
+
+  .title-text {
+    display: flex;
+    align-items: center;
+
+    .title-content {
+      display: inline;
+
+      font-size: 16px;
+    }
+
+    .title-link {
+      display: inline;
+
+      margin-left: auto;
+
+      font-size: 12px;
+      font-weight: 300;
+      color: $grey;
+
+      a,
+      a:active,
+      a:hover,
+      a:visited {
+        color: $grey;
+      }
+    }
+  }
+
+  hr {
+    width: 75px;
+    margin-top: 3px;
+
+    border: solid 2px $ff-red-dark;
+    border-radius: 2px;
+  }
+}
+
+

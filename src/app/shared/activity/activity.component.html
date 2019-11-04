@@ -1,0 +1,19 @@
+<div class="activity">
+  <app-calendar [date]="activity.date"></app-calendar>
+  <div class="activity-title">{{ activity.title }}</div>
+  <div class="activity-description">{{ activity.description }}</div>
+  <div class="activity-details">
+    <div class="date">
+      <i class="material-icons">event</i>
+      <span>{{ activity.date | date:'d MMMM yyyy' }}</span>
+    </div>
+    <div class="time">
+      <i class="material-icons">schedule</i>
+      <span>{{ activity.time }}</span>
+    </div>
+    <div class="location">
+      <i class="material-icons">room</i>
+      <span>{{ activity.location}}</span>
+    </div>
+  </div>
+</div>

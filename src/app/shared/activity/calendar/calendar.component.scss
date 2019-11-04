@@ -1,0 +1,55 @@
+@import '../../../colors';
+
+.calendar {
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100px;
+    height: 90px;
+
+    margin-top: -30px;
+
+    border: solid 1px $ff-red;
+    border-radius: 5px;
+
+    .month {
+      width: calc(100% + 2px);
+      height: 25px;
+      margin-top: -1px;
+
+      color: $white;
+      background-color: $ff-red;
+
+      border-radius: 5px 5px 0 0;
+
+      font-size: 14px;
+      font-weight: 300;
+      text-align: center;
+      line-height: 25px;
+    }
+
+    .date {
+      margin: 2px 0 -2px 0;
+      font-size: 38px;
+      font-weight: 300;
+    }
+
+    .day {
+      font-size: 14px;
+      font-weight: 300;
+    }
+  }
+
+  .logo {
+    position: relative;
+    left: 85px;
+
+    width: 35px;
+    height: 35px;
+
+    background-color: $ff-red;
+    border-radius: 50%;
+  }
+}

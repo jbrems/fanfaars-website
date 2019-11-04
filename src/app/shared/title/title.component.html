@@ -1,0 +1,9 @@
+<div class="title">
+  <div class="title-text">
+    <div class="title-content">{{ title }}</div>
+    <div class="title-link" *ngIf="link">
+      <a [href]="link.url">{{ link.label }}</a>
+    </div>
+  </div>
+  <hr/>
+</div>
