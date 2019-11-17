@@ -16,7 +16,7 @@ import {join} from 'path';
 enableProdMode();
 
 // Express server
-const app = express();
+export const app = express();
 
 const PORT = process.env.PORT || 4000;
 const DIST_FOLDER = join(process.cwd(), 'dist/browser');

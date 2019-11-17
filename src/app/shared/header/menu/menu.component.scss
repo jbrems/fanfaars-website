@@ -25,9 +25,11 @@
 
       width: 200px;
       height: 60px;
-      margin: 0 25px;
+      padding: 0 25px;
 
       border-top: solid 1px $black-lighter;
+
+      cursor: pointer;
 
       i {
         margin: 0 15px;
