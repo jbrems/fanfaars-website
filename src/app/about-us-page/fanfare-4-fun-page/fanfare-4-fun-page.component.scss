@@ -1,0 +1,27 @@
+@import '../../colors';
+
+:host {
+  font-weight: 300;
+
+  div {
+    padding: 0px 15px 15px 15px;
+
+    ul {
+      padding: 10px 0 10px 20px;
+
+      li {
+        margin-bottom: 5px;
+      }
+    }
+
+    strong {
+      font-weight: 400;
+    }
+  }
+
+  app-title {
+    ::ng-deep .title hr {
+      border-color: $f4f-purple;
+    }
+  }
+}

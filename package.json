@@ -12,7 +12,8 @@
     "serve:ssr": "node dist/server",
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
     "build:client-and-server-bundles": "ng build --prod && ng run fanfaars:server:production",
-    "ssr": "yarn build:ssr && yarn serve:ssr"
+    "ssr": "yarn build:ssr && yarn serve:ssr",
+    "serve": "yarn build:ssr && cd functions && yarn build && firebase serve"
   },
   "private": true,
   "dependencies": {

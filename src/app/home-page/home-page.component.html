@@ -1,5 +1,5 @@
-<app-hero-image group="FF" quote="Niets is leuker dan samen muziek maken" buttonLabel="Over de fanfare"></app-hero-image>
+<app-hero-image group="FF" quote="Niets is leuker dan samen muziek maken" buttonLabel="Over de fanfare" buttonLink="/over-ons/fanfare"></app-hero-image>
 <app-title title="Volgende activiteiten" [link]="{ label: 'Bekijk alle activiteiten', url: '/activiteiten' }"></app-title>
 <app-activity *ngFor="let activity of activities" [activity]="activity"></app-activity>
-<app-title title="Recente fotoalbums" [link]="{ label: 'Bekijk alle fotoalbums', url: '/fotoalbums' }"></app-title>
+<app-title title="Recente fotoalbums" [link]="{ label: 'Bekijk alle fotoalbums', url: '/fotos' }"></app-title>
 <app-photo-album *ngFor="let photoAlbum of photoAlbums" [photoAlbum]="photoAlbum"></app-photo-album>

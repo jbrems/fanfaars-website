@@ -1,6 +1,8 @@
 # Fanfaars
 
 ## deploy
+Make sure to check the `base href` in `index.html`!
+
 ```
 $ git pull
 $ yarn

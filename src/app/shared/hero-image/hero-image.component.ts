@@ -9,9 +9,16 @@ export class HeroImageComponent implements OnInit {
   @Input() group: 'FF' | 'MM' | 'MR' | 'F4F';
   @Input() quote: string;
   @Input() buttonLabel: string;
+  @Input() buttonLink: string;
+
+  buttonFragment?: string;
 
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    const buttonLinkParts = this.buttonLink.split('#');
+    this.buttonLink = buttonLinkParts[0];
+    this.buttonFragment = buttonLinkParts[1];
+  }
 
 }

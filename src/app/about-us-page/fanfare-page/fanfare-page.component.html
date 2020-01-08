@@ -1,0 +1,34 @@
+<app-hero-image group="FF" quote="Niets is leuker dan samen muziek maken" buttonLabel="Meespelen?" buttonLink="/over-ons/fanfare#meespelen"></app-hero-image>
+<app-title title="Over de fanfare"></app-title>
+<div>
+  Onze fanfare is samengesteld uit een 40-tal muzikanten die een van volgende fanfare-instrumenten bespelen:
+  <ul>
+    <li><strong>Koperblaasinstrumenten</strong> (trompetten, tuba's, trombones, bugels en kornetten)</li>
+    <li><strong>Houtblaasinstrumenten</strong> (saxofoons, klarinetten en dwarsfluiten)</li>
+    <li><strong>Percussie-instrumenten</strong> (Drum en grote trom)</li>
+  </ul>
+  De meeste van onze muzikanten zijn amateurs die van de fanfare hun hobby hebben gemaakt. De fanfare is dan ook meer dan muziek alleen. Het is een toffe bende muzikanten die wekelijks bijeenkomen om samen muziek en plezier te maken!
+</div>
+<a id="meespelen"></a><app-title title="Meespelen?"></app-title>
+<div>
+  <strong>Ben je net begonnen aan je muziekopleiding (of moet je nog beginnen) en kan je niet wachten om je eerste instrument te bespelen?</strong><br/>
+  Dan zijn de <a routerLink="/over-ons/muziekrakkers" class="mr">MuziekRakkers</a> vast iets voor jou!
+  <br/><br/>
+  <strong>Bespeel je nog maar net je eigen instrument en speel je graag eens samen met andere beginners?</strong><br/>
+  Bekijk dan snel alle info over onze <a routerLink="/over-ons/muziekmakkers" class="mm">Muziekmakkers</a>. Ook ideaal voor ouders die via hun kind(eren) de muziekmicrobe hebben overgekregen!
+  <br/><br/>
+  <strong>Speel je al meerdere jaren een fanfare-instrument en ben je op zoek naar een groep toffe mensen om samen te musiceren?</strong><br/>
+  Kom eens langs op een van onze repetities of stuur een mailtje naar <a href="mailto:fanfaars@gmail.com" class="ff">fanfaars@gmail.com</a>.
+</div>
+<app-title title="Repetities"></app-title>
+<div>
+  De fanfare repeteert elke week op <strong>donderdagavond van 20u00 tot 22u30</strong> in het Parochiaal Centrum van Blaasveld.
+  <br/><br/>
+  Er is een pauze voorzien rond 21u15 zodat zij die willen naar huis kunnen gaan.
+  <br/><br/>
+  Tijdens de pauze en na de repetitie kan er iets gedronken worden in het café van het Parochiaal Centrum.
+</div>
+<app-title title="Volgende activiteit"></app-title>
+<app-activity [activity]="nextActivity"></app-activity>
+<app-title title="Recent fotoalbum"></app-title>
+<app-photo-album [photoAlbum]="recentAlbum"></app-photo-album>

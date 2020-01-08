@@ -1,0 +1,13 @@
+@import '../colors';
+
+:host {
+  font-weight: 300;
+
+  div {
+    padding: 0px 15px 15px 15px;
+
+    strong {
+      font-weight: 400;
+    }
+  }
+}

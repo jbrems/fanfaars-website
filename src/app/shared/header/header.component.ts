@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationStart, Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   menuOpen = false;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationStart) {
+        this.menuOpen = false;
+      }
+    });
   }
-
 }

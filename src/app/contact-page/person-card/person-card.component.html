@@ -1,0 +1,10 @@
+<div class="person-card">
+  <div class="picture">
+    <img [src]="pictureUrl" />
+  </div>
+  <div class="info">
+    <div class="name">{{ name }}</div>
+    <div class="functions">{{ functions.join(', ') }}</div>
+    <div class="email"><a href="mailto:{{ email }}" class="ff">{{ email }}</a></div>
+  </div>
+</div>
