@@ -1,4 +1,5 @@
-<app-hero-image group="FF" quote="Niets is leuker dan samen muziek maken" buttonLabel="Meespelen?" buttonLink="/over-ons/fanfare#meespelen"></app-hero-image>
+<app-hero-image group="FF" image="/assets/images/hero_fanfare.jpg" quote="Niets is leuker dan samen muziek maken" buttonLabel="Meespelen?" buttonLink="/over-ons/fanfare#meespelen"></app-hero-image>
+<app-breadcrumb [links]="[{ title: 'Over ons', url: '/over-ons' }, { title: 'Over de fanfare' }]"></app-breadcrumb>
 <app-title title="Over de fanfare"></app-title>
 <div>
   Onze fanfare is samengesteld uit een 40-tal muzikanten die een van volgende fanfare-instrumenten bespelen:
@@ -28,7 +29,9 @@
   <br/><br/>
   Tijdens de pauze en na de repetitie kan er iets gedronken worden in het café van het Parochiaal Centrum.
 </div>
-<app-title title="Volgende activiteit"></app-title>
-<app-activity [activity]="nextActivity"></app-activity>
-<app-title title="Recent fotoalbum"></app-title>
-<app-photo-album [photoAlbum]="recentAlbum"></app-photo-album>
+<app-title title="Volgende activiteiten"></app-title>
+<app-activity *ngFor="let nextActivity of nextActivities" [activity]="nextActivity"></app-activity>
+<app-title title="Recente fotoalbums"></app-title>
+<div class="photo-albums">
+  <app-photo-album *ngFor="let recentAlbum of recentAlbums" [photoAlbum]="recentAlbum"></app-photo-album>
+</div>

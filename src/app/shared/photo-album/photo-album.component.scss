@@ -1,63 +1,65 @@
 @import '../../colors';
 
 .photo-album {
+  position: relative;
+
   width: calc(100% - 20px);
   height: 190px;
   margin: 0 10px 10px 10px;
   overflow: hidden;
 
-  background-color: $white;
-  border-radius: 5px;
+  border-radius: 7px;
 
   .picture {
-    height: 190px;
+    min-width: 100%;
+    min-height: 190px;
 
     overflow: hidden;
 
     img {
       width: 100%;
-      margin-top: -10vw;
 
       border-radius: 5px;
     }
   }
 
-
   .overlay {
-    position: relative;
-    top: -190px;
+    position: absolute;
+    top: 0px;
     width: 100%;
     height: 190px;
 
-    background-color: #FFFFFFAA;
-    border-radius: 3px;
+    background-color: #FFFFFFCC;
   }
 
   .logo {
-    position: relative;
-    margin: -370px 0 0 10px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
 
-    width: 50px;
-    height: 50px;
+    width: 10vw;
+    height: 10vw;
 
-    background-color: $ff-red;
+    background-size: 10vw;
     border-radius: 50%;
   }
 
   .title {
-    position: relative;
-    width: 90%;
-    height: 22px;
-    margin: 0 auto;
+    position: absolute;
+    top: 55px;
 
-    color: $ff-red-dark;
+    width: 100%;
+    height: 22px;
+
     font-size: 22px;
     text-align: center;
   }
 
   .date {
-    position: relative;
-    margin: 10px auto;
+    position: absolute;
+    top: 85px;
+
+    width: 100%;
 
     font-size: 18px;
     font-weight: 300;
@@ -65,20 +67,118 @@
   }
 
   .link {
-    position: relative;
-    width: 200px;
+    position: absolute;
+    top: 125px;
+    left: calc(50% - 80px);
+
+    width: 160px;
     height: 20px;
-    margin: 15px auto 80px auto;
+    margin: 0px auto;
     padding: 10px 0;
 
+    font-size: 18px;
     text-align: center;
 
-    color: $ff-red-dark;
-    background-color: #FFFFFF88;
-    border: solid 1.5px $ff-red-dark;
+    background-color: #eeeeee;
+    border: solid 1px;
     border-radius: 5px;
+    box-shadow: 3px 3px 6px #303030;
 
     cursor: pointer;
+  }
+}
+
+.photo-album.FF {
+  .logo {
+    background-image: url("../../../assets/images/logo_fanfare.png");
+  }
+
+  .title {
+    color: $ff-red;
+  }
+
+  .link {
+    color: $ff-red;
+    border-color: $ff-red;
+  }
+}
+
+.photo-album.MM {
+  .logo {
+    background-image: url("../../../assets/images/logo_muziekmakkers.png");
+    transform: scaleX(-1);
+  }
+
+  .title {
+    color: $mm-green;
+  }
+
+  .link {
+    color: $mm-green;
+    border-color: $mm-green;
+  }
+}
+
+.photo-album.MR {
+  .logo {
+    background-image: url("../../../assets/images/logo_muziekrakkers.png");
+    transform: scaleX(-1);
+  }
+
+  .title {
+    color: $mr-orange;
+  }
+
+  .link {
+    color: $mr-orange;
+    border-color: $mr-orange;
+  }
+}
+
+.photo-album.F4F {
+  .logo {
+    background-image: url("../../../assets/images/logo_fanfare4fun.png");
+    transform: scaleX(-1);
+  }
+
+  .title {
+    color: $f4f-purple;
+  }
+
+  .link {
+    color: $f4f-purple;
+    border-color: $f4f-purple;
+  }
+}
+
+@media (min-width: 400px) {
+  .photo-album {
+    .picture {
+      img {
+        margin-top: calc(-25vw + 30px);
+      }
+    }
+  }
+}
+
+@media (min-width: 500px) {
+  .photo-album {
+    .logo {
+      width: 50px;
+      height: 50px;
+
+      background-size: 50px;
+    }
+  }
+}
+
+@media (min-width: 875px) {
+  .photo-album {
+    .picture {
+      img {
+        margin-top: -40px;
+      }
+    }
   }
 }
 

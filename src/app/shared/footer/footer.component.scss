@@ -14,13 +14,16 @@
   font-weight: 300;
   color: $white;
 
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+
   .copy {
     margin-top: 15px;
   }
 
   .info {
     align-self: flex-start;
-    padding: 10px 15px;
+    padding: 5px 15px 0 15px;
 
     ul {
       list-style: none;
@@ -31,11 +34,11 @@
 
         margin-bottom: 5px;
 
-        i {
+        app-logo {
           margin: 0 5px;
-          font-size: 18px;
+          fill: $white;
 
-          &.multiline {
+          .multiline {
             position: relative;
             top: -7px;
           }

@@ -11,7 +11,7 @@
 
     margin-top: -30px;
 
-    border: solid 1px $ff-red;
+    border: solid 1px;
     border-radius: 5px;
 
     .month {
@@ -20,7 +20,6 @@
       margin-top: -1px;
 
       color: $white;
-      background-color: $ff-red;
 
       border-radius: 5px 5px 0 0;
 
@@ -49,7 +48,7 @@
     width: 35px;
     height: 35px;
 
-    background-color: $ff-red;
+    background-size: 35px;
     border-radius: 50%;
   }
 }

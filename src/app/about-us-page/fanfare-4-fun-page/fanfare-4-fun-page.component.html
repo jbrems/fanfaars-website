@@ -1,4 +1,5 @@
-<app-hero-image group="F4F" quote="Alles behalve een gewone fanfare" buttonLabel="Meespelen?" buttonLink="/over-ons/fanfare-4-fun#meespelen"></app-hero-image>
+<app-hero-image group="F4F" image="/assets/images/hero_fanfare4fun.jpg" quote="Alles behalve een gewone fanfare" buttonLabel="Meespelen?" buttonLink="/over-ons/fanfare-4-fun#meespelen"></app-hero-image>
+<app-breadcrumb group="f4f" [links]="[{ title: 'Over ons', url: '/over-ons' }, { title: 'Over de Fanfare 4 Fun' }]"></app-breadcrumb>
 <app-title title="Over de Fanfare 4 Fun"></app-title>
 <div>
   Deze unieke fanfare bestaat uit 3 groepen muzikanten:
@@ -22,7 +23,9 @@
 <div>
   De Fanfare 4 Fun repeteert om de 6 weken op <strong>dinsdagavond om 19u30</strong> in het Parochiaal Centrum van Blaasveld.
 </div>
-<app-title title="Volgende activiteit"></app-title>
-<app-activity [activity]="nextActivity"></app-activity>
-<app-title title="Recent fotoalbum"></app-title>
-<app-photo-album [photoAlbum]="recentAlbum"></app-photo-album>
+<app-title title="Volgende activiteiten"></app-title>
+<app-activity *ngFor="let nextActivity of nextActivities" [activity]="nextActivity"></app-activity>
+<app-title title="Recente fotoalbums"></app-title>
+<div class="photo-albums">
+  <app-photo-album *ngFor="let recentAlbum of recentAlbums" [photoAlbum]="recentAlbum"></app-photo-album>
+</div>

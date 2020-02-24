@@ -1,13 +1,6 @@
-:host {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  padding-top: 10px;
-}
-
 app-hero-image {
-  width: calc(100% - 10px);
+  width: calc(100% - 20px);
+  margin: 0 10px;
 
   ::ng-deep .picture {
     border-radius: 5px;

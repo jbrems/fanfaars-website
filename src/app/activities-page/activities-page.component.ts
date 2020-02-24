@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { testActivities } from '../shared/activity/test-activities';
+import { Observable } from 'rxjs';
+import { Activity } from '../shared/activity/activity';
+import { ActivityService } from '../shared/activity/activity.service';
 
 @Component({
   selector: 'app-activities-page',
@@ -7,11 +10,11 @@ import { testActivities } from '../shared/activity/test-activities';
   styleUrls: ['./activities-page.component.scss']
 })
 export class ActivitiesPageComponent implements OnInit {
-  activities = testActivities;
+  activities: Activity[];
 
-  constructor() { }
+  constructor(private activityService: ActivityService) {}
 
   ngOnInit() {
+    this.activities = this.activityService.getActivities();
   }
-
 }

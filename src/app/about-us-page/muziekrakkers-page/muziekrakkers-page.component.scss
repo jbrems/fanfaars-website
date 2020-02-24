@@ -6,6 +6,10 @@
   div {
     padding: 0px 15px 15px 15px;
 
+    &.photo-albums {
+      padding: 0;
+    }
+
     strong {
       font-weight: 400;
     }

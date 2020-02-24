@@ -1,10 +1,4 @@
 {
-  "functions": {
-    "predeploy": [
-      "npm --prefix \"$RESOURCE_DIR\" run lint",
-      "npm --prefix \"$RESOURCE_DIR\" run build"
-    ]
-  },
   "hosting": {
     "public": "dist/browser",
     "ignore": [
@@ -14,9 +8,14 @@
     ],
     "rewrites": [
       {
-        "source": "**",
-        "function": "ssr"
+        "source": "**"
       }
+    ]
+  },
+  "functions": {
+    "predeploy": [
+      "npm --prefix \"$RESOURCE_DIR\" run lint",
+      "npm --prefix \"$RESOURCE_DIR\" run build"
     ]
   }
 }

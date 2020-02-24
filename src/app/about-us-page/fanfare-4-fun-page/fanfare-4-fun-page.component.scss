@@ -6,6 +6,10 @@
   div {
     padding: 0px 15px 15px 15px;
 
+    &.photo-albums {
+      padding: 0;
+    }
+
     ul {
       padding: 10px 0 10px 20px;
 

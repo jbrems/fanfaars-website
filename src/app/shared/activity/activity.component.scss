@@ -16,8 +16,6 @@
   }
 
   .activity-title {
-    color: $ff-red;
-
     margin-bottom: 5px;
   }
 
@@ -34,9 +32,9 @@
     font-size: 11px;
     font-weight: 300;
 
-    i {
-      font-size: 16px;
-      margin-right: 1px;
+    app-logo {
+      margin-right: 3px;
+      fill: $grey;
     }
 
     div {
@@ -52,6 +50,97 @@
 
     .location {
       margin-left: auto;
+    }
+  }
+}
+
+.activity.FF {
+  .activity-title {
+    color: $ff-red;
+  }
+
+  app-calendar {
+    ::ng-deep .calendar {
+      .month {
+        background-color: $ff-red;
+      }
+
+      .logo {
+        background-image: url("../../../assets/images/logo_fanfare.png");
+      }
+
+      .content {
+        border-color: $ff-red;
+      }
+    }
+  }
+}
+
+.activity.MM {
+  .activity-title {
+    color: $mm-green;
+  }
+
+  app-calendar {
+    ::ng-deep .calendar {
+      .month {
+        background-color: $mm-green;
+      }
+
+      .logo {
+        background-image: url("../../../assets/images/logo_muziekmakkers.png");
+        transform: scaleX(-1);
+      }
+
+      .content {
+        border-color: $mm-green;
+      }
+    }
+  }
+}
+
+.activity.MR {
+  .activity-title {
+    color: $mr-orange;
+  }
+
+  app-calendar {
+    ::ng-deep .calendar {
+      .month {
+        background-color: $mr-orange;
+      }
+
+      .logo {
+        background-image: url("../../../assets/images/logo_muziekrakkers.png");
+        transform: scaleX(-1);
+      }
+
+      .content {
+        border-color: $mr-orange;
+      }
+    }
+  }
+}
+
+.activity.F4F {
+  .activity-title {
+    color: $f4f-purple;
+  }
+
+  app-calendar {
+    ::ng-deep .calendar {
+      .month {
+        background-color: $f4f-purple;
+      }
+
+      .logo {
+        background-image: url("../../../assets/images/logo_fanfare4fun.png");
+        transform: scaleX(-1);
+      }
+
+      .content {
+        border-color: $f4f-purple;
+      }
     }
   }
 }

@@ -6,8 +6,19 @@
   div {
     padding: 0px 15px 15px 15px;
 
+    &.board-members {
+      padding: 0;
+    }
+
     strong {
       font-weight: 400;
     }
+  }
+}
+
+@media (min-width: 600px) {
+  .board-members {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 }

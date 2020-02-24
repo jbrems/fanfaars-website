@@ -1,6 +1,31 @@
 @import '../../../colors';
 
 .menu {
+  ul {
+    list-style: none;
+
+    font-weight: 300;
+
+    li {
+      display: inline-flex;
+      align-items: center;
+
+      margin-right: 20px;
+
+      cursor: pointer;
+
+      i {
+        display: none;
+      }
+
+      &.active {
+        color: $ff-red-dark;
+      }
+    }
+  }
+}
+
+.menu-dropdown {
   position: fixed;
   z-index: 500;
   top: 70px;
@@ -10,33 +35,43 @@
   height: 370px;
 
   background-color: $white;
-  border-radius: 0 0 0 10px;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
   box-shadow: 0 3px 6px $black-lighter;
 
   ul {
-    list-style: none;
-
     font-size: 22px;
-    font-weight: 300;
 
     li {
-      display: flex;
-      align-items: center;
-
       width: 200px;
       height: 60px;
       padding: 0 25px;
 
       border-top: solid 1px $black-lighter;
 
-      cursor: pointer;
-
       i {
+        display: inline-block;
         margin: 0 15px;
       }
+    }
+  }
+}
 
-      &.active {
-        color: $ff-red-dark;
+@media (min-width: 650px) {
+  .menu {
+    ul {
+      li:last-of-type {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (min-width: 770px) {
+  .menu {
+    ul {
+      li:last-of-type {
+        display: inline-block;
       }
     }
   }

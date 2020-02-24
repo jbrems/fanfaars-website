@@ -1,13 +1,15 @@
 # Fanfaars
 
-## deploy
-Make sure to check the `base href` in `index.html`!
-
+## Serve
 ```
-$ git pull
-$ yarn
-$ yarn build:ssr
-$ cd functions
-$ yarn build
-$ yarn deploy
+yarn start
+```
+or
+```
+yarn serve
+```
+
+## Deploy
+```
+yarn deploy
 ```

@@ -1,0 +1,11 @@
+<div class="breadcrumb">
+  <span>
+    <a routerLink="/" class="{{ group }}">Home</a>
+    <span class="devider"> > </span>
+  </span>
+    <span *ngFor="let link of links; last as isLast">
+    <a *ngIf="link.url" [routerLink]="link.url" class="{{ group }}">{{ link.title }}</a>
+    <span *ngIf="!link.url">{{ link.title }}</span>
+    <span *ngIf="!isLast" class="devider"> > </span>
+  </span>
+</div>

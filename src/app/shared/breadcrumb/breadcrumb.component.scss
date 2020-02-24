@@ -1,0 +1,17 @@
+@import '../../colors';
+
+.breadcrumb {
+  margin: 10px 0 0 10px;
+
+  font-weight: 200;
+  color: #333333;
+
+  a {
+    text-decoration: none;
+  }
+
+  span.devider {
+    display: inline-block;
+    margin: 0 10px;
+  }
+}

@@ -5,15 +5,9 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint --project tsconfig.json",
-    "e2e": "ng e2e",
-    "compile:server": "webpack --config webpack.server.config.js --progress --colors",
-    "serve:ssr": "node dist/server",
-    "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
-    "build:client-and-server-bundles": "ng build --prod && ng run fanfaars:server:production",
-    "ssr": "yarn build:ssr && yarn serve:ssr",
-    "serve": "yarn build:ssr && cd functions && yarn build && firebase serve"
+    "serve": "yarn build && firebase serve",
+    "deploy": "yarn build && firebase deploy",
+    "functions": "cd functions && npm run serve"
   },
   "private": true,
   "dependencies": {
@@ -26,14 +20,9 @@
     "@angular/http": "~7.2.0",
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
-    "@angular/platform-server": "~7.2.0",
     "@angular/router": "~7.2.0",
-    "@nguniversal/express-engine": "^7.1.1",
-    "@nguniversal/module-map-ngfactory-loader": "0.0.0",
     "core-js": "^2.5.4",
-    "express": "^4.15.2",
     "firebase": "^7.2.2",
-    "material-design-icons": "^3.0.1",
     "roboto-fontface": "^0.10.0",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
@@ -47,8 +36,8 @@
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
-    "bufferutil": "^4.0.1",
     "codelyzer": "~4.5.0",
+    "firebase-tools": "^7.13.1",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.0.0",
@@ -57,13 +46,8 @@
     "karma-jasmine": "~1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.4.0",
-    "ts-loader": "^5.2.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
-    "typescript": "~3.2.2",
-    "utf-8-validate": "^5.0.2",
-    "webpack-cli": "^3.1.0",
-    "ws": "^7.2.0",
-    "xhr2": "^0.2.0"
+    "typescript": "~3.2.2"
   }
 }

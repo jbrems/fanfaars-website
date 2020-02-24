@@ -1,3 +1,4 @@
+<app-breadcrumb [links]="[{ title: 'Contact' }]"></app-breadcrumb>
 <app-title title="Contact"></app-title>
 <div>
   Voor algemene vragen en opmerkingen kan je mailen naar <a class="ff" href="mailto:fanfaars@gmail.com">fanfaars@gmail.com</a>.
@@ -15,33 +16,35 @@
   Jan is te bereiken via <a class="ff" href="mailto:potomsjan@homail.com">potomsjan@homail.com</a>.
 </div>
 <app-title title="Bestuur"></app-title>
-<app-person-card
-  pictureUrl="https://pbs.twimg.com/profile_images/378800000629955505/cbf2ea1c2066cfcfdac32cee4f0b3c85.jpeg"
-  name="Frans Cortebeek"
-  [functions]="['Voorzitter']"
-  email="fanfaars@gmail.com"></app-person-card>
-<app-person-card
-  pictureUrl="https://pbs.twimg.com/profile_images/378800000629955505/cbf2ea1c2066cfcfdac32cee4f0b3c85.jpeg"
-  name="Lex Potoms"
-  [functions]="['Ondervoorzitter', 'secretaris']"
-  email="lexpotoms@gmail.com"></app-person-card>
-<app-person-card
-  pictureUrl="https://pbs.twimg.com/profile_images/378800000629955505/cbf2ea1c2066cfcfdac32cee4f0b3c85.jpeg"
-  name="Melanie Van Rompaey"
-  [functions]="['Feestleidster']"
-  email="fanfaars@gmail.com"></app-person-card>
-<app-person-card
-  pictureUrl="https://pbs.twimg.com/profile_images/378800000629955505/cbf2ea1c2066cfcfdac32cee4f0b3c85.jpeg"
-  name="Theresia Simkens"
-  [functions]="['Muziekma[k]kers', 'MuziekRakkers', 'Muziekinitiatie']"
-  email="theresia@simkens.be"></app-person-card>
-<app-person-card
-  pictureUrl="https://pbs.twimg.com/profile_images/378800000629955505/cbf2ea1c2066cfcfdac32cee4f0b3c85.jpeg"
-  name="Pieter-Jan Potoms"
-  [functions]="['Boekhouder']"
-  email="pieterjanpotoms@gmail.com"></app-person-card>
-<app-person-card
-  pictureUrl="https://pbs.twimg.com/profile_images/378800000629955505/cbf2ea1c2066cfcfdac32cee4f0b3c85.jpeg"
-  name="Jonas Brems"
-  [functions]="['Webmaster']"
-  email="jonasbrems@gmail.com"></app-person-card>
+<div class="board-members">
+  <app-person-card
+    pictureUrl="assets/images/person_placeholder.png"
+    name="Frans Cortebeek"
+    [functions]="['Voorzitter']"
+    email="fanfaars@gmail.com"></app-person-card>
+  <app-person-card
+    pictureUrl="assets/images/lex.png"
+    name="Lex Potoms"
+    [functions]="['Ondervoorzitter', 'secretaris']"
+    email="lexpotoms@gmail.com"></app-person-card>
+  <app-person-card
+    pictureUrl="assets/images/melanie.png"
+    name="Melanie Van Rompaey"
+    [functions]="['Feestleidster']"
+    email="fanfaars@gmail.com"></app-person-card>
+  <app-person-card
+    pictureUrl="assets/images/theresia.png"
+    name="Theresia Simkens"
+    [functions]="['Muziekma[k]kers', 'MuziekRakkers', 'Muziekinitiatie']"
+    email="theresia@simkens.be"></app-person-card>
+  <app-person-card
+    pictureUrl="assets/images/pieter-jan.png"
+    name="Pieter-Jan Potoms"
+    [functions]="['Penningmeester']"
+    email="pieterjanpotoms@gmail.com"></app-person-card>
+  <app-person-card
+    pictureUrl="assets/images/jonas.png"
+    name="Jonas Brems"
+    [functions]="['Webmaster']"
+    email="jonasbrems@gmail.com"></app-person-card>
+</div>

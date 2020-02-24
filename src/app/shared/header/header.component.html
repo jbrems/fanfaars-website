@@ -1,9 +1,14 @@
 <div class="header">
-  <div class="header-logo"></div>
   <div class="header-branding">
-    <div class="branding-top">Koninklijke Fanfare</div>
-    <div class="branding">De Vrienden van 't Recht</div>
-    <div class="branding-bottom">VZW Blaasveld</div>
+    <div class="header-logo" routerLink="/"></div>
+    <div class="header-title">
+      <div class="title-top">Koninklijke Fanfare</div>
+      <div class="title">De Vrienden van 't Recht</div>
+      <div class="title-bottom">VZW Blaasveld</div>
+    </div>
+  </div>
+  <div class="header-links">
+    <app-menu></app-menu>
   </div>
   <div class="header-menu" (click)="menuOpen = !menuOpen">
     <span *ngIf="!menuOpen">&nbsp; Menu</span>
@@ -11,5 +16,5 @@
     <span *ngIf="menuOpen">Sluiten</span>
     <i *ngIf="menuOpen" class="material-icons">close</i>
   </div>
-  <app-menu *ngIf="menuOpen"></app-menu>
 </div>
+<app-menu *ngIf="menuOpen" [isDropDown]="true"></app-menu>

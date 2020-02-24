@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class HeroImageComponent implements OnInit {
   @Input() group: 'FF' | 'MM' | 'MR' | 'F4F';
+  @Input() image: string;
   @Input() quote: string;
   @Input() buttonLabel: string;
   @Input() buttonLink: string;

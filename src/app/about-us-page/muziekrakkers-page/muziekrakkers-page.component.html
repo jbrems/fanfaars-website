@@ -1,4 +1,5 @@
-<app-hero-image group="MR" quote="Op een speelse manier kennis maken met muziek" buttonLabel="Meespelen?" buttonLink="/over-ons/muziekrakkers#meespelen"></app-hero-image>
+<app-hero-image group="MR" image="/assets/images/hero_muziekrakkers.jpg" quote="Op een speelse manier kennis maken met muziek" buttonLabel="Meespelen?" buttonLink="/over-ons/muziekrakkers#meespelen"></app-hero-image>
+<app-breadcrumb group="mr" [links]="[{ title: 'Over ons', url: '/over-ons' }, { title: 'Over de MuziekRakkers' }]"></app-breadcrumb>
 <app-title title="Over de MuziekRakkers"></app-title>
 <div>
   De MuziekRakkers is een samenwerking met de <a class="mr" href="http://www.academiewillebroek.be/" target="_blank">Academie voor muziek en woord Willebroek</a>.
@@ -14,7 +15,9 @@
   <br/><br/>
   Deze kennismaking omvat 20 lessen van 1 uur.
 </div>
-<app-title title="Volgende activiteit"></app-title>
-<app-activity [activity]="nextActivity"></app-activity>
-<app-title title="Recent fotoalbum"></app-title>
-<app-photo-album [photoAlbum]="recentAlbum"></app-photo-album>
+<app-title title="Volgende activiteiten"></app-title>
+<app-activity *ngFor="let nextActivity of nextActivities" [activity]="nextActivity"></app-activity>
+<app-title title="Recente fotoalbums"></app-title>
+<div class="photo-albums">
+  <app-photo-album *ngFor="let recentAlbum of recentAlbums" [photoAlbum]="recentAlbum"></app-photo-album>
+</div>

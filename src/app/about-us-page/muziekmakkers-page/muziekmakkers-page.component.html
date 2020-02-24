@@ -1,4 +1,5 @@
-<app-hero-image group="MM" quote="De Muziekmakkers zijn de toekomst van onze fanfare" buttonLabel="Meespelen?" buttonLink="/over-ons/muziekmakkers#meespelen"></app-hero-image>
+<app-hero-image group="MM" image="/assets/images/hero_muziekmakkers.jpg" quote="De Muziekmakkers zijn de toekomst van onze fanfare" buttonLabel="Meespelen?" buttonLink="/over-ons/muziekmakkers#meespelen"></app-hero-image>
+<app-breadcrumb group="mm" [links]="[{ title: 'Over ons', url: '/over-ons' }, { title: 'Over de Muziekmakkers' }]"></app-breadcrumb>
 <app-title title="Over de Muziekmakkers"></app-title>
 <div>
   De Muziekmakkers is het jeugdensemble van de Fanfare van Blaasveld.
@@ -23,7 +24,9 @@
   <br/><br/>
   Een keer per maand is het na de repetitie vergadering met een hapje en een drankje.
 </div>
-<app-title title="Volgende activiteit"></app-title>
-<app-activity [activity]="nextActivity"></app-activity>
-<app-title title="Recent fotoalbum"></app-title>
-<app-photo-album [photoAlbum]="recentAlbum"></app-photo-album>
+<app-title title="Volgende activiteiten"></app-title>
+<app-activity *ngFor="let nextActivity of nextActivities" [activity]="nextActivity"></app-activity>
+<app-title title="Recente fotoalbums"></app-title>
+<div class="photo-albums">
+  <app-photo-album *ngFor="let recentAlbum of recentAlbums" [photoAlbum]="recentAlbum"></app-photo-album>
+</div>

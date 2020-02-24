@@ -1,10 +1,13 @@
-<div class="{{ 'hero-image ' +  group }}">
+<div class="hero-image {{group}}">
   <div class="picture">
-    <img src="assets/images/hero_fanfare.jpg" />
+    <img [src]="image" />
   </div>
   <div class="overlay"></div>
   <div class="quote">{{ quote }}</div>
-  <div class="button" [routerLink]="buttonLink" [fragment]="buttonFragment">
-    <span>{{ buttonLabel }}</span>
+  <div class="button-container">
+    <div class="button" [routerLink]="buttonLink" [fragment]="buttonFragment">
+      <div class="logo"></div>
+      <span>{{ buttonLabel }}</span>
+    </div>
   </div>
 </div>
