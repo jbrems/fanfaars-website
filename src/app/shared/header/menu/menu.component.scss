@@ -14,12 +14,16 @@
 
       cursor: pointer;
 
-      i {
+      app-logo {
         display: none;
       }
 
       &.active {
         color: $ff-red-dark;
+
+        app-logo {
+          fill: $ff-red-dark;
+        }
       }
     }
   }
@@ -49,9 +53,10 @@
 
       border-top: solid 1px $black-lighter;
 
-      i {
+      app-logo {
         display: inline-block;
         margin: 0 15px;
+        fill: $black-light;
       }
     }
   }

@@ -9,6 +9,8 @@
   overflow: hidden;
 
   border-radius: 7px;
+  background-color: $black-lighter;
+  box-shadow: 0px 0px 3px 3px #88888815;
 
   .picture {
     min-width: 100%;
@@ -29,12 +31,12 @@
     width: 100%;
     height: 190px;
 
-    background-color: #FFFFFFCC;
+    background-color: #FFFFFF88;
   }
 
   .logo {
     position: absolute;
-    top: 10px;
+    top: 5px;
     left: 10px;
 
     width: 10vw;
@@ -49,10 +51,12 @@
     top: 55px;
 
     width: 100%;
-    height: 22px;
+    height: 55px;
 
     font-size: 22px;
     text-align: center;
+
+    background-color: #FFFFFFAA;
   }
 
   .date {
@@ -67,11 +71,12 @@
   }
 
   .link {
+    display: flex;
     position: absolute;
     top: 125px;
     left: calc(50% - 80px);
 
-    width: 160px;
+    width: 185px;
     height: 20px;
     margin: 0px auto;
     padding: 10px 0;
@@ -85,6 +90,10 @@
     box-shadow: 3px 3px 6px #303030;
 
     cursor: pointer;
+
+    app-logo {
+      margin: -4px 5px 0 5px;
+    }
   }
 }
 
@@ -100,6 +109,10 @@
   .link {
     color: $ff-red;
     border-color: $ff-red;
+
+    app-logo {
+      fill: $ff-red;
+    }
   }
 }
 
@@ -116,6 +129,10 @@
   .link {
     color: $mm-green;
     border-color: $mm-green;
+
+    app-logo {
+      fill: $mm-green;
+    }
   }
 }
 
@@ -132,6 +149,10 @@
   .link {
     color: $mr-orange;
     border-color: $mr-orange;
+
+    app-logo {
+      fill: $mr-orange;
+    }
   }
 }
 
@@ -148,6 +169,16 @@
   .link {
     color: $f4f-purple;
     border-color: $f4f-purple;
+
+    app-logo {
+      fill: $f4f-purple;
+    }
+  }
+}
+
+@media (min-width: 300px) {
+  .date.titleOverflow30 {
+    display: none;
   }
 }
 
@@ -161,14 +192,28 @@
   }
 }
 
-@media (min-width: 500px) {
+@media (min-width: 416px) {
+  .date.titleOverflow30 {
+    display: inline-block;
+  }
+
+  .date.titleOverflow40 {
+    display: none;
+  }
+}
+
+@media (min-width: 460px) {
   .photo-album {
     .logo {
-      width: 50px;
-      height: 50px;
+      width: 45px;
+      height: 45px;
 
       background-size: 50px;
     }
+  }
+
+  .date.titleOverflow40 {
+    display: inline-block;
   }
 }
 

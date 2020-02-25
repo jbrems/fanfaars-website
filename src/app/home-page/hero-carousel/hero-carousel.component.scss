@@ -1,0 +1,63 @@
+@import '../../colors';
+
+.hero-carousel {
+  position: relative;
+
+  app-hero-image {
+    ::ng-deep .button-container {
+      top: 110px;
+    }
+  }
+
+  owl-carousel-o {
+    ::ng-deep .owl-dots {
+      position: absolute;
+      bottom: 15px;
+      width: 100%;
+
+      .owl-dot {
+        span {
+          background-color: #FFFFFF88;
+        }
+
+        &:hover span {
+          background-color: #FFFFFFCC;
+        }
+
+        &.active span {
+          background-color: #FFFFFFEE;
+        }
+      }
+    }
+
+    ::ng-deep .owl-nav {
+      position: absolute;
+      top: 40px;
+      width: 100%;
+
+      .owl-prev,
+      .owl-next {
+        position: absolute;
+
+        color: #FFFFFF88;
+
+        background: none;
+        font-size: 60px;
+
+        &:hover {
+          color: #FFFFFFCC;
+        }
+      }
+
+      .owl-prev {
+        left: 15px;
+      }
+
+      .owl-next {
+        right: 15px;
+      }
+    }
+  }
+}
+
+

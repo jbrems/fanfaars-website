@@ -1,8 +1,8 @@
 <div class="calendar">
   <div class="logo"></div>
   <div class="content">
-    <div class="month">{{ date | date:'MMMM' }}</div>
+    <div class="month">{{ date | date:'MMMM':'':'nl-BE' | titlecase }}</div>
     <div class="date">{{ date | date:'dd' }}</div>
-    <div class="day">{{ date | date:'EEEE' }}</div>
+    <div class="day">{{ date | date:'EEEE':'':'nl-BE' | titlecase }}</div>
   </div>
 </div>

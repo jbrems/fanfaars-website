@@ -12,9 +12,9 @@
   </div>
   <div class="header-menu" (click)="menuOpen = !menuOpen">
     <span *ngIf="!menuOpen">&nbsp; Menu</span>
-    <i *ngIf="!menuOpen" class="material-icons">menu</i>
+    <app-logo *ngIf="!menuOpen" name="menu" size="20"></app-logo>
     <span *ngIf="menuOpen">Sluiten</span>
-    <i *ngIf="menuOpen" class="material-icons">close</i>
+    <app-logo *ngIf="menuOpen" name="close" size=16></app-logo>
   </div>
 </div>
 <app-menu *ngIf="menuOpen" [isDropDown]="true"></app-menu>

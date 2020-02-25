@@ -12,6 +12,10 @@ import { PhotoAlbumModule } from './shared/photo-album/photo-album.module';
 import { ActivityService } from './shared/activity/activity.service';
 import { PhotoAlbumService } from './shared/photo-album/photo-album.service';
 
+import { registerLocaleData } from '@angular/common';
+import localeNl from '@angular/common/locales/nl';
+registerLocaleData(localeNl, 'nl-BE');
+
 function initializeServices(activityService: ActivityService, photoAlbumService: PhotoAlbumService) {
   return async () => {
     await activityService.initialize();

@@ -1,10 +1,12 @@
 <div class="photo-album {{ photoAlbum.group }}">
   <div class="picture">
-    <img [src]="photoAlbum.image" />
+    <img [src]="photoAlbum.image" alt="Cover image"/>
   </div>
   <div class="overlay"></div>
   <div class="logo"></div>
   <div class="title">{{ photoAlbum.title }}</div>
-  <div class="date">{{ photoAlbum.date | date:'dd MMMM yyyy' }}</div>
-  <div class="link">Album weergeven</div>
+  <div *ngIf="getFormatForDate(photoAlbum.date)" [ngClass]="{date: true, titleOverflow30: photoAlbum.title.length > 33, titleOverflow40: photoAlbum.title.length > 40}">
+    {{ photoAlbum.date | date:getFormatForDate(photoAlbum.date):'':'nl-BE' | titlecase }}
+  </div>
+  <div class="link" (click)="openAlbum(photoAlbum.url)"><app-logo name="link"></app-logo> Album weergeven</div>
 </div>
