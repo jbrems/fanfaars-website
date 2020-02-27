@@ -31,7 +31,7 @@ function initializeServices(activityService: ActivityService, photoAlbumService:
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
     AppRoutingModule,
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserModule,
     FooterModule,
     HeaderModule,
     PhotoAlbumModule,

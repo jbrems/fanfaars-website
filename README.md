@@ -6,12 +6,11 @@
 * Analytics
 
 ## Serve
+Create a `firebase-config.ts` in the `src/app` folder and export your Firebase config
+as `firebaseConfig` .
+
 ```
 yarn start
-```
-or
-```
-yarn serve
 ```
 
 ## Deploy
