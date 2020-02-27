@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "serve": "yarn build && firebase serve",
-    "deploy": "yarn build && firebase deploy --only hosting",
+    "deploy": "ng build --prod && firebase deploy --only hosting",
     "functions": "cd functions && npm run serve"
   },
   "private": true,

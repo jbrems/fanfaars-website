@@ -16,7 +16,7 @@
   <br/><br/>
   Deze kennismaking omvat 20 lessen van 1 uur.
 </div>
-<app-title title="Volgende activiteiten"></app-title>
+<app-title title="Volgende activiteiten" *ngIf="nextActivities.length"></app-title>
 <app-activity *ngFor="let nextActivity of nextActivities" [activity]="nextActivity"></app-activity>
 <app-title title="Recente fotoalbums"></app-title>
 <div class="photo-albums">

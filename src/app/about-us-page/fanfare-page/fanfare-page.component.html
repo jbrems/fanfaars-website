@@ -30,7 +30,7 @@
   <br/><br/>
   Tijdens de pauze en na de repetitie kan er iets gedronken worden in het café van het Parochiaal Centrum.
 </div>
-<app-title title="Volgende activiteiten"></app-title>
+<app-title title="Volgende activiteiten" *ngIf="nextActivities.length"></app-title>
 <app-activity *ngFor="let nextActivity of nextActivities" [activity]="nextActivity"></app-activity>
 <app-title title="Recente fotoalbums"></app-title>
 <div class="photo-albums">

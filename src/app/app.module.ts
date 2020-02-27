@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
+import { AngularFireAnalyticsModule, CONFIG } from '@angular/fire/analytics';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { firebaseConfig } from './firebase-config';
 
@@ -16,7 +17,7 @@ import { registerLocaleData } from '@angular/common';
 import localeNl from '@angular/common/locales/nl';
 registerLocaleData(localeNl, 'nl-BE');
 
-function initializeServices(activityService: ActivityService, photoAlbumService: PhotoAlbumService) {
+export function initializeServices(activityService: ActivityService, photoAlbumService: PhotoAlbumService) {
   return async () => {
     await activityService.initialize();
     await photoAlbumService.initialize();
@@ -29,6 +30,7 @@ function initializeServices(activityService: ActivityService, photoAlbumService:
   ],
   imports: [
     AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAnalyticsModule,
     AngularFirestoreModule,
     AppRoutingModule,
     BrowserModule,
@@ -41,6 +43,12 @@ function initializeServices(activityService: ActivityService, photoAlbumService:
     useFactory: initializeServices,
     deps: [ActivityService, PhotoAlbumService],
     multi: true,
+  }, {
+    provide: CONFIG,
+    useValue: {
+      allow_ad_personalization_signals: false,
+      anonymize_ip: true,
+    },
   }],
   bootstrap: [AppComponent]
 })

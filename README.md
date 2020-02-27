@@ -4,6 +4,7 @@
 * Forellenfestijn link/pagina
 * Menu animation
 * Analytics
+* Lighthouse audit remarks
 
 ## Serve
 Create a `firebase-config.ts` in the `src/app` folder and export your Firebase config

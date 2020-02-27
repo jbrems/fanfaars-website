@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Activity } from '../shared/activity/activity';
 import { PhotoAlbum } from '../shared/photo-album/photo-album';
-import { testAlbums } from '../shared/photo-album/test-albums';
-import { Observable } from 'rxjs';
 import { ActivityService } from '../shared/activity/activity.service';
 import { PhotoAlbumService } from '../shared/photo-album/photo-album.service';
 
