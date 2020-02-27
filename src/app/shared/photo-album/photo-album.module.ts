@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { PhotoAlbumComponent } from './photo-album.component';
 import { CommonModule } from '@angular/common';
-import { LogoModule } from '../logo/logo.module';
+import { IconModule } from '../icon/icon.module';
 
 @NgModule({
   declarations: [PhotoAlbumComponent],
   imports: [
     CommonModule,
-    LogoModule
+    IconModule
   ],
   exports: [PhotoAlbumComponent],
 })

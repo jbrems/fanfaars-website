@@ -31,8 +31,9 @@
     color: $grey;
     font-size: 11px;
     font-weight: 300;
+    text-align: center;
 
-    app-logo {
+    app-icon {
       margin-right: 3px;
       fill: $grey;
     }
@@ -57,6 +58,15 @@
 .activity.FF {
   .activity-title {
     color: $ff-red;
+  }
+
+  .activity-description {
+    a,
+    a:hover,
+    a:visited,
+    a:active {
+      color: $ff-red-dark;
+    }
   }
 
   app-calendar {
@@ -140,6 +150,24 @@
 
       .content {
         border-color: $f4f-purple;
+      }
+    }
+  }
+}
+
+@media (min-width: 550px) {
+  .activity {
+    .activity-description {
+      font-size: 16px;
+      padding-left: 127px;
+    }
+
+    .activity-details {
+      font-size: 14px;
+      margin-top: 15px;
+
+      div {
+        margin-right: 15px;
       }
     }
   }

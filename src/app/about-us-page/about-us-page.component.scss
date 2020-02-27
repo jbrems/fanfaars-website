@@ -1,8 +1,30 @@
+@import '../colors.scss';
+
 app-hero-image {
   width: calc(100% - 20px);
   margin: 0 10px;
 
   ::ng-deep .picture {
     border-radius: 5px;
+  }
+}
+
+app-title {
+  &.mm {
+    ::ng-deep .title hr {
+      border-color: $mm-green;
+    }
+  }
+
+  &.mr {
+    ::ng-deep .title hr {
+      border-color: $mr-orange;
+    }
+  }
+
+  &.f4f {
+    ::ng-deep .title hr {
+      border-color: $f4f-purple;
+    }
   }
 }

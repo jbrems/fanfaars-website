@@ -1,18 +1,18 @@
 <div class="activity {{ activity.group }}">
   <app-calendar [date]="activity.date"></app-calendar>
   <div class="activity-title">{{ activity.title }}</div>
-  <div class="activity-description">{{ activity.description }}</div>
+  <div class="activity-description" [innerHTML]="activity.description"></div>
   <div class="activity-details">
     <div class="date">
-      <app-logo name="calendar" size="16"></app-logo>
-      <span>{{ activity.date | date:'d MMMM yyyy' }}</span>
+      <app-icon name="calendar" size="16"></app-icon>
+      <span>{{ activity.date | date:'d MMMM yyyy':'':'nl-BE' }}</span>
     </div>
     <div class="time">
-      <app-logo name="clock" size="16"></app-logo>
+      <app-icon name="clock" size="16"></app-icon>
       <span>{{ activity.time }}</span>
     </div>
     <div class="location">
-      <app-logo name="place" size="16"></app-logo>
+      <app-icon name="place" size="16"></app-icon>
       <span>{{ activity.place}}</span>
     </div>
   </div>

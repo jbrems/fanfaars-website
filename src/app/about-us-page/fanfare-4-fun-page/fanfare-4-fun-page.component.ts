@@ -5,16 +5,20 @@ import { testAlbums } from '../../shared/photo-album/test-albums';
 import { ActivityService } from '../../shared/activity/activity.service';
 import { Observable } from 'rxjs';
 import { PhotoAlbumService } from '../../shared/photo-album/photo-album.service';
+import { ScrollToMeespelenComponent } from '../scroll-to-meespelen.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   templateUrl: './fanfare-4-fun-page.component.html',
   styleUrls: ['./fanfare-4-fun-page.component.scss', '../../shared/shared.scss'],
 })
-export class Fanfare4FunPageComponent implements OnInit {
+export class Fanfare4FunPageComponent extends ScrollToMeespelenComponent implements OnInit {
   public nextActivities: Activity[];
   public recentAlbums: PhotoAlbum[];
 
-  constructor(private activityService: ActivityService, private photoAlbumService: PhotoAlbumService) {}
+  constructor(route: ActivatedRoute, private activityService: ActivityService, private photoAlbumService: PhotoAlbumService) {
+    super(route);
+  }
 
   ngOnInit(): void {
     this.nextActivities = this.activityService.getActivities(2, 'F4F');

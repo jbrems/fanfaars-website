@@ -3,14 +3,14 @@ import { HeaderComponent } from './header.component';
 import { MenuComponent } from './menu/menu.component';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { LogoModule } from '../logo/logo.module';
+import { IconModule } from '../icon/icon.module';
 
 @NgModule({
   declarations: [HeaderComponent, MenuComponent],
   imports: [
     CommonModule,
     RouterModule,
-    LogoModule
+    IconModule
   ],
   exports: [HeaderComponent],
 })

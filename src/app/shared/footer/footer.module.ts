@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { FooterComponent } from './footer.component';
-import { LogoModule } from '../logo/logo.module';
+import { IconModule } from '../icon/icon.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [FooterComponent],
   exports: [FooterComponent],
   imports: [
-    LogoModule
+    IconModule,
+    RouterModule
   ]
 })
 export class FooterModule {}

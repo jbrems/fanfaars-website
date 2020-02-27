@@ -35,10 +35,30 @@
   hr {
     width: 75px;
     margin-top: 3px;
+    text-align: left;
 
     border: solid 2px $ff-red-dark;
     border-radius: 2px;
   }
 }
 
+@media (min-width: 400px) {
+  .title {
+    .title-text {
+      .title-link {
+        font-size: 13px;
+      }
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .title {
+    .title-text {
+      .title-link {
+        font-size: 14px;
+      }
+    }
+  }
+}
 

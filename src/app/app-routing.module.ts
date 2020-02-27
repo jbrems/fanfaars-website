@@ -25,6 +25,7 @@ const routes: Routes = [
   { path: 'over-ons/muziekrakkers', component: MuziekrakkersPageComponent },
   { path: 'over-ons/fanfare-4-fun', component: Fanfare4FunPageComponent },
   { path: 'contact', component: ContactPageComponent },
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
@@ -34,7 +35,7 @@ const routes: Routes = [
     ContactPageModule,
     HomePageModule,
     PhotoAlbumsPageModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' }),
   ],
   exports: [RouterModule]
 })

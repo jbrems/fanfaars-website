@@ -17,14 +17,17 @@
 
       .owl-dot {
         span {
+          background-color: rgba(255, 255, 255, 0.53);
           background-color: #FFFFFF88;
         }
 
         &:hover span {
+          background-color: rgba(255, 255, 255, 0.8);
           background-color: #FFFFFFCC;
         }
 
         &.active span {
+          background-color: rgba(255, 255, 255, 0.93);
           background-color: #FFFFFFEE;
         }
       }
@@ -39,22 +42,40 @@
       .owl-next {
         position: absolute;
 
+        color: rgba(255, 255, 255, 0.53);
         color: #FFFFFF88;
 
         background: none;
         font-size: 60px;
 
         &:hover {
+          color: rgba(255, 255, 255, 0.8);
           color: #FFFFFFCC;
         }
       }
 
       .owl-prev {
-        left: 15px;
+        left: 0px;
       }
 
       .owl-next {
-        right: 15px;
+        right: 0px;
+      }
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .hero-carousel {
+    owl-carousel-o {
+      ::ng-deep .owl-nav {
+        .owl-prev {
+          left: 15px;
+        }
+
+        .owl-next {
+          right: 15px;
+        }
       }
     }
   }

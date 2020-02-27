@@ -14,14 +14,14 @@
 
       cursor: pointer;
 
-      app-logo {
+      app-icon {
         display: none;
       }
 
       &.active {
         color: $ff-red-dark;
 
-        app-logo {
+        app-icon {
           fill: $ff-red-dark;
         }
       }
@@ -53,7 +53,7 @@
 
       border-top: solid 1px $black-lighter;
 
-      app-logo {
+      app-icon {
         display: inline-block;
         margin: 0 15px;
         fill: $black-light;
