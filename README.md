@@ -4,7 +4,6 @@
 * Forellenfestijn link/pagina
 * Menu animation
 * Analytics
-* Footer rework
 
 ## Serve
 ```
