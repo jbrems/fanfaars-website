@@ -2,7 +2,7 @@
 <app-breadcrumb group="mr" [links]="[{ title: 'Over ons', url: '/over-ons' }, { title: 'Over de MuziekRakkers' }]"></app-breadcrumb>
 <app-title title="Over de MuziekRakkers"></app-title>
 <div>
-  De MuziekRakkers is een samenwerking met de <a class="mr" href="http://www.academiewillebroek.be/" target="_blank">Academie voor muziek en woord Willebroek</a>.
+  De MuziekRakkers is een samenwerking met de <a class="mr" href="http://www.academiewillebroek.be/" target="_blank" rel="noreferrer">Academie voor muziek en woord Willebroek</a>.
 </div>
 <section #meespelen></section>
 <app-title title="Meespelen?"></app-title>
@@ -16,9 +16,9 @@
   <br/><br/>
   Deze kennismaking omvat 20 lessen van 1 uur.
 </div>
-<app-title title="Volgende activiteiten" *ngIf="nextActivities.length"></app-title>
-<app-activity *ngFor="let nextActivity of nextActivities" [activity]="nextActivity"></app-activity>
+<app-title title="Volgende activiteiten" *ngIf="nextActivities$"></app-title>
+<app-activity *ngFor="let nextActivity of nextActivities$ | async" [activity]="nextActivity"></app-activity>
 <app-title title="Recente fotoalbums"></app-title>
 <div class="photo-albums">
-  <app-photo-album *ngFor="let recentAlbum of recentAlbums" [photoAlbum]="recentAlbum"></app-photo-album>
+  <app-photo-album *ngFor="let recentAlbum of recentAlbums$ | async" [photoAlbum]="recentAlbum"></app-photo-album>
 </div>

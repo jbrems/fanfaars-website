@@ -6,7 +6,7 @@
   <ul>
     <li>1 <strong>dirigent</strong></li>
     <li>Een groep <strong>muzikanten</strong> uit verschillende verenigingen uit de buurt</li>
-    <li>Een groep <strong>andersvalide slagwerkers</strong> uit onder andere <a class="f4f" href="http://www.demeerpaal-willebroek.be/">De Meerpaal</a>, <a class="f4f" href="https://www.tonzent.eu/">'t Onzent</a> en <a class="f4f" href="https://www.flegado.be/">Flegado Ruisbroek</a></li>
+    <li>Een groep <strong>andersvalide slagwerkers</strong> uit onder andere <a class="f4f" href="http://www.demeerpaal-willebroek.be/" rel="noreferrer">De Meerpaal</a>, <a class="f4f" href="https://www.tonzent.eu/">'t Onzent</a> en <a class="f4f" href="https://www.flegado.be/">Flegado Ruisbroek</a></li>
   </ul>
 </div>
 <section #meespelen></section>
@@ -24,9 +24,9 @@
 <div>
   De Fanfare 4 Fun repeteert om de 6 weken op <strong>dinsdagavond om 19u30</strong> in het Parochiaal Centrum van Blaasveld.
 </div>
-<app-title title="Volgende activiteiten" *ngIf="nextActivities.length"></app-title>
-<app-activity *ngFor="let nextActivity of nextActivities" [activity]="nextActivity"></app-activity>
+<app-title title="Volgende activiteiten" *ngIf="nextActivities$"></app-title>
+<app-activity *ngFor="let nextActivity of nextActivities$ | async" [activity]="nextActivity"></app-activity>
 <app-title title="Recente fotoalbums"></app-title>
 <div class="photo-albums">
-  <app-photo-album *ngFor="let recentAlbum of recentAlbums" [photoAlbum]="recentAlbum"></app-photo-album>
+  <app-photo-album *ngFor="let recentAlbum of recentAlbums$ | async" [photoAlbum]="recentAlbum"></app-photo-album>
 </div>

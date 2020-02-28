@@ -30,9 +30,9 @@
   <br/><br/>
   Tijdens de pauze en na de repetitie kan er iets gedronken worden in het café van het Parochiaal Centrum.
 </div>
-<app-title title="Volgende activiteiten" *ngIf="nextActivities.length"></app-title>
-<app-activity *ngFor="let nextActivity of nextActivities" [activity]="nextActivity"></app-activity>
+<app-title title="Volgende activiteiten" *ngIf="nextActivities$"></app-title>
+<app-activity *ngFor="let nextActivity of nextActivities$ | async" [activity]="nextActivity"></app-activity>
 <app-title title="Recente fotoalbums"></app-title>
 <div class="photo-albums">
-  <app-photo-album *ngFor="let recentAlbum of recentAlbums" [photoAlbum]="recentAlbum"></app-photo-album>
+  <app-photo-album *ngFor="let recentAlbum of recentAlbums$ | async" [photoAlbum]="recentAlbum"></app-photo-album>
 </div>

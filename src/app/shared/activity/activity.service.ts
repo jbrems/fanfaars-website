@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, QuerySnapshot } from '@angular/fire/firestore';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { Activity } from './activity';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -13,32 +13,34 @@ export class ActivityService {
   constructor(private firestore: AngularFirestore) {}
 
   /**
-   * Initializes the service by fetching the future activities from Firestore.
-   */
-  public async initialize() {
-    this.activities = await this.fetchFutureActivities().toPromise();
-  }
-
-  /**
    * Get future activities for the given group with the given limit.
    * @param limit (optional, default: all) The number of activities you want to get
    * @param group (optional, default: all) The group to fetch the activities for
    */
-  public getActivities(limit?: number, group?: string): Activity[] {
-    let filteredActivities = [...this.activities];
-    if (group) {
-      filteredActivities = filteredActivities.filter(activity => activity.group === group);
-    }
-    if (limit) {
-      filteredActivities = filteredActivities.slice(0, limit);
-    }
-    return filteredActivities;
+  public getActivities(limit?: number, group?: string): Observable<Activity[]> {
+    return this.fetchFutureActivities()
+      .pipe(
+        map((activities) => {
+          let filteredActivities = [...activities];
+          if (group) {
+            filteredActivities = filteredActivities.filter(activity => activity.group === group);
+          }
+          if (limit) {
+            filteredActivities = filteredActivities.slice(0, limit);
+          }
+          return filteredActivities;
+        })
+      );
   }
 
   /**
    * Fetches the future activities from Firestore ordered by date (ascending).
    */
   private fetchFutureActivities(): Observable<Activity[]> {
+    if (this.activities) {
+      return of(this.activities);
+    }
+
     const today = new Date().toISOString().split('T')[0];
     return this.firestore
       .collection('activities', query => query
@@ -47,7 +49,8 @@ export class ActivityService {
       )
       .get()
       .pipe(
-        map(this.mapQuerySnapshotToActivities)
+        map(this.mapQuerySnapshotToActivities),
+        tap(activities => this.activities = activities)
       );
   }
 

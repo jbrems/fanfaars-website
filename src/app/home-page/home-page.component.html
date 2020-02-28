@@ -1,7 +1,7 @@
 <app-hero-carousel></app-hero-carousel>
 <app-title title="Volgende activiteiten" [link]="{ label: 'Bekijk alle activiteiten', url: '/activiteiten' }"></app-title>
-<app-activity *ngFor="let activity of activities" [activity]="activity"></app-activity>
+<app-activity *ngFor="let activity of activities$ | async" [activity]="activity"></app-activity>
 <app-title title="Recente fotoalbums" [link]="{ label: 'Bekijk alle fotoalbums', url: '/fotos' }"></app-title>
 <div class="photo-albums">
-  <app-photo-album *ngFor="let photoAlbum of photoAlbums" [photoAlbum]="photoAlbum"></app-photo-album>
+  <app-photo-album *ngFor="let photoAlbum of photoAlbums$ | async" [photoAlbum]="photoAlbum"></app-photo-album>
 </div>

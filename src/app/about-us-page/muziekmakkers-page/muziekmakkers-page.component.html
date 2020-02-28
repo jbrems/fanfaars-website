@@ -8,7 +8,7 @@
   <br/><br/>
   De Muziekmakkers is de ideale groep om je eerste fanfare-ervaring op te doen. Na enkele jaren bij het jeugdensemble ben je klaar om mee te spelen met de grote fanfare. Velen vinden de Muziekmakkers echter zo leuk, dat ze hun plaats in de grote fanfare maar al te graag combineren met een plaats bij hun makkers.
   <br/><br/>
-  De Muziekmakkers is een samenwerking met de <a class="mm" href="http://www.academiewillebroek.be/" target="_blank">Academie voor muziek en woord Willebroek</a>.
+  De Muziekmakkers is een samenwerking met de <a class="mm" href="http://www.academiewillebroek.be/" target="_blank" rel="noreferrer">Academie voor muziek en woord Willebroek</a>.
 </div>
 <section #meespelen></section>
 <app-title title="Meespelen?"></app-title>
@@ -25,9 +25,9 @@
   <br/><br/>
   Een keer per maand is het na de repetitie vergadering met een hapje en een drankje.
 </div>
-<app-title title="Volgende activiteiten" *ngIf="nextActivities.length"></app-title>
-<app-activity *ngFor="let nextActivity of nextActivities" [activity]="nextActivity"></app-activity>
+<app-title title="Volgende activiteiten" *ngIf="nextActivities$"></app-title>
+<app-activity *ngFor="let nextActivity of nextActivities$ | async" [activity]="nextActivity"></app-activity>
 <app-title title="Recente fotoalbums"></app-title>
 <div class="photo-albums">
-  <app-photo-album *ngFor="let recentAlbum of recentAlbums" [photoAlbum]="recentAlbum"></app-photo-album>
+  <app-photo-album *ngFor="let recentAlbum of recentAlbums$ | async" [photoAlbum]="recentAlbum"></app-photo-album>
 </div>

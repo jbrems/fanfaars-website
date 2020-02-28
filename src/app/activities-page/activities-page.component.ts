@@ -3,6 +3,7 @@ import { testActivities } from '../shared/activity/test-activities';
 import { Observable } from 'rxjs';
 import { Activity } from '../shared/activity/activity';
 import { ActivityService } from '../shared/activity/activity.service';
+import { PhotoAlbum } from '../shared/photo-album/photo-album';
 
 @Component({
   selector: 'app-activities-page',
@@ -10,11 +11,11 @@ import { ActivityService } from '../shared/activity/activity.service';
   styleUrls: ['./activities-page.component.scss']
 })
 export class ActivitiesPageComponent implements OnInit {
-  activities: Activity[];
+  activities$: Observable<Activity[]>;
 
   constructor(private activityService: ActivityService) {}
 
   ngOnInit() {
-    this.activities = this.activityService.getActivities();
+    this.activities$ = this.activityService.getActivities();
   }
 }

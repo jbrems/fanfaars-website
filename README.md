@@ -5,6 +5,7 @@
 * Menu animation
 * Analytics
 * Lighthouse audit remarks
+* Load activities/albums after initial load
 
 ## Serve
 Create a `firebase-config.ts` in the `src/app` folder and export your Firebase config
