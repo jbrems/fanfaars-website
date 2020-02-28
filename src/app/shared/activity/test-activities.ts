@@ -2,6 +2,7 @@ export const testActivities = [{
   id: '10_oktoberconcert',
   group: 'FF',
   title: 'Oktoberconcert Vrouwentongen',
+  // tslint:disable-next-line:max-line-length
   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tortor vel eros accumsan congue. Sed rutrum euismod aliquet. Quisque egestas aliquam odio, vulputate iaculis eros accumsan eget. In in elit in purus vulputate dignissim at vel dolor.',
   date: '2019-10-08',
   time: '20u00',
@@ -18,6 +19,7 @@ export const testActivities = [{
   id: '10_oktoberconcert',
   group: 'MR',
   title: 'Oktoberconcert Vrouwentongen',
+  // tslint:disable-next-line:max-line-length
   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel tortor vel eros accumsan congue. Sed rutrum euismod aliquet. Quisque egestas aliquam odio, vulputate iaculis eros accumsan eget. In in elit in purus vulputate dignissim at vel dolor.',
   date: '2019-10-08',
   time: '20u00',

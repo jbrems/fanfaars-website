@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomePageModule } from './home-page/home-page.module';
-import { HomePageComponent } from './home-page/home-page.component';
 import { ActivitiesPageModule } from './activities-page/activities-page.module';
 import { ActivitiesPageComponent } from './activities-page/activities-page.component';
 import { PhotoAlbumsPageModule } from './photo-albums-page/photo-albums-page.module';
@@ -16,7 +15,7 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
 import { ContactPageModule } from './contact-page/contact-page.module';
 
 const routes: Routes = [
-  { path: '', component: HomePageComponent },
+  { path: '', loadChildren: './home-page/home-page.module#HomePageModule' },
   { path: 'activiteiten', component: ActivitiesPageComponent },
   { path: 'fotos', component: PhotoAlbumsPageComponent },
   { path: 'over-ons', component: AboutUsPageComponent },
@@ -33,7 +32,6 @@ const routes: Routes = [
     AboutUsPageModule,
     ActivitiesPageModule,
     ContactPageModule,
-    HomePageModule,
     PhotoAlbumsPageModule,
     RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' }),
   ],

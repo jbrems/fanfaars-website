@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod",
     "serve": "yarn build && firebase serve",
     "deploy": "ng build --prod && firebase deploy --only hosting",
     "functions": "cd functions && npm run serve"

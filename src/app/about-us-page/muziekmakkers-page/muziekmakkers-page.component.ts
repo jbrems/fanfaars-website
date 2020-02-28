@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
   templateUrl: './muziekmakkers-page.component.html',
   styleUrls: ['./muziekmakkers-page.component.scss', '../../shared/shared.scss'],
 })
-export class MuziekmakkersPageComponent extends ScrollToMeespelenComponent implements OnInit{
+export class MuziekmakkersPageComponent extends ScrollToMeespelenComponent implements OnInit {
   public nextActivities$: Observable<Activity[]>;
   public recentAlbums$: Observable<PhotoAlbum[]>;
 

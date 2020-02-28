@@ -8,10 +8,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterModule } from './shared/footer/footer.module';
 import { HeaderModule } from './shared/header/header.module';
-import { PhotoAlbumModule } from './shared/photo-album/photo-album.module';
 
 import { registerLocaleData } from '@angular/common';
 import localeNl from '@angular/common/locales/nl';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 registerLocaleData(localeNl, 'nl-BE');
 
 @NgModule({
@@ -24,9 +24,9 @@ registerLocaleData(localeNl, 'nl-BE');
     AngularFirestoreModule,
     AppRoutingModule,
     BrowserModule,
+    BrowserAnimationsModule,
     FooterModule,
     HeaderModule,
-    PhotoAlbumModule,
   ],
   providers: [{
     provide: CONFIG,
