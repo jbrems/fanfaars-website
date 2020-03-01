@@ -1,7 +1,6 @@
 # Fanfaars
 
 ## Todo
-* Forellenfestijn email
 * Menu animation
 * Analytics
 * Foto's filter
@@ -16,6 +15,19 @@ as `firebaseConfig` .
 ```
 yarn start
 ```
+
+## Functions
+Create a `gmail-auth.ts` in the `functions/src` folder and export your Gmail authentication
+(`user` and `pass`) as `gmailAuth`. 
+
+> For the Gmail SMTP to work you must configure your Gmail account to accept access from
+> less secure apps (https://myaccount.google.com/lesssecureapps)
+
+```
+yarn functions
+```
+
+> For locally testing the Firestore hook you can uncomment the http function and call that in stead.
 
 ## Deploy
 ```

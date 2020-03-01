@@ -1,3 +1,5 @@
+src/gmail-auth.ts
+
 ## Compiled JavaScript files
 **/*.js
 **/*.js.map

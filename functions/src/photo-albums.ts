@@ -1,20 +1,13 @@
-import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
-admin.initializeApp();
 const got = require('got');
 
-export const updatePhotoAlbumsFromFlickr = functions.https.onRequest(async (req, res) => {
+export async function updatePhotoAlbumsFromFlickr() {
   console.log('Updating photo albums from Flickr');
-  try {
     const albums = await fetchAlbums();
     await deletePhotoAlbums();
     addPhotoAlbums(albums);
-    res.send(`Database updated with ${albums.length} photo albums`);
-  } catch(error) {
-    console.error(error);
-    res.status(500).send('Unable to update Flickr albums');
-  }
-});
+    return `Database updated with ${albums.length} photo albums`;
+};
 
 async function fetchAlbums() {
   const config = await fetchConfig();
@@ -52,7 +45,7 @@ function getGroupFromTitle(title: string): string {
   if (title.toUpperCase().includes('FF')) { return 'FF'; }
 
   console.log(`Failed to parse group for photo album ${title}`);
-   return 'FF';
+  return 'FF';
 }
 
 function getDateFromTitle(title: string): string {
