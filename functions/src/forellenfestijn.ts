@@ -55,7 +55,7 @@ async function sendEmail(to: string, subject: string, html: string) {
     transport.sendMail(options, (err: any) => {
       if (err) {
         console.error(err);
-        return reject('Failed to send email');
+        reject('Failed to send email');
       }
       resolve('Mail sent');
     });
