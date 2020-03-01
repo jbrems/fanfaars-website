@@ -1,12 +1,12 @@
 {
-  "name": "fanfaars",
-  "version": "0.0.0",
+  "name": "fanfaars-website",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod",
     "serve": "yarn build && firebase serve",
-    "deploy": "ng build --prod && firebase deploy --only hosting",
+    "deploy": "ng build --prod && firebase deploy",
     "functions": "cd functions && npm run serve"
   },
   "private": true,
