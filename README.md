@@ -1,10 +1,14 @@
 # Fanfaars
 
 ## Todo
-* Forellenfestijn link/pagina
+* Forellenfestijn afwerken
+* Forellenfestijn mockDate ipv hard-coded
 * Menu animation
 * Analytics
-* Lazy loading
+* Foto's filter
+* Forellenfestijn hero banner
+* F4F op zoek naar muzikanten
+* Over ons info uitbreiden
 
 ## Serve
 Create a `firebase-config.ts` in the `src/app` folder and export your Firebase config

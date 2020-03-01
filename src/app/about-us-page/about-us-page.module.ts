@@ -7,11 +7,12 @@ import { MuziekmakkersPageModule } from './muziekmakkers-page/muziekmakkers-page
 import { MuziekrakkersPageModule } from './muziekrakkers-page/muziekrakkers-page.module';
 import { Fanfare4FunPageModule } from './fanfare-4-fun-page/fanfare-4-fun-page.module';
 import { TitleModule } from '../shared/title/title.module';
-import { BreadcrumbModule } from '../shared/breadcrumb/breadcrumb.module';
+import { AboutUsPageRoutingModule } from './about-us-page-routing.module';
 
 @NgModule({
   declarations: [AboutUsPageComponent],
   imports: [
+    AboutUsPageRoutingModule,
     CommonModule,
     FanfarePageModule,
     Fanfare4FunPageModule,
@@ -19,7 +20,6 @@ import { BreadcrumbModule } from '../shared/breadcrumb/breadcrumb.module';
     MuziekmakkersPageModule,
     MuziekrakkersPageModule,
     TitleModule,
-    BreadcrumbModule,
   ]
 })
 export class AboutUsPageModule { }

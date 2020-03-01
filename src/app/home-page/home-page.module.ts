@@ -7,7 +7,6 @@ import { ActivityModule } from '../shared/activity/activity.module';
 import { PhotoAlbumModule } from '../shared/photo-album/photo-album.module';
 import { HeroCarouselComponent } from './hero-carousel/hero-carousel.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomePageRoutingModule } from './home-page-routing.module';
 
 @NgModule({

@@ -1,0 +1,68 @@
+<app-title title="Forellenfestijn {{date | date:'yyyy'}}"></app-title>
+<div>
+  Ons jaarlijks Forellenfestijn zal in {{ date | date:'yyyy' }} doorgaan op <strong>{{ date | date:'d MMMM':'':'nl-BE' }}</strong>.
+  <br/><br/>
+  Vanaf <strong>{{ reservationFrom | date:'d MMMM':'':'nl-BE' }}</strong> kan je hier online reserveren.
+  <br/><br/>
+  Op {{ date | date:'d MMMM':'':'nl-BE' }} kan je tussen 11u30 en 21u00 (reserveren mogelijk tot 19u) in het Parochiaal Centrum van Blaasveld
+  genieten van een heerlijke forel of vol-au-vent, met veel liefde bereid door onze bijna honderd vrijwilligers. Al onze hoofdgerechten worden geserveerd met frietjes
+  (standaard) of brood (op aanvraag) en kunnen vergezeld worden van een bijpassende wijn, aperitief van het huis of ander drankje.
+</div>
+<app-title title="Online reserveren" *ngIf="today >= reservationFrom"></app-title>
+<form *ngIf="today >= reservationFrom" class="reservation" [formGroup]="reservationForm">
+  <section class="info">
+    <app-input-field label="Naam *" formControlName="name"></app-input-field>
+    <app-input-field label="E-mailadres *" formControlName="email"></app-input-field>
+    <div class="persons">Komt met <app-input-field formControlName="persons" type="number"></app-input-field> personen</div>
+    <div class="arrival">Omstreeks <app-select-list formControlName="arrival" [values]="arrivalValues"></app-select-list> uur</div>
+    <app-text-area label="Opmerking" formControlName="remarks"></app-text-area>
+  </section>
+  <div class="menu" [formGroup]="reservationForm.get('menu')">
+    <strong>Menu</strong>
+    <div class="menuItem">
+      <div class="label">Zachte paprikasoep</div>
+      <div class="price">4,00€</div>
+      <div class="amount"><app-input-field formControlName="soup" type="number"></app-input-field></div>
+    </div>
+    <div class="menuItem">
+      <div class="label">Meloen met gerookte ham</div>
+      <div class="price">6,50€</div>
+      <div class="amount"><app-input-field formControlName="melon" type="number"></app-input-field></div>
+    </div>
+    <div class="menuItem">
+      <div class="label">Forel natuur</div>
+      <div class="price">16,00€</div>
+      <div class="amount"><app-input-field formControlName="troutNature" type="number"></app-input-field></div>
+    </div>
+    <div class="menuItem">
+      <div class="label">Forel met amandelen</div>
+      <div class="price">16,00€</div>
+      <div class="amount"><app-input-field formControlName="troutAlmond" type="number"></app-input-field></div>
+    </div>
+    <div class="menuItem">
+      <div class="label">Forel in witte wijnsaus</div>
+      <div class="price">16,00€</div>
+      <div class="amount"><app-input-field formControlName="troutWine" type="number"></app-input-field></div>
+    </div>
+    <div class="menuItem">
+      <div class="label">Forel ardennaise</div>
+      <div class="price">16,00€</div>
+      <div class="amount"><app-input-field formControlName="troutArdennaise" type="number"></app-input-field></div>
+    </div>
+    <div class="menuItem">
+      <div class="label">Vol-au-vent</div>
+      <div class="price">12,00€</div>
+      <div class="amount"><app-input-field formControlName="volAuVent" type="number"></app-input-field></div>
+    </div>
+    <div class="menuItem">
+      <div class="label">Vol-au-vent kindermenu</div>
+      <div class="price">7,00€</div>
+      <div class="amount"><app-input-field formControlName="volAuVentChild" type="number"></app-input-field></div>
+    </div>
+  </div>
+  <div *ngIf="showError && reservationForm.invalid" class="error">
+    <app-icon name="error"></app-icon>
+    <span>Het formulier bevat fouten die gecorrigeerd moeten worden.</span>
+  </div>
+  <button type="submit" (click)="sendReservation()">Reservatie versturen</button>
+</form>

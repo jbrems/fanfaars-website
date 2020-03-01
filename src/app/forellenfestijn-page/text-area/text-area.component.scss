@@ -1,0 +1,47 @@
+@import '../../colors';
+
+:host {
+  &.ng-touched {
+    &.ng-invalid .textArea textarea {
+      border-color: $ff-red;
+      background-color: rgba(219, 0, 0, 0.05);
+    }
+
+    &.ng-valid .textArea textarea {
+      border-color: $mm-green;
+      background-color: rgba(141, 198, 65, 0.05);
+    }
+  }
+
+  .textArea {
+    position: relative;
+
+    margin-top: 20px;
+
+    textarea {
+      height: 54px;
+      width: calc(100% - 20px);
+
+      padding: 10px 10px;
+
+      font-family: Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+
+      border: solid 1px $black-lighter;
+      border-radius: 3px;
+    }
+
+    label {
+      position: absolute;
+      top: -8px;
+      left: 10px;
+
+      padding: 0 5px;
+
+      font-size: 12px;
+      color: $black-light;
+      background: linear-gradient(transparent, transparent 48%, $white 49%, $white 62%, transparent 63%, transparent 100%);
+    }
+  }
+}
+

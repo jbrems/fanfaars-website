@@ -1,0 +1,29 @@
+@import '../../colors';
+
+:host {
+  &.ng-touched {
+    &.ng-invalid .selectList select {
+      border-color: $ff-red;
+      background-color: rgba(219, 0, 0, 0.05);
+    }
+
+    &.ng-valid .selectList select {
+      border-color: $mm-green;
+      background-color: rgba(141, 198, 65, 0.05);
+    }
+  }
+
+  .selectList {
+    select {
+      height: 36px;
+
+      padding: 5px 10px;
+
+      font-family: Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+
+      border: solid 1px $black-lighter;
+      border-radius: 3px;
+    }
+  }
+}

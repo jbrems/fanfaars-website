@@ -1,0 +1,4 @@
+<div class="textArea">
+  <label *ngIf="label">{{ label }}</label>
+  <textarea #textArea (blur)="onBlur()" (input)="onChange()"></textarea>
+</div>

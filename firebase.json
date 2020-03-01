@@ -11,7 +11,20 @@
         "source": "**",
         "destination": "/index.html"
       }
-    ]
+    ],
+    "headers": [{
+      "source": "**/*.@(txt|ico|html|xml)",
+      "headers": [ {
+        "key": "Cache-Control",
+        "value": "max-age=86400"
+      }]
+    }, {
+      "source": "**/*.@(js|css|woff2|jpg|png)",
+      "headers": [ {
+        "key": "Cache-Control",
+        "value": "max-age=31536000"
+      }]
+    }]
   },
   "functions": {
     "predeploy": [

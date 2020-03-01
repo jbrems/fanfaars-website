@@ -1,0 +1,6 @@
+<div class="selectList">
+  <label *ngIf="label" [for]="selectListId">{{ label }}</label>
+  <select #selectList [id]="selectListId" (blur)="onBlur()" (change)="onChange()">
+    <option *ngFor="let value of values" [value]="value">{{ value }}</option>
+  </select>
+</div>

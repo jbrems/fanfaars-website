@@ -1,38 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomePageModule } from './home-page/home-page.module';
-import { ActivitiesPageModule } from './activities-page/activities-page.module';
-import { ActivitiesPageComponent } from './activities-page/activities-page.component';
-import { PhotoAlbumsPageModule } from './photo-albums-page/photo-albums-page.module';
-import { PhotoAlbumsPageComponent } from './photo-albums-page/photo-albums-page.component';
-import { AboutUsPageComponent } from './about-us-page/about-us-page.component';
-import { AboutUsPageModule } from './about-us-page/about-us-page.module';
-import { FanfarePageComponent } from './about-us-page/fanfare-page/fanfare-page.component';
-import { MuziekmakkersPageComponent } from './about-us-page/muziekmakkers-page/muziekmakkers-page.component';
-import { MuziekrakkersPageComponent } from './about-us-page/muziekrakkers-page/muziekrakkers-page.component';
-import { Fanfare4FunPageComponent } from './about-us-page/fanfare-4-fun-page/fanfare-4-fun-page.component';
-import { ContactPageComponent } from './contact-page/contact-page.component';
-import { ContactPageModule } from './contact-page/contact-page.module';
 
 const routes: Routes = [
   { path: '', loadChildren: './home-page/home-page.module#HomePageModule' },
-  { path: 'activiteiten', component: ActivitiesPageComponent },
-  { path: 'fotos', component: PhotoAlbumsPageComponent },
-  { path: 'over-ons', component: AboutUsPageComponent },
-  { path: 'over-ons/fanfare', component: FanfarePageComponent },
-  { path: 'over-ons/muziekmakkers', component: MuziekmakkersPageComponent },
-  { path: 'over-ons/muziekrakkers', component: MuziekrakkersPageComponent },
-  { path: 'over-ons/fanfare-4-fun', component: Fanfare4FunPageComponent },
-  { path: 'contact', component: ContactPageComponent },
-  { path: '**', redirectTo: '' },
+  { path: 'activiteiten', loadChildren: './activities-page/activities-page.module#ActivitiesPageModule' },
+  { path: 'fotos', loadChildren: './photo-albums-page/photo-albums-page.module#PhotoAlbumsPageModule' },
+  { path: 'over-ons', loadChildren: './about-us-page/about-us-page.module#AboutUsPageModule' },
+  { path: 'contact', loadChildren: './contact-page/contact-page.module#ContactPageModule' },
+  { path: 'forellenfestijn', loadChildren: './forellenfestijn-page/forellenfestijn-page.module#ForellenfestijnPageModule' },
+  { path: '**', redirectTo: '/' },
 ];
 
 @NgModule({
   imports: [
-    AboutUsPageModule,
-    ActivitiesPageModule,
-    ContactPageModule,
-    PhotoAlbumsPageModule,
     RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' }),
   ],
   exports: [RouterModule]
