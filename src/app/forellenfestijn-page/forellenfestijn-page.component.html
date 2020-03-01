@@ -1,15 +1,18 @@
 <app-title title="Forellenfestijn {{date | date:'yyyy'}}"></app-title>
 <div>
-  Ons jaarlijks Forellenfestijn zal in {{ date | date:'yyyy' }} doorgaan op <strong>{{ date | date:'d MMMM':'':'nl-BE' }}</strong>.
-  <br/><br/>
-  Vanaf <strong>{{ reservationFrom | date:'d MMMM':'':'nl-BE' }}</strong> kan je hier online reserveren.
+  Ons jaarlijks Forellenfestijn zal in {{ date | date:'yyyy' }} doorgaan op <strong>{{ date | date:'EEEE d MMMM':'':'nl-BE' }}</strong>.
+  <section *ngIf="today < reservationFrom"><br/><br/>Vanaf <strong>{{ reservationFrom | date:'d MMMM':'':'nl-BE' }}</strong> kan je hier online reserveren.</section>
   <br/><br/>
   Op {{ date | date:'d MMMM':'':'nl-BE' }} kan je tussen 11u30 en 21u00 (reserveren mogelijk tot 19u) in het Parochiaal Centrum van Blaasveld
   genieten van een heerlijke forel of vol-au-vent, met veel liefde bereid door onze bijna honderd vrijwilligers. Al onze hoofdgerechten worden geserveerd met frietjes
   (standaard) of brood (op aanvraag) en kunnen vergezeld worden van een bijpassende wijn, aperitief van het huis of ander drankje.
 </div>
 <app-title title="Online reserveren" *ngIf="today >= reservationFrom"></app-title>
-<form *ngIf="today >= reservationFrom" class="reservation" [formGroup]="reservationForm">
+<div *ngIf="success" class="success">
+  <app-icon name="check"></app-icon>
+  <span>Uw reservatie werd verwerkt. U ontvangt dadelijk een bevestiging op {{ reservationForm.value.email }}.</span>
+</div>
+<form *ngIf="today >= reservationFrom && !success" class="reservation" [formGroup]="reservationForm">
   <section class="info">
     <app-input-field label="Naam *" formControlName="name"></app-input-field>
     <app-input-field label="E-mailadres *" formControlName="email"></app-input-field>
@@ -60,9 +63,13 @@
       <div class="amount"><app-input-field formControlName="volAuVentChild" type="number"></app-input-field></div>
     </div>
   </div>
-  <div *ngIf="showError && reservationForm.invalid" class="error">
+  <div *ngIf="showUserError && reservationForm.invalid" class="error">
     <app-icon name="error"></app-icon>
     <span>Het formulier bevat fouten die gecorrigeerd moeten worden.</span>
   </div>
-  <button type="submit" (click)="sendReservation()">Reservatie versturen</button>
+  <div *ngIf="error" class="error">
+    <app-icon name="error"></app-icon>
+    <span>Uw reservatie kon niet worden verwerkt. Probeer het later opnieuw of contacteer <a href="mailto:fanfaars@gmail.com">fanfaars@gmail.com</a>.</span>
+  </div>
+  <button type="submit" (click)="sendReservation()" [ngClass]="{ processing: processing }"><app-icon name="plane"></app-icon><span>Reservatie versturen</span></button>
 </form>

@@ -1,8 +1,7 @@
 # Fanfaars
 
 ## Todo
-* Forellenfestijn afwerken
-* Forellenfestijn mockDate ipv hard-coded
+* Forellenfestijn email
 * Menu animation
 * Analytics
 * Foto's filter

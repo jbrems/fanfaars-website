@@ -1,33 +1,55 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, RequiredValidator, Validators } from '@angular/forms';
+import { ForellenfestijnService } from './forellenfestijn.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   templateUrl: './forellenfestijn-page.component.html',
   styleUrls: ['./forellenfestijn-page.component.scss'],
 })
 export class ForellenfestijnPageComponent implements OnInit {
-  today = new Date('2020-05-01');
+  today = new Date();
   date: Date;
   reservationFrom: Date;
 
   reservationForm: FormGroup;
   arrivalValues: string[];
   submitted = false;
-  showError = false;
+  showUserError = false;
+  processing = false;
+  success = false;
+  error = false;
+
+  constructor(private forellenfestijnService: ForellenfestijnService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
+    this.catchDateMocking();
     this.date = this.calculateDate();
     this.reservationFrom = this.calculateShowReservationFormFrom();
     this.reservationForm = this.setupReservationForm();
   }
 
-  public sendReservation() {
+  public async sendReservation() {
     this.submitted = true;
-    this.showError = false;
+    this.showUserError = false;
+    this.processing = true;
+    this.error = false;
 
     if (this.reservationForm.invalid) {
-      this.showError = true;
+      this.showUserError = true;
       this.markAllAsTouched(this.reservationForm);
+      this.processing = false;
+      return;
+    }
+
+    try {
+      await this.forellenfestijnService.saveReservation(this.reservationForm.value);
+      this.processing = false;
+      this.success = true;
+    } catch (error) {
+      this.processing = false;
+      this.error = true;
+      console.error(error.message);
     }
   }
 
@@ -82,5 +104,16 @@ export class ForellenfestijnPageComponent implements OnInit {
         child.markAsTouched();
       }
     }));
+  }
+
+  private catchDateMocking() {
+    this.route.queryParamMap.subscribe((params) => {
+      console.log(params);
+      if (params.has('mockDate')) {
+        this.today = new Date(params.get('mockDate'));
+      } else {
+        this.today = new Date();
+      }
+    });
   }
 }
