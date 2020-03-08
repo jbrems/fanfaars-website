@@ -36,16 +36,12 @@ If you get a 401 error login to firebase
 firebase login
 ```
 
-> For locally testing the Firestore hook you can uncomment the http function and call that in stead.
-
 ## Deploy
 ```
 yarn deploy
 ```
-> On Windows it is not possible to deploy cloud functions to Firebase. 
-> Hence you have to rename the `functions` folder to something else before deploying.
 
-> Deploying functions has to be done from a Linux based machine.
+> Deploying has to be done from a Linux enabled machine.
 
 From a fresh git clone on a Windows machine with Ubuntu bash:
 ```
