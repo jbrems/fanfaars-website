@@ -27,7 +27,7 @@ function generateMailContent(reservation: any) {
       ${ reservation.menu.volAuVentChild ? '<br/>Vol-au-vent kindermenu: <strong>' + reservation.menu.volAuVentChild + '</strong>' : '' }
     </div>
     <br/>
-    Om deze reservatie te wijzigen kan u antwoorden op deze mail.
+    Om deze reservatie te wijzigen kan u allen beantwoorden op deze mail.
     <br/><br/>
     Wij kijken er alvast naar uit om u te mogen ontvangen op ons Forellenfestijn!
     <br/><br/>
@@ -45,8 +45,8 @@ async function sendEmail(to: string, subject: string, html: string) {
   });
 
   const options = {
-    from: 'Fanfare Blaasveld <fanfaars@gmail.com>',
-    to,
+    from: 'Fanfare Blaasveld <forellenfestijn@gmail.com>',
+    to: [to, 'fanfaars@gmail.com'],
     subject,
     html,
   };

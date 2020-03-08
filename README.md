@@ -20,8 +20,8 @@ yarn start
 Create a `gmail-auth.ts` in the `functions/src` folder and export your Gmail authentication
 (`user` and `pass`) as `gmailAuth`. 
 
-> For the Gmail SMTP to work you must configure your Gmail account to accept access from
-> less secure apps (https://myaccount.google.com/lesssecureapps)
+> For the Gmail SMTP to work you must configure 2 factor authentication and use the generated key as pass.
+> https://kinsta.com/knowledgebase/free-smtp-server/
 
 Install the functions folder's dependencies
 ```
@@ -46,3 +46,11 @@ yarn deploy
 > Hence you have to rename the `functions` folder to something else before deploying.
 
 > Deploying functions has to be done from a Linux based machine.
+
+From a fresh git clone on a Windows machine with Ubuntu bash:
+```
+yarn
+cd functions && yarn && cd ..
+firebase login
+yarn deploy
+```
