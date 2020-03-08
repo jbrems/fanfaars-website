@@ -23,8 +23,17 @@ Create a `gmail-auth.ts` in the `functions/src` folder and export your Gmail aut
 > For the Gmail SMTP to work you must configure your Gmail account to accept access from
 > less secure apps (https://myaccount.google.com/lesssecureapps)
 
+Install the functions folder's dependencies
+```
+cd function && yarn && cd ..
+```
+Run the functions from the root directory
 ```
 yarn functions
+```
+If you get a 401 error login to firebase
+```
+firebase login
 ```
 
 > For locally testing the Firestore hook you can uncomment the http function and call that in stead.
