@@ -1,0 +1,37 @@
+<app-title title="Online repetitie"></app-title>
+<div class="container">
+  <div class="description">
+    Beste muzikanten,<br/><br/>
+
+    Donderdag 02/04 zal er een online repetitie plaatsvinden.<br>
+    Op deze pagina zal je Gerard te zien krijgen die ons van op afstand zal dirigeren.<br><br>
+
+    Om deze repetitie zo vlot mogelijk te laten verlopen vragen we jullie om op voorhand alvast jullie opname-apparatuur
+    te testen.<br>
+    Dit kan je doen door onderaan op de knop "Geluid opnemen" te klikken en het liedje "Happy Birthday to you" te spelen
+    op jouw instrument.<br>
+    Daarna kan je het opgenomen fragment beluisteren om na te gaan of de opname goed gelukt is.
+  </div>
+  <div class="gerard-container">
+    <img src="/assets/images/logo_fanfare.png" alt="Gerard" [ngClass]="{ move: isRecording }"/>
+  </div>
+  <div class="happy-birthday">
+    Klik op "Geluid opnemen" en speel "Happy Birthday to you" op jouw instument!
+  </div>
+  <div class="controlsContainer">
+    <button (click)="toggleRecording()" [ngClass]="{ stop: isRecording, play: showPlayback, prank: showPrank }" [disabled]="isPlaying || showPrank">
+      <app-icon name="microphone" *ngIf="!isRecording && !showPlayback && !showPrank"></app-icon>
+      <app-icon name="stop" *ngIf="isRecording"></app-icon>
+      <app-icon name="play" *ngIf="showPlayback"></app-icon>
+      <app-icon name="fish" *ngIf="showPrank"></app-icon>
+      <span *ngIf="!isRecording && !showPlayback && !showPrank">Geluid opnemen</span>
+      <span *ngIf="isRecording">Opname stoppen</span>
+      <span *ngIf="showPlayback">Opname beluisteren</span>
+      <span *ngIf="showPrank">1 APRIL !</span>
+    </button>
+  </div>
+  <div class="prank" *ngIf="showPrank">
+    Nu je je instrument toch al vast hebt, kan je misschien nog een keertje oefenen...<br><br>
+    Met dank aan Jan voor het schitterende idee.
+  </div>
+</div>

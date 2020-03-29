@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: 'over-ons', loadChildren: './about-us-page/about-us-page.module#AboutUsPageModule' },
   { path: 'contact', loadChildren: './contact-page/contact-page.module#ContactPageModule' },
   { path: 'forellenfestijn', loadChildren: './forellenfestijn-page/forellenfestijn-page.module#ForellenfestijnPageModule' },
+  { path: 'online-repetitie', loadChildren: './online-rehearsal/online-rehearsal.module#OnlineRehearsalModule' },
   { path: '**', redirectTo: '/' },
 ];
 

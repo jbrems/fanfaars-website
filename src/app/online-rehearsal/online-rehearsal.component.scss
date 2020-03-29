@@ -1,0 +1,84 @@
+@import '../colors';
+
+@keyframes move {
+  0% { transform: rotate(0deg) }
+  25% { transform: rotate(15deg) }
+  50% { transform: rotate(0deg)}
+  75% { transform: rotate(-15deg) }
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  min-height: 500px;
+  margin: 25px auto 50px auto;
+
+  .description {
+    font-weight: 300;
+
+    padding: 10px;
+    margin-bottom: 25px;
+  }
+
+  .gerard-container {
+    text-align: center;
+    margin-bottom: 15px;
+
+    img.move {
+      animation: move 2s linear infinite;
+    }
+  }
+
+  .happy-birthday {
+    text-align: center;
+    padding: 10px;
+  }
+
+  .controlsContainer {
+    button {
+      display: flex;
+      align-items: center;
+
+      width: 200px;
+      height: 50px;
+      padding: 0 25px;
+      margin: 25px auto;
+
+      border-radius: 15px;
+      background-color: $mm-green-dark;
+      color: $white;
+
+      border: none;
+
+      cursor: pointer;
+
+      &.stop {
+        background-color: $ff-red;
+      }
+
+      &.play {
+        background-color: $mr-orange;
+      }
+
+      &[disabled] {
+        background-color: grey;
+        cursor: not-allowed;
+      }
+
+      &.prank {
+        background-color: $mm-green !important;
+      }
+
+      app-icon {
+        fill: $white;
+
+        margin-right: 15px;
+      }
+    }
+  }
+
+  .prank {
+    text-align: center;
+    margin-top: 25px;
+  }
+}
