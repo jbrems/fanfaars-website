@@ -11,7 +11,7 @@ function generateMailContent(reservation: any) {
   return `
     Beste ${reservation.name},
     <br/><br/>Wij hebben uw reservatie via <a href="https://www.fanfaars.com/">www.fanfaars.com</a> ontvangen en verwerkt.
-    <br/><br/>Hieronder vindt u de reservatie die wij voor u hebben opgeslagen:
+    <br/><br/>Hieronder vindt u de reservatie die wij voor u hebben genoteerd:
     <div style="margin: 10px 0; padding: 10px; border: solid 1px #bd0000; border-radius: 5px;">
       Naam: <strong>${reservation.name}</strong>
       <br/>Komt met <strong>${reservation.persons}</strong> personen omstreeks <strong>${reservation.arrival}</strong> uur.

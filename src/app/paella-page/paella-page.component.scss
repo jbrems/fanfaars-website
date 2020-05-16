@@ -1,0 +1,239 @@
+@import '../colors';
+
+:host {
+  font-weight: 300;
+
+  div {
+    margin: 0 15px 15px 15px;
+
+    strong {
+      font-weight: 400;
+    }
+  }
+
+  .error {
+    display: flex;
+    align-items: center;
+
+    margin: 10px 0 0 0;
+    padding: 5px;
+
+    border: solid 1px $ff-red;
+    border-radius: 3px;
+    background-color: rgba(219, 0, 0, 0.05);
+
+    app-icon {
+      margin-right: 15px;
+      fill: $ff-red;
+    }
+  }
+
+  .success {
+    display: flex;
+    align-items: center;
+
+    margin: 10px;
+    padding: 5px;
+
+    border: solid 1px $mm-green;
+    border-radius: 3px;
+    background-color: rgba(141, 198, 65, 0.05);;
+
+    app-icon {
+      margin-right: 15px;
+      fill: $mm-green;
+    }
+  }
+
+  form.reservation {
+    padding: 15px;
+    margin: 0 10px 15px 10px;
+
+    background-color: $white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px 3px rgba(136, 136, 136, 0.08);
+
+    app-input-field ::ng-deep .inputField {
+      margin-bottom: 20px;
+
+      input[type="checkbox"] {
+        width: 25px;
+      }
+    }
+
+    app-select-list#city ::ng-deep .selectList select {
+      width: 100%;
+    }
+
+    .checkboxWithLabel {
+      display: flex;
+
+      margin: 0;
+    }
+
+    .period {
+      display: flex;
+      align-items: center;
+      height: 36px;
+      margin: 15px 0 10px 0;
+
+      &.takeaway {
+        margin-top: 0;
+      }
+    }
+
+    .persons {
+      app-input-field ::ng-deep .inputField {
+        margin: 0 10px;
+      }
+    }
+
+    .period {
+      app-select-list ::ng-deep .selectList {
+        margin: 0 10px;
+      }
+    }
+
+    .menu {
+      margin: 10px 0 0 0;
+
+      div {
+        margin: 0;
+
+        &.menuItem {
+          position: relative;
+          display: flex;
+          align-items: center;
+
+          height: 38px;
+          margin-top: 5px;
+
+          &:nth-of-type(3),
+          &:nth-of-type(7) {
+            margin-top: 15px;
+          }
+
+          .price {
+            position: absolute;
+            right: 80px;
+
+            color: #909090;
+          }
+
+          .amount  {
+            position: absolute;
+            right: 0;
+
+            app-input-field ::ng-deep .inputField {
+              margin: 0;
+            }
+          }
+        }
+      }
+
+      .payment {
+        margin: 30px 0 0 0;
+
+        .status {
+          color: grey;
+          font-size: .75em;
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 300px;
+      margin: 10px auto 10px auto;
+      padding: 10px 15px;
+
+      color: $white;
+      background-color: $ff-red-dark;
+      border: solid 1px $ff-red-dark;
+      border-radius: 5px;
+
+      cursor: pointer;
+
+      app-icon {
+        fill: $white;
+        margin-right: 15px;
+      }
+
+      @keyframes fly {
+        0% { transform: rotateZ(30deg); left: 0; top: 10px; }
+        25% { transform: rotateZ(45deg); top: 0; }
+        30% { top: 0; }
+        50% { transform: rotateZ(60deg); top: 10px; }
+        75% { transform: rotateZ(45deg); top: 20px; }
+        80% { top: 20px; }
+        100% { transform: rotateZ(30deg); left: 300px; top: 10px; }
+      }
+
+      &.processing {
+        position: relative;
+        height: 50px;
+
+        span {
+          display: none;
+        }
+
+        app-icon {
+          position: absolute;
+          left: 10px;
+
+          animation: fly 5s linear infinite;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 400px) {
+  :host {
+    form.reservation {
+      .menu {
+        div.menuItem {
+          .price {
+            right: 100px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 800px) {
+  :host {
+    form.reservation {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 35px;
+      grid-template-areas:
+        "info menu"
+        "error error"
+        "button button";
+
+      .info {
+        grid-area: info;
+      }
+
+      .menu {
+        grid-area: menu;
+        margin-top: 0;
+      }
+
+      .error {
+        grid-area: error;
+      }
+
+      button {
+        grid-area: button;
+      }
+    }
+  }
+}

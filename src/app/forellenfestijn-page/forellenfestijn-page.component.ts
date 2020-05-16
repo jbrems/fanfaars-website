@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, RequiredValidator, Validators } from '@angular/forms';
 import { ForellenfestijnService } from './forellenfestijn.service';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   templateUrl: './forellenfestijn-page.component.html',
@@ -20,9 +20,11 @@ export class ForellenfestijnPageComponent implements OnInit {
   success = false;
   error = false;
 
-  constructor(private forellenfestijnService: ForellenfestijnService, private route: ActivatedRoute) {}
+  constructor(private forellenfestijnService: ForellenfestijnService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
+    this.router.navigate(['/paella']);
+
     this.catchDateMocking();
     this.date = this.calculateDate();
     this.reservationFrom = this.calculateShowReservationFormFrom();

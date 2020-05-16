@@ -35,6 +35,11 @@ export class InputFieldComponent implements ControlValueAccessor {
   }
 
   onChange() {
+    if (this.type === 'checkbox') {
+      this.onChangeListener(this.inputField.nativeElement.checked);
+      return;
+    }
+
     this.onChangeListener(this.inputField.nativeElement.value);
   }
 
@@ -46,7 +51,12 @@ export class InputFieldComponent implements ControlValueAccessor {
     this.onTouchedListener = fn;
   }
 
-  writeValue(value: string | number): void {
+  writeValue(value: string | number | boolean): void {
+    if (this.type === 'checkbox') {
+      this.inputField.nativeElement.checked = value;
+      return;
+    }
+
     this.inputField.nativeElement.value = value;
     this.labelOnTop = !!value;
   }

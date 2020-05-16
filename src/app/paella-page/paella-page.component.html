@@ -1,0 +1,87 @@
+<app-title title="Paellafestijn"></app-title>
+<div>
+  Wegens de huidige omstandigheden kan ons jaarlijks Forellenfestijn dit jaar niet doorgaan.
+  <br>Als alternatief organiseren wij op <strong>28 juni</strong> een Paellafestijn!
+  <br>Hieronder kan je je reservatie online indienen.
+</div>
+<app-title title="Online reserveren"></app-title>
+<div *ngIf="success" class="success">
+  <app-icon name="check"></app-icon>
+  <span>Uw reservatie werd verwerkt. U ontvangt dadelijk een bevestiging op {{ reservationForm.value.email }}.</span>
+</div>
+<form *ngIf="!success" class="reservation" [formGroup]="reservationForm">
+  <section class="info">
+    <app-input-field label="Naam *" formControlName="name"></app-input-field>
+    <app-input-field label="E-mailadres *" formControlName="email"></app-input-field>
+
+    <div class ="checkboxWithLabel">
+      <app-input-field label="" type="checkbox" formControlName="takeaway"></app-input-field>
+      <label [for]="takeawayId">Haalt af in het PC van Blaasveld</label>
+    </div>
+
+    <div class="checkboxWithLabel">
+      <app-input-field label="" type="checkbox" formControlName="delivery"></app-input-field>
+      <label [for]="deliveryId">Wenst levering aan huis</label>
+    </div>
+
+    <section *ngIf="reservationForm.value.takeaway">
+      <div class="takeaway period">Afhalen tussen <app-select-list formControlName="takeawayPeriod" [values]="['12u00 en 13u00', '17u00 en 18u30']"></app-select-list></div>
+    </section>
+
+    <section *ngIf="reservationForm.value.delivery">
+      <app-input-field label="Straat & huisnummer (bus/index) *" formControlName="street"></app-input-field>
+      <app-select-list formControlName="city" [values]="['2830 Blaasveld', '2830 Heindonk', '2830 Tisselt', '2830 Willebroek']" id="city"></app-select-list>
+
+      <div class="period">Gewenste levering tussen<app-select-list formControlName="deliveryPeriod" [values]="['12u00 en 13u00', '17u00 en 18u30']"></app-select-list></div>
+    </section>
+
+    <app-text-area label="Opmerking" formControlName="remarks"></app-text-area>
+  </section>
+  <div class="menu">
+    <section [formGroup]="reservationForm.get('menu')">
+      <strong>Menu</strong>
+      <div class="menuItem">
+        <div class="label">Paella</div>
+        <div class="price">16,00€</div>
+        <div class="amount"><app-input-field formControlName="paella" type="number"></app-input-field></div>
+      </div>
+      <div class="menuItem">
+        <div class="label">Koude Tapas</div>
+        <div class="price">6,00€</div>
+        <div class="amount"><app-input-field formControlName="tapa" type="number"></app-input-field></div>
+      </div>
+      <div class="menuItem">
+        <div class="label">Fles Cava</div>
+        <div class="price">12,00€</div>
+        <div class="amount"><app-input-field formControlName="cava" type="number"></app-input-field></div>
+      </div>
+      <div class="menuItem">
+        <div class="label">Fles Witte wijn</div>
+        <div class="price">11,00€</div>
+        <div class="amount"><app-input-field formControlName="wine" type="number"></app-input-field></div>
+      </div>
+    </section>
+    <div class="payment">
+      <div class ="checkboxWithLabel">
+        <app-input-field label="" type="checkbox" formControlName="transfer"></app-input-field>
+        <label [for]="transferId">Schrijft <strong>{{ getTotalAmount() }}€</strong> over op rekening <strong>BE39 7895 8983 7719</strong> met melding "Paella {{reservationForm.value.name}}" <span class="status" (click)="copyBankNr()">({{ copyBankNrStatus }})</span></label>
+      </div>
+      &nbsp;
+      <div class ="checkboxWithLabel">
+        <app-input-field label="" type="checkbox" formControlName="cash"></app-input-field>
+        <label [for]="cashId">Betaalt <strong>{{ getTotalAmount() }}€</strong> cash (gepast) bij afhaling of levering</label>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="showUserError && reservationForm.invalid" class="error">
+    <app-icon name="error"></app-icon>
+    <span>Het formulier bevat fouten die gecorrigeerd moeten worden.</span>
+  </div>
+
+  <div *ngIf="error" class="error">
+    <app-icon name="error"></app-icon>
+    <span>Uw reservatie kon niet worden verwerkt. Probeer het later opnieuw of contacteer <a href="mailto:fanfaars@gmail.com">fanfaars@gmail.com</a>.</span>
+  </div>
+  <button type="submit" (click)="sendReservation()" [ngClass]="{ processing: processing }"><app-icon name="plane"></app-icon><span>Reservatie versturen</span></button>
+</form>

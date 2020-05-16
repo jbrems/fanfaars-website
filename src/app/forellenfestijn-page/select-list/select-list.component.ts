@@ -19,6 +19,8 @@ export class SelectListComponent implements ControlValueAccessor {
   @Input() label: string;
   @Input() values: string[];
 
+  selectedValue: string;
+
   @ViewChild('selectList') selectList: ElementRef;
 
   onChangeListener: any = () => {};
@@ -33,7 +35,7 @@ export class SelectListComponent implements ControlValueAccessor {
   }
 
   writeValue(value: string): void {
-    this.selectList.nativeElement.value = value;
+    this.selectedValue = value;
   }
 
   onBlur() {
@@ -41,6 +43,7 @@ export class SelectListComponent implements ControlValueAccessor {
   }
 
   onChange() {
+    this.selectedValue = this.selectList.nativeElement.value;
     this.onChangeListener(this.selectList.nativeElement.value);
   }
 }

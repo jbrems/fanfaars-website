@@ -3,6 +3,7 @@ import * as admin from 'firebase-admin';
 admin.initializeApp();
 import { updatePhotoAlbumsFromFlickr } from './photo-albums';
 import { processForellenfestijnReservation } from './forellenfestijn';
+import {processPaellafestijnReservation} from './paellafestijn';
 
 export const updatePhotoAlbums = functions.https.onRequest(async (req, res) => {
   try {
@@ -14,11 +15,18 @@ export const updatePhotoAlbums = functions.https.onRequest(async (req, res) => {
   }
 });
 
+export const processPaellaReservation = functions.firestore
+  .document('paella/{reservationId}')
+  .onCreate((snapshot, context) => {
+    return processPaellafestijnReservation(snapshot.data());
+  });
+
 export const processReservation = functions.firestore
   .document('forellenfestijn/{reservationId}')
   .onCreate((snapshot, context) => {
     return processForellenfestijnReservation(snapshot.data());
   });
+
 
 export const testProcessReservation = functions.https.onRequest(async (req, res) => {
   try {
