@@ -36,6 +36,7 @@ export class PaellaPageComponent implements OnInit, OnDestroy, AfterViewInit {
     this.subscriptions.push(this.reservationForm.get('takeaway').valueChanges.subscribe((value) => {
       if (value) {
         this.reservationForm.patchValue({ delivery: false }, { emitEvent: false });
+        this.reservationForm.get('street').updateValueAndValidity();
       } else {
         this.reservationForm.patchValue({ takeaway: true }, { emitEvent: false });
       }
@@ -79,7 +80,7 @@ export class PaellaPageComponent implements OnInit, OnDestroy, AfterViewInit {
     this.processing = true;
     this.error = false;
 
-    if (this.reservationForm.errors) {
+    if (!this.reservationForm.valid) {
       this.showUserError = true;
       this.markAllAsTouched(this.reservationForm);
       this.processing = false;
@@ -101,12 +102,13 @@ export class PaellaPageComponent implements OnInit, OnDestroy, AfterViewInit {
     const form = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.minLength(5)]),
       email: new FormControl('', [Validators.required, Validators.email]),
+      phone: new FormControl('', [Validators.required, Validators.minLength(9)]),
       takeaway: new FormControl(true),
-      takeawayPeriod: new FormControl('12u00 en 13u00'),
+      takeawayPeriod: new FormControl('tussen 12u00 en 13u00'),
       delivery: new FormControl(false),
       street: new FormControl(''),
       city: new FormControl('2830 Blaasveld', [Validators.required]),
-      deliveryPeriod: new FormControl('12u00 en 13u00'),
+      deliveryPeriod: new FormControl('tussen 12u00 en 13u00'),
       remarks: new FormControl(''),
       menu: new FormGroup({
         paella: new FormControl(0, [Validators.min(0), Validators.max(99)]),
@@ -116,7 +118,7 @@ export class PaellaPageComponent implements OnInit, OnDestroy, AfterViewInit {
       }),
       transfer: new FormControl(true),
       cash: new FormControl(false),
-    }, { validators: streetValidator});
+    }, {validators: streetValidator});
 
     return form;
   }
