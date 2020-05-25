@@ -8,3 +8,5 @@
 yarn-error.log
 
 /src/app/firebase-config.ts
+
+firebase-debug.log
