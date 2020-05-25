@@ -41,10 +41,10 @@ function generateMailContent(reservation: any) {
       <td>${reservation.phone}</td>
       <td>${reservation.takeaway ? 'AFHALEN' : 'LEVEREN'}</td>
       <td>${reservation.takeaway ? reservation.takeawayPeriod : reservation.deliveryPeriod}</td>
-      <td>${reservation.paella}</td>
-      <td>${reservation.tapa}</td>
-      <td>${reservation.cava}</td>
-      <td>${reservation.wine}</td>
+      <td>${reservation.menu.paella}</td>
+      <td>${reservation.menu.tapa}</td>
+      <td>${reservation.menu.cava}</td>
+      <td>${reservation.menu.wine}</td>
       <td>${reservation.delivery ? reservation.street : ''}</td>
       <td>${reservation.delivery ? reservation.city : ''}</td>
       <td>${reservation.transfer ? 'OVERSCHRIJVING' : 'CASH'}</td>
