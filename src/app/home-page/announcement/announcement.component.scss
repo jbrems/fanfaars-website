@@ -1,0 +1,100 @@
+@import '../../colors';
+
+.announcement {
+  padding: 5px;
+  margin: 10px;
+
+  border: solid 2px $mr-orange;
+  border-radius: 15px;
+  background-color: rgba(253, 158, 19, 0.1);
+
+  .image-container {
+    width: 100%;
+    height: 75px;
+    overflow: hidden;
+
+    border-radius: 15px;
+
+    .image {
+      width: 100%;
+      border-radius: 15px;
+    }
+  }
+
+
+  .content {
+    .title {
+      margin-top: 5px;
+      font-size: 24px;
+    }
+
+    .description {
+      padding-top: 10px;
+
+      .button-container {
+        margin-top: 20px;
+
+        width: 100%;
+
+        .button {
+          display: flex;
+          align-items: center;
+
+          width: 240px;
+          height: 40px;
+          margin: 0 auto 5px auto;
+
+          background-color: $mr-orange;
+
+          border: solid 1px $mr-orange;
+          border-radius: 5px;
+          box-shadow: 3px 3px 6px #303030;
+
+          cursor: pointer;
+
+          transition: background-color 0.5s;
+
+          &:hover {
+            background-color: rgba(253, 158, 19, 0.5);
+          }
+
+          span {
+            display: inline-block;
+            font-size: 18px;
+            font-weight: 300;
+            margin: 0px auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .announcement {
+    display: flex;
+
+    padding: 10px;
+
+    .image-container {
+      max-width: 200px;
+      height: inherit;
+    }
+
+    .content {
+      padding-left: 15px;
+
+      .title {
+        margin-top: 0;
+      }
+
+      .description {
+        .button-container {
+          .button {
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+  }
+}
