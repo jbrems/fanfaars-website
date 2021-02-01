@@ -2,6 +2,7 @@
 
 .title {
   padding: 10px;
+  margin-top: 25px;
 
   .title-text {
     display: flex;
@@ -37,7 +38,8 @@
     margin-top: 3px;
     text-align: left;
 
-    border: solid 2px $ff-red-dark;
+    border: solid 5px $ff-red-dark;
+    border-width: 0 0 5px 0;
     border-radius: 2px;
   }
 }

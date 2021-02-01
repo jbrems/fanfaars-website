@@ -5,12 +5,12 @@
 
   width: calc(100% - 20px);
   height: 190px;
-  margin: 0 10px 10px 10px;
+  margin: 0 10px 20px 10px;
   overflow: hidden;
 
   border-radius: 7px;
   background-color: $black-lighter;
-  box-shadow: 0px 0px 3px 3px rgba(136, 136, 136, 0.08);
+  box-shadow: 2px 2px 6px 3px rgba(136, 136, 136, 0.1);
 
   .picture {
     min-width: 100%;
@@ -32,6 +32,11 @@
     height: 190px;
 
     background-color: rgba(255, 255, 255, 0.53);
+    transition: background-color 2s;
+  }
+
+  &:hover .overlay {
+    background-color: rgba(255, 255, 255, 0.01);
   }
 
   .logo {
