@@ -1,8 +1,10 @@
-import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
+import { AfterViewInit, Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { PaellaService} from './paella.service';
 import { Subscription } from 'rxjs';
 import { streetValidator } from './street.validator';
+import { DOCUMENT } from '@angular/common';
+import * as qrCode from 'qrcode';
 
 @Component({
   templateUrl: './paella-page.component.html',
@@ -25,7 +27,7 @@ export class PaellaPageComponent implements OnInit, OnDestroy, AfterViewInit {
 
   subscriptions: Subscription[] = [];
 
-  constructor(private paellaService: PaellaService) {}
+  constructor(private paellaService: PaellaService, @Inject(DOCUMENT) private document: Document) {}
 
   ngOnInit(): void {
     this.reservationForm = this.setupReservationForm();
@@ -91,6 +93,7 @@ export class PaellaPageComponent implements OnInit, OnDestroy, AfterViewInit {
       await this.paellaService.saveReservation({ ...this.reservationForm.value, totalAmount: this.getTotalAmount() });
       this.processing = false;
       this.success = true;
+      this.updateQrCode();
     } catch (error) {
       this.processing = false;
       this.error = true;
@@ -123,10 +126,25 @@ export class PaellaPageComponent implements OnInit, OnDestroy, AfterViewInit {
     return form;
   }
 
+  get name(): string {
+    return this.reservationForm.get('name').value;
+  }
+
+  get transfer(): boolean {
+    return this.reservationForm.get('transfer').value;
+  }
+
+  get cash(): boolean {
+    return this.reservationForm.get('cash').value;
+  }
+
+  get totalAmount(): number {
+    return this.getTotalAmount();
+  }
+
   getTotalAmount() {
     const { paella, tapa, cava, wine} = this.reservationForm.value.menu;
     return paella * 15 + tapa * 6 + cava * 12 + wine * 11;
-
   }
 
   copyBankNr() {
@@ -145,6 +163,14 @@ export class PaellaPageComponent implements OnInit, OnDestroy, AfterViewInit {
         child.markAsTouched();
       }
     }));
+  }
+
+  private updateQrCode(): void {
+    setTimeout(() => {
+      const canvas = this.document.querySelector('canvas#qr-code');
+      const sepaData = ['BCD', '002', 1, 'SCT', '', 'Fanfare Blaasveld', 'BE39789589837719', `EUR${this.totalAmount}.00`, '', '', `Paella ${this.name}`, ''].join('\n');
+      qrCode.toCanvas(canvas, sepaData);
+    }, 500);
   }
 
   ngOnDestroy(): void {

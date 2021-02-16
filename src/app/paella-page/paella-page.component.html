@@ -1,23 +1,43 @@
 <app-title title="Paellafestijn"></app-title>
 <div>
-  <h2>Reserveren is helaas niet meer mogelijk</h2>
-  <br><br>
-  Dit jaar eens geen forellen, blijf in uw kot en laat u verwennen met een lekkere Paella aan huis.
-  <br>Als alternatief voor ons forellenfestijn organiseren wij op <strong>28 juni</strong> een Paellafestijn!
+  Dit jaar nog steeds geen forellen. Als alternatief organiseren wij op zondag <strong>6 juni</strong> opnieuw een
+  Paellafestijn!
   <br><br>De paella wordt vers klaargemaakt met lekker gekruide rijst met groenten, gamba, scampi, grote mossel, kip,
-  calamares, venus, inktvisjes, chorizo en citroen. Hij wordt hygiënisch verpakt en warm geleverd aan huis of
-  geserveerd voor afhaling.
+  calamares, venus, inktvisjes, chorizo en citroen. Dit jaar wordt er extra aandacht besteed aan de evenredige verdeling
+  van de ingrediënten in de porties. De Paella wordt hygiënisch verpakt en warm geleverd aan huis of geserveerd voor
+  afhaling.
   <br><br>De koude Tapas bevatten tortilla, Spaanse bergham, chorizo, olijven en manchego.
   <br><br>Wij leveren enkel in Groot-Willebroek (postcode 2830).
   <br>Afhalen in het Parochial Centrum van Blaasveld is uiteraard voor iedereen beschikbaar.
-  <br>Bij voorkeur betalen via overschrijving voor 24 juni op rekening BE39 7895 8983 7719. Cash betalingen moeten met gepast geld gebeuren.
-  <br><br>Hieronder kan je je reservatie online indienen. Op 24 juni sluiten wij de reservaties af.
-  <br><br>Uw gegevens worden enkel gebruikt bij de verwerking van uw reservatie.
+  <br>Bij voorkeur betalen via overschrijving voor 2 juni op rekening BE39 7895 8983 7719. Cash betalingen moeten met
+  gepast geld gebeuren.
+<!--  <br><br>Hieronder kan je je reservatie online indienen. Op 2 juni sluiten wij de reservaties af.-->
+<!--  <br><br><em>Uw gegevens worden enkel gebruikt bij de verwerking van uw reservatie.</em>-->
 </div>
 <!--<app-title title="Online reserveren"></app-title>-->
 <!--<div *ngIf="success" class="success">-->
 <!--  <app-icon name="check"></app-icon>-->
 <!--  <span>Uw reservatie werd verwerkt. U ontvangt dadelijk een bevestiging op {{ reservationForm.value.email }}.</span>-->
+<!--</div>-->
+<!--<div [ngStyle]="{ display: success && transfer ? 'flex' : 'none' }" class="payment-details">-->
+<!--  <div class="message">Gelieve tijdig het totale bedrag over te maken op onze rekening:</div>-->
+<!--  <div class="manual">-->
+<!--    <table>-->
+<!--      <tbody>-->
+<!--        <tr><td>Begunstigde</td><td>Fanfare Blaasveld</td></tr>-->
+<!--        <tr><td>Rekening</td><td>BE39 7895 8983 7719 <span class="status" (click)="copyBankNr()">({{ copyBankNrStatus }})</span></td></tr>-->
+<!--        <tr><td>Bedrag</td><td>€ {{totalAmount}},00</td></tr>-->
+<!--        <tr><td>Mededeling</td><td>Paella {{name}}</td></tr>-->
+<!--      </tbody>-->
+<!--    </table>-->
+<!--  </div>-->
+<!--  <div class="qr">-->
+<!--    <canvas id="qr-code"></canvas>-->
+<!--  </div>-->
+<!--  <div class="info-message">-->
+<!--    <app-icon name="info"></app-icon>-->
+<!--    <span>Deze betaling wordt niet automatisch verwerkt. De gegevens verdwijnen niet wanneer de betaling is uitgevoerd.</span>-->
+<!--  </div>-->
 <!--</div>-->
 <!--<form *ngIf="!success" class="reservation" [formGroup]="reservationForm">-->
 <!--  <section class="info">-->
@@ -75,7 +95,7 @@
 <!--    <div class="payment">-->
 <!--      <div class ="checkboxWithLabel">-->
 <!--        <app-input-field label="" type="checkbox" formControlName="transfer"></app-input-field>-->
-<!--        <label [for]="transferId">Schrijft <strong>{{ getTotalAmount() }}€</strong> over naar rekening <strong>BE39 7895 8983 7719</strong> met melding "Paella {{reservationForm.value.name}}" <span class="status" (click)="copyBankNr()">({{ copyBankNrStatus }})</span></label>-->
+<!--        <label [for]="transferId">Schrijft <strong>{{ getTotalAmount() }}€</strong> over naar rekening <strong>BE39 7895 8983 7719</strong> met melding "Paella {{reservationForm.value.name}}"</label>-->
 <!--      </div>-->
 <!--      &nbsp;-->
 <!--      <div class ="checkboxWithLabel">-->

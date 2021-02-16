@@ -24,8 +24,8 @@ function generateMailContent(reservation: any) {
       ${ reservation.remarks ? '<br/><br/>Opmerking: ' + reservation.remarks : '' }
     </div>
     <br/>
-    ${ reservation.takeaway ? 'De bestelling kan worden afgehaald op zondag 28 juni ' + reservation.takeawayPeriod + ' in het Parochiaal Centrum van Blaasveld.' : ''}
-    ${ reservation.delivery ? 'De bestelling wordt op zondag 28 juni ' + reservation.deliveryPeriod + ' geleverd bij ' + reservation.street + ', ' + reservation.city + '.' : '' }
+    ${ reservation.takeaway ? 'De bestelling kan worden afgehaald op zondag 6 juni ' + reservation.takeawayPeriod + ' in het Parochiaal Centrum van Blaasveld.' : ''}
+    ${ reservation.delivery ? 'De bestelling wordt op zondag 6 juni ' + reservation.deliveryPeriod + ' geleverd bij ' + reservation.street + ', ' + reservation.city + '.' : '' }
     <br/><br/>
     ${ reservation.transfer ? 'Gelieve ' + reservation.totalAmount + '€ over te schrijven op rekening BE39 7895 8983 7719 met vermelding van "Paella ' + reservation.name + '".' : '' }
     ${ reservation.cash ? 'Gelieve ' + reservation.totalAmount + '€ (gepast) klaar te houden.' : ''}

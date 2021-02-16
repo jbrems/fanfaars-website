@@ -23,7 +23,8 @@
     background-color: rgba(219, 0, 0, 0.05);
 
     app-icon {
-      margin-right: 15px;
+      margin-right: 10px;
+      margin-top: 5px;
       fill: $ff-red;
     }
   }
@@ -37,16 +38,94 @@
 
     border: solid 1px $mm-green;
     border-radius: 3px;
-    background-color: rgba(141, 198, 65, 0.05);;
+    background-color: rgba(141, 198, 65, 0.05);
 
     app-icon {
-      margin-right: 15px;
+      margin-right: 10px;
+      margin-top: 5px;
       fill: $mm-green;
     }
   }
 
+  .info-message {
+    display: flex;
+    align-items: center;
+
+    margin: 10px;
+    padding: 5px;
+
+    border: solid 1px $f4f-purple;
+    border-radius: 3px;
+    background-color: rgba(169, 65, 152, 0.05);
+
+    @keyframes spin { 10% { transform:rotateY(90deg); } 20% { transform:rotateY(0deg); }}
+
+    app-icon {
+      margin-right: 10px;
+      margin-top: 5px;
+      fill: $f4f-purple;
+
+      ::ng-deep svg {
+        animation: spin 5s linear infinite;
+      }
+    }
+  }
+
+  .payment-details {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 20px 10px;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 3px;
+
+    .message {
+      width: 100%;
+    }
+
+    .manual {
+      width: 100%;
+
+      table {
+        margin: auto;
+
+        tr {
+          height: 40px;
+
+          :nth-child(1) {
+            width: 100px;
+          }
+
+          :nth-child(2) {
+            font-weight: 400;
+          }
+        }
+      }
+
+      .status {
+        color: grey;
+        font-size: .75em;
+        text-decoration: underline;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+    }
+
+    .qr {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .info-message {
+      width: 100%;
+    }
+  }
+
   form.reservation {
-    padding: 15px;
+    padding: 25px 15px;
     margin: 0 10px 15px 10px;
 
     background-color: $white;
@@ -69,6 +148,10 @@
       display: flex;
 
       margin: 0;
+
+      &:first-of-type {
+        margin-top: 40px;
+      }
     }
 
     .period {
@@ -80,18 +163,14 @@
       &.takeaway {
         margin-top: 0;
       }
-    }
 
-    .persons {
-      app-input-field ::ng-deep .inputField {
-        margin: 0 10px;
-      }
-    }
-
-    .period {
       app-select-list ::ng-deep .selectList {
         margin: 0 10px;
       }
+    }
+
+    app-text-area ::ng-deep .textArea {
+      margin-top: 40px;
     }
 
     .menu {
@@ -108,8 +187,7 @@
           height: 38px;
           margin-top: 5px;
 
-          &:nth-of-type(3),
-          &:nth-of-type(7) {
+          &:nth-of-type(3) {
             margin-top: 15px;
           }
 
@@ -132,14 +210,7 @@
       }
 
       .payment {
-        margin: 30px 0 0 0;
-
-        .status {
-          color: grey;
-          font-size: .75em;
-          text-decoration: underline;
-          cursor: pointer;
-        }
+        margin: 40px 0 0 0;
       }
     }
 
@@ -149,7 +220,7 @@
       justify-content: center;
       width: 100%;
       max-width: 300px;
-      margin: 10px auto 10px auto;
+      margin: 30px auto 10px auto;
       padding: 10px 15px;
 
       color: $white;
@@ -158,6 +229,12 @@
       border-radius: 5px;
 
       cursor: pointer;
+
+      transition: background-color 1s;
+
+      &:hover {
+        background-color: $ff-red;
+      }
 
       app-icon {
         fill: $white;
@@ -207,12 +284,23 @@
   }
 }
 
+@media (min-width: 625px) {
+  :host {
+    .payment-details {
+      .manual,
+      .qr {
+        width: calc(50% - 30px);
+      }
+    }
+  }
+}
+
 @media (min-width: 800px) {
   :host {
     form.reservation {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-column-gap: 35px;
+      grid-column-gap: 75px;
       grid-template-areas:
         "info menu"
         "error error"

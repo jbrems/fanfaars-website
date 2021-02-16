@@ -50,3 +50,30 @@ cd functions && yarn && cd ..
 firebase login
 yarn deploy
 ```
+
+## Docker deploy
+Generate a login token from a web browser capable environment (not from the container)
+```
+firebase login:ci
+```
+Start the docker container binding the workspace to the /mnt folder
+```
+docker run -v "C:\devenv\mean\fanfaars":/mnt -i -t node:14 bash
+```
+Install the firebase tools
+```
+npm i -g firebase-tools
+```
+Deploy the server functions  
+*Add the CI token at the end of every firebase command*
+```
+(cd mnt)
+firebase deploy --only functions --token <token>
+```
+Build and deploy the website  
+*Add the CI token at the end of every firebase command*
+```
+(cd mnt)
+ng build --prod
+firebase deploy --only hosting --token <token>
+```

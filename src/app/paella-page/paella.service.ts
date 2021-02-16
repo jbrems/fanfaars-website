@@ -8,9 +8,9 @@ export class PaellaService {
   constructor(private firestore: AngularFirestore) {}
 
   public async saveReservation(reservation: any) {
-    const name = reservation.name.replace(/\s/, '-');
+    const name = reservation.name.replace(/\s/g, '-');
     const date = new Date().toISOString();
-    const reservationId = `${name}_${date}`;
+    const reservationId = `${new Date().getFullYear()}_${name}_${date}`;
     return this.firestore
       .collection('paella')
       .doc(reservationId)
