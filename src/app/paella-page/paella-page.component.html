@@ -11,14 +11,16 @@
   <br>Afhalen in het Parochial Centrum van Blaasveld is uiteraard voor iedereen beschikbaar.
   <br>Bij voorkeur betalen via overschrijving voor 2 juni op rekening BE39 7895 8983 7719. Cash betalingen moeten met
   gepast geld gebeuren.
-<!--  <br><br>Hieronder kan je je reservatie online indienen. Op 2 juni sluiten wij de reservaties af.-->
-<!--  <br><br><em>Uw gegevens worden enkel gebruikt bij de verwerking van uw reservatie.</em>-->
+  <br><br>Hieronder kan je je reservatie online indienen. Op 2 juni sluiten wij de reservaties af.
+  <br><br><em>Uw gegevens worden enkel gebruikt bij de verwerking van uw reservatie.</em>
 </div>
-<!--<app-title title="Online reserveren"></app-title>-->
-<!--<div *ngIf="success" class="success">-->
-<!--  <app-icon name="check"></app-icon>-->
-<!--  <span>Uw reservatie werd verwerkt. U ontvangt dadelijk een bevestiging op {{ reservationForm.value.email }}.</span>-->
-<!--</div>-->
+
+<app-title title="Online reserveren"></app-title>
+
+<div>Online reserveren kan vanaf begin mei 2021.</div>
+
+<!--<app-info *ngIf="success" type="success" message="Uw reservatie werd verwerkt. U ontvangt dadelijk een bevestiging op {{ reservationForm.value.email }}."></app-info>-->
+
 <!--<div [ngStyle]="{ display: success && transfer ? 'flex' : 'none' }" class="payment-details">-->
 <!--  <div class="message">Gelieve tijdig het totale bedrag over te maken op onze rekening:</div>-->
 <!--  <div class="manual">-->
@@ -34,11 +36,10 @@
 <!--  <div class="qr">-->
 <!--    <canvas id="qr-code"></canvas>-->
 <!--  </div>-->
-<!--  <div class="info-message">-->
-<!--    <app-icon name="info"></app-icon>-->
-<!--    <span>Deze betaling wordt niet automatisch verwerkt. De gegevens verdwijnen niet wanneer de betaling is uitgevoerd.</span>-->
-<!--  </div>-->
+
+<!--  <app-info [spinningIcon]="true" type="info" message="Deze betaling wordt niet automatisch verwerkt. De gegevens verdwijnen niet wanneer de betaling is uitgevoerd."></app-info>-->
 <!--</div>-->
+
 <!--<form *ngIf="!success" class="reservation" [formGroup]="reservationForm">-->
 <!--  <section class="info">-->
 <!--    <app-input-field label="Naam *" formControlName="name"></app-input-field>-->
@@ -105,14 +106,9 @@
 <!--    </div>-->
 <!--  </div>-->
 
-<!--  <div *ngIf="showUserError && reservationForm.invalid" class="error">-->
-<!--    <app-icon name="error"></app-icon>-->
-<!--    <span>Het formulier bevat fouten die gecorrigeerd moeten worden.</span>-->
-<!--  </div>-->
+<!--  <app-info class="error" *ngIf="showUserError && reservationForm.invalid" [spinningIcon]="true" type="error" message="Het formulier bevat fouten die gecorrigeerd moeten worden."></app-info>-->
 
-<!--  <div *ngIf="error" class="error">-->
-<!--    <app-icon name="error"></app-icon>-->
-<!--    <span>Uw reservatie kon niet worden verwerkt. Probeer het later opnieuw of contacteer <a href="mailto:fanfaars@gmail.com">fanfaars@gmail.com</a>.</span>-->
-<!--  </div>-->
+<!--  <app-info class="error" *ngIf="error" [spinningIcon]="true" type="error" message="Uw reservatie kon niet worden verwerkt. Probeer het later opnieuw of contacteer fanfaars@gmail.com."></app-info>-->
+
 <!--  <button type="submit" (click)="sendReservation()" [ngClass]="{ processing: processing }"><app-icon name="plane"></app-icon><span>Reservatie versturen</span></button>-->
 <!--</form>-->

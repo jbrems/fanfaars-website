@@ -1,0 +1,52 @@
+@import '../../colors';
+
+:host {
+  div {
+    display: flex;
+    align-items: center;
+
+    margin: 10px;
+    padding: 5px;
+
+    border-radius: 3px;
+  }
+
+  app-icon {
+    margin: 5px 10px 0 5px;
+  }
+
+  .error {
+    border: solid 1px $ff-red;
+    background-color: rgba(219, 0, 0, 0.05);
+
+    app-icon {
+      fill: $ff-red;
+    }
+  }
+
+  .success {
+    border: solid 1px $mm-green;
+    background-color: rgba(141, 198, 65, 0.05);
+
+    app-icon {
+      fill: $mm-green;
+    }
+  }
+
+  .info {
+    border: solid 1px $f4f-purple;
+    background-color: rgba(169, 65, 152, 0.05);
+
+    app-icon {
+      fill: $f4f-purple;
+    }
+  }
+
+  .spinningIcon {
+    @keyframes spin { 10% { transform:rotateY(90deg); } 20% { transform:rotateY(0deg); }}
+
+    app-icon ::ng-deep svg {
+      animation: spin 4s linear infinite;
+    }
+  }
+}

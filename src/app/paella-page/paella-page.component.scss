@@ -11,66 +11,6 @@
     }
   }
 
-  .error {
-    display: flex;
-    align-items: center;
-
-    margin: 10px 0 0 0;
-    padding: 5px;
-
-    border: solid 1px $ff-red;
-    border-radius: 3px;
-    background-color: rgba(219, 0, 0, 0.05);
-
-    app-icon {
-      margin-right: 10px;
-      margin-top: 5px;
-      fill: $ff-red;
-    }
-  }
-
-  .success {
-    display: flex;
-    align-items: center;
-
-    margin: 10px;
-    padding: 5px;
-
-    border: solid 1px $mm-green;
-    border-radius: 3px;
-    background-color: rgba(141, 198, 65, 0.05);
-
-    app-icon {
-      margin-right: 10px;
-      margin-top: 5px;
-      fill: $mm-green;
-    }
-  }
-
-  .info-message {
-    display: flex;
-    align-items: center;
-
-    margin: 10px;
-    padding: 5px;
-
-    border: solid 1px $f4f-purple;
-    border-radius: 3px;
-    background-color: rgba(169, 65, 152, 0.05);
-
-    @keyframes spin { 10% { transform:rotateY(90deg); } 20% { transform:rotateY(0deg); }}
-
-    app-icon {
-      margin-right: 10px;
-      margin-top: 5px;
-      fill: $f4f-purple;
-
-      ::ng-deep svg {
-        animation: spin 5s linear infinite;
-      }
-    }
-  }
-
   .payment-details {
     display: flex;
     flex-wrap: wrap;
@@ -119,7 +59,7 @@
       align-items: center;
     }
 
-    .info-message {
+    app-info {
       width: 100%;
     }
   }
@@ -212,6 +152,10 @@
       .payment {
         margin: 40px 0 0 0;
       }
+    }
+
+    app-info ::ng-deep div {
+      margin: 0;
     }
 
     button {
@@ -315,8 +259,10 @@
         margin-top: 0;
       }
 
-      .error {
+      app-info.error {
         grid-area: error;
+
+        margin-top: 15px;
       }
 
       button {
