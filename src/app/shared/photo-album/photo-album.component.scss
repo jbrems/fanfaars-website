@@ -8,9 +8,8 @@
   margin: 0 10px 20px 10px;
   overflow: hidden;
 
-  border-radius: 7px;
   background-color: $black-lighter;
-  box-shadow: 2px 2px 6px 3px rgba(136, 136, 136, 0.1);
+  box-shadow: 3px 3px 10px 3px #BBBBBB;
 
   .picture {
     min-width: 100%;
@@ -22,6 +21,15 @@
       width: 100%;
 
       border-radius: 5px;
+
+      transition: width 2s, margin-left 2s;
+    }
+  }
+
+  &:hover .picture {
+    img {
+      width: 110%;
+      margin-left: -5%;
     }
   }
 
