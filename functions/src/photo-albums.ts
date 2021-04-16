@@ -3,21 +3,26 @@ const got = require('got');
 
 export async function updatePhotoAlbumsFromFlickr() {
   console.log('Updating photo albums from Flickr');
-    const albums = await fetchAlbums();
-    await deletePhotoAlbums();
-    addPhotoAlbums(albums);
-    return `Database updated with ${albums.length} photo albums`;
-};
+  const albums = await fetchAlbums();
+  console.log(`Fetched ${albums.length} from Flickr`);
+  await deletePhotoAlbums();
+  console.log(`Deleted albums from Firestore`);
+  addPhotoAlbums(albums);
+  console.log(`Inserted albums from Flickr`);
+  return `Database updated with ${albums.length} photo albums`;
+}
 
 async function fetchAlbums() {
   const config = await fetchConfig();
   const response = await got(`https://www.flickr.com/services/rest/?method=flickr.photosets.getList&api_key=${config.flickrApiKey}&user_id=${config.flickrUserId}&primary_photo_extras=url_m&format=json&nojsoncallback=1`);
+  console.log(response.body);
   const body = JSON.parse(response.body);
   if (!body || !body.photosets || !body.photosets.photoset) { throw new Error('Unable to fetch albums from Flickr'); }
   return mapFlickrResponse(body.photosets.photoset);
 }
 
 async function fetchConfig() {
+  console.log('Fetching config');
   const configRef = await admin.firestore().doc('/config/production').get();
   const config = await configRef.data();
   if (!config) { throw new Error('Unable to fetch config'); }

@@ -35,6 +35,10 @@ export class InputFieldComponent implements ControlValueAccessor {
   }
 
   onChange() {
+    if (this.type === 'number' && this.inputField.nativeElement.value) {
+      this.inputField.nativeElement.value = Math.ceil(this.inputField.nativeElement.value);
+    }
+
     if (this.type === 'checkbox') {
       this.onChangeListener(this.inputField.nativeElement.checked);
       return;
