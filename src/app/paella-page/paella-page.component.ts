@@ -11,6 +11,8 @@ import * as qrCode from 'qrcode';
   styleUrls: ['./paella-page.component.scss'],
 })
 export class PaellaPageComponent implements OnInit, OnDestroy, AfterViewInit {
+  closed = new Date() >= new Date('2021-06-03');
+
   reservationForm: FormGroup;
   submitted = false;
   showUserError = false;
