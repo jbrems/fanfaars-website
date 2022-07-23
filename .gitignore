@@ -5,6 +5,7 @@
 /functions/lib
 /.idea
 /.firebase
+/.angular
 yarn-error.log
 
 /src/app/firebase-config.ts
