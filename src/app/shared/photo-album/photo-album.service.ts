@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, QuerySnapshot } from '@angular/fire/firestore';
+import { AngularFirestore, DocumentData, QuerySnapshot } from '@angular/fire/compat/firestore';
 import { map, tap } from 'rxjs/operators';
 import { PhotoAlbum } from './photo-album';
 import { Observable, of } from 'rxjs';
@@ -48,14 +48,14 @@ export class PhotoAlbumService {
       .get()
       .pipe(
         map(this.mapQuerySnapshotToPhotoAlbums),
-        tap(photoAlbums => this.photoAlbums = photoAlbums)
+        tap((photoAlbums: PhotoAlbum[]) => { this.photoAlbums = photoAlbums; }),
       );
   }
 
   /**
    * Maps the querySnapshot returned by Firestore to a list of PhotoAlbum.
    */
-  private mapQuerySnapshotToPhotoAlbums(querySnapshot: QuerySnapshot<PhotoAlbum>): PhotoAlbum[] {
+  private mapQuerySnapshotToPhotoAlbums(querySnapshot: QuerySnapshot<PhotoAlbum[]>): PhotoAlbum[] {
     const photoAlbums: PhotoAlbum[] = [];
     querySnapshot.forEach(doc => photoAlbums.push(doc.data() as PhotoAlbum));
     return photoAlbums;

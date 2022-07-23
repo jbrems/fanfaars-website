@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, QuerySnapshot } from '@angular/fire/firestore';
+import { AngularFirestore, QuerySnapshot } from '@angular/fire/compat/firestore';
 import { map, tap } from 'rxjs/operators';
 import { Activity } from './activity';
 import { Observable, of } from 'rxjs';

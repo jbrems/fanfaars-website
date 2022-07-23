@@ -30,7 +30,8 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "tsConfig": "src/tsconfig.app.json"
           },
           "configurations": {
             "production": {
@@ -54,8 +55,7 @@
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
                 }
-              ],
-              "tsConfig": "src/tsconfig.app.json"
+              ]
             }
           }
         },
@@ -66,7 +66,7 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "fanfaars:build:production"
+              "browserTarget": "fanfaars:build"
             }
           }
         },
