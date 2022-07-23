@@ -1,6 +1,7 @@
-import { AfterViewChecked, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewChecked, ElementRef, ViewChild, Directive } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+@Directive()
 export class ScrollToMeespelenComponent implements AfterViewChecked {
   @ViewChild('meespelen') meespelen: ElementRef;
 
