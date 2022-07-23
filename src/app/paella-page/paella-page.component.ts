@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { PaellaService} from './paella.service';
 import { Subscription } from 'rxjs';
 
@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
 export class PaellaPageComponent implements OnInit, OnDestroy {
   closed = new Date() >= new Date('2022-06-01');
 
-  reservationForm: FormGroup;
+  reservationForm: UntypedFormGroup;
   submitted = false;
   showUserError = false;
   processing = false;
@@ -49,18 +49,18 @@ export class PaellaPageComponent implements OnInit, OnDestroy {
     }
   }
 
-  private setupReservationForm(): FormGroup {
-    const form = new FormGroup({
-      name: new FormControl('', [Validators.required, Validators.minLength(5)]),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      phone: new FormControl('', [Validators.required, Validators.minLength(9)]),
-      arrival: new FormControl('tussen 12u00 en 13u00'),
-      persons: new FormControl(0, [Validators.min(1), Validators.max(29)]),
-      remarks: new FormControl(''),
-      menu: new FormGroup({
-        tapa: new FormControl(0, [Validators.min(0), Validators.max(99)]),
-        paella: new FormControl(0, [Validators.min(0), Validators.max(99)]),
-        albondigas: new FormControl(0, [Validators.min(0), Validators.max(99)]),
+  private setupReservationForm(): UntypedFormGroup {
+    const form = new UntypedFormGroup({
+      name: new UntypedFormControl('', [Validators.required, Validators.minLength(5)]),
+      email: new UntypedFormControl('', [Validators.required, Validators.email]),
+      phone: new UntypedFormControl('', [Validators.required, Validators.minLength(9)]),
+      arrival: new UntypedFormControl('tussen 12u00 en 13u00'),
+      persons: new UntypedFormControl(0, [Validators.min(1), Validators.max(29)]),
+      remarks: new UntypedFormControl(''),
+      menu: new UntypedFormGroup({
+        tapa: new UntypedFormControl(0, [Validators.min(0), Validators.max(99)]),
+        paella: new UntypedFormControl(0, [Validators.min(0), Validators.max(99)]),
+        albondigas: new UntypedFormControl(0, [Validators.min(0), Validators.max(99)]),
       }),
     });
 
@@ -80,12 +80,12 @@ export class PaellaPageComponent implements OnInit, OnDestroy {
     return paella * 18 + tapa * 6 + albondigas * 15;
   }
 
-  private markAllAsTouched(formGroup: FormGroup) {
+  private markAllAsTouched(formGroup: UntypedFormGroup) {
     Object.keys(formGroup.controls).forEach((formControlName => {
       const child: AbstractControl = formGroup.controls[formControlName];
-      if (child instanceof FormGroup) {
+      if (child instanceof UntypedFormGroup) {
         this.markAllAsTouched(child);
-      } else if (child instanceof FormControl) {
+      } else if (child instanceof UntypedFormControl) {
         child.markAsTouched();
       }
     }));

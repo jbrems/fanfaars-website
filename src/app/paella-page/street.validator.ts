@@ -1,6 +1,6 @@
-import {FormGroup, ValidationErrors, ValidatorFn} from '@angular/forms';
+import {UntypedFormGroup, ValidationErrors, ValidatorFn} from '@angular/forms';
 
-export const streetValidator: ValidatorFn = (control: FormGroup): ValidationErrors | null => {
+export const streetValidator: ValidatorFn = (control: UntypedFormGroup): ValidationErrors | null => {
   const delivery = control.get('delivery');
   const street = control.get('street');
 

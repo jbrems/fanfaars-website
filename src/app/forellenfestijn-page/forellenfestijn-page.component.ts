@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, RequiredValidator, Validators } from '@angular/forms';
+import { AbstractControl, UntypedFormControl, UntypedFormGroup, RequiredValidator, Validators } from '@angular/forms';
 import { ForellenfestijnService } from './forellenfestijn.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
@@ -12,7 +12,7 @@ export class ForellenfestijnPageComponent implements OnInit {
   date: Date;
   reservationFrom: Date;
 
-  reservationForm: FormGroup;
+  reservationForm: UntypedFormGroup;
   arrivalValues: string[];
   submitted = false;
   showUserError = false;
@@ -73,22 +73,22 @@ export class ForellenfestijnPageComponent implements OnInit {
     return showReservationFormFrom;
   }
 
-  private setupReservationForm(): FormGroup {
-    const form = new FormGroup({
-      name: new FormControl('', [Validators.required, Validators.minLength(5)]),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      persons: new FormControl(2, [Validators.min(1), Validators.max(99)]),
-      arrival: new FormControl('11u30'),
-      remarks: new FormControl(''),
-      menu: new FormGroup({
-        soup: new FormControl(0, [Validators.min(0), Validators.max(99)]),
-        melon: new FormControl(0, [Validators.min(0), Validators.max(99)]),
-        troutNature: new FormControl(0, [Validators.min(0), Validators.max(99)]),
-        troutAlmond: new FormControl(0, [Validators.min(0), Validators.max(99)]),
-        troutWine: new FormControl(0, [Validators.min(0), Validators.max(99)]),
-        troutArdennaise: new FormControl(0, [Validators.min(0), Validators.max(99)]),
-        volAuVent: new FormControl(0, [Validators.min(0), Validators.max(99)]),
-        volAuVentChild: new FormControl(0, [Validators.min(0), Validators.max(99)]),
+  private setupReservationForm(): UntypedFormGroup {
+    const form = new UntypedFormGroup({
+      name: new UntypedFormControl('', [Validators.required, Validators.minLength(5)]),
+      email: new UntypedFormControl('', [Validators.required, Validators.email]),
+      persons: new UntypedFormControl(2, [Validators.min(1), Validators.max(99)]),
+      arrival: new UntypedFormControl('11u30'),
+      remarks: new UntypedFormControl(''),
+      menu: new UntypedFormGroup({
+        soup: new UntypedFormControl(0, [Validators.min(0), Validators.max(99)]),
+        melon: new UntypedFormControl(0, [Validators.min(0), Validators.max(99)]),
+        troutNature: new UntypedFormControl(0, [Validators.min(0), Validators.max(99)]),
+        troutAlmond: new UntypedFormControl(0, [Validators.min(0), Validators.max(99)]),
+        troutWine: new UntypedFormControl(0, [Validators.min(0), Validators.max(99)]),
+        troutArdennaise: new UntypedFormControl(0, [Validators.min(0), Validators.max(99)]),
+        volAuVent: new UntypedFormControl(0, [Validators.min(0), Validators.max(99)]),
+        volAuVentChild: new UntypedFormControl(0, [Validators.min(0), Validators.max(99)]),
       }),
     });
 
@@ -97,12 +97,12 @@ export class ForellenfestijnPageComponent implements OnInit {
     return form;
   }
 
-  private markAllAsTouched(formGroup: FormGroup) {
+  private markAllAsTouched(formGroup: UntypedFormGroup) {
     Object.keys(formGroup.controls).forEach((formControlName => {
       const child: AbstractControl = formGroup.controls[formControlName];
-      if (child instanceof FormGroup) {
+      if (child instanceof UntypedFormGroup) {
         this.markAllAsTouched(child);
-      } else if (child instanceof FormControl) {
+      } else if (child instanceof UntypedFormControl) {
         child.markAsTouched();
       }
     }));
