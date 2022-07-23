@@ -17,20 +17,18 @@ function generateMailContent(reservation: any) {
       <br>E-mail: ${reservation.email}
       <br>Telefoonnummer: ${reservation.phone}
       <br>
+      <br>Uur van aankomst: ${reservation.arrival}
+      <br>Aantal personen: ${reservation.persons}
+      <br>
+      ${ reservation.menu.tapa ? '<br/>Tapas: <strong>' + reservation.menu.tapa + '</strong>' : '' }
       ${ reservation.menu.paella ? '<br/>Paella: <strong>' + reservation.menu.paella + '</strong>' : '' }
-      ${ reservation.menu.tapa ? '<br/>Koude Tapas: <strong>' + reservation.menu.tapa + '</strong>' : '' }
-      ${ reservation.menu.cava ? '<br/>Fles Cava: <strong>' + reservation.menu.cava + '</strong>' : '' }
-      ${ reservation.menu.wine ? '<br/>Fles Witte wijn: <strong>' + reservation.menu.wine + '</strong>' : '' }
+      ${ reservation.menu.albondigas ? '<br/>Albóndigas: <strong>' + reservation.menu.albondigas + '</strong>' : '' }
       ${ reservation.remarks ? '<br/><br/>Opmerking: ' + reservation.remarks : '' }
     </div>
     <br/>
-    ${ reservation.takeaway ? 'De bestelling kan worden afgehaald op zondag 6 juni ' + reservation.takeawayPeriod + ' in het Parochiaal Centrum van Blaasveld.' : ''}
-    ${ reservation.delivery ? 'De bestelling wordt op zondag 6 juni ' + reservation.deliveryPeriod + ' geleverd bij ' + reservation.street + ', ' + reservation.city + '.' : '' }
+    U wordt hartelijk onthaald op zondag 5 juni ${reservation.arrival} in het Parochiaal Centrum van Blaasveld.
     <br/><br/>
-    ${ reservation.transfer ? 'Gelieve ' + reservation.totalAmount + '€ over te schrijven op rekening BE39 7895 8983 7719 met vermelding van "Paella ' + reservation.name + '".' : '' }
-    ${ reservation.cash ? 'Gelieve ' + reservation.totalAmount + '€ (gepast) klaar te houden.' : ''}
 
-    <br/><br/>
     Met muzikale groeten,
     <br/>Koninklijke Fanfare De Vrienden van 't Recht VZW Blaasveld
 
@@ -39,16 +37,11 @@ function generateMailContent(reservation: any) {
       <td>${reservation.name}</td>
       <td>${reservation.email}</td>
       <td>${reservation.phone}</td>
-      <td>${reservation.takeaway ? 'AFHALEN' : 'LEVEREN'}</td>
-      <td>${reservation.takeaway ? reservation.takeawayPeriod : reservation.deliveryPeriod}</td>
-      <td>${reservation.menu.paella}</td>
+      <td>${reservation.persons}</td>
+      <td>${reservation.arrival}</td>
       <td>${reservation.menu.tapa}</td>
-      <td>${reservation.menu.cava}</td>
-      <td>${reservation.menu.wine}</td>
-      <td>${reservation.delivery ? reservation.street : ''}</td>
-      <td>${reservation.delivery ? reservation.city : ''}</td>
-      <td>${reservation.transfer ? 'OVERSCHRIJVING' : 'CASH'}</td>
-      <td>${reservation.totalAmount}</td>
+      <td>${reservation.menu.paella}</td>
+      <td>${reservation.menu.albondigas}</td>
       <td>${reservation.remarks}</td>
     </tr></table>
   `;

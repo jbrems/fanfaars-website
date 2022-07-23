@@ -1,21 +1,31 @@
 <app-title title="Paellafestijn"></app-title>
-<div>
-  Dit jaar nog steeds geen forellen. Als alternatief organiseren wij op zondag <strong>6 juni</strong> opnieuw een
-  Paellafestijn!
-  <br><br>De paella wordt vers klaargemaakt met lekker gekruide rijst met groenten, gamba, scampi, grote mossel, kip,
-  calamares, venus, inktvisjes, chorizo en citroen.
-  <br>Dit jaar wordt er extra aandacht besteed aan de evenredige verdeling
-  van de ingrediënten in de porties. De Paella wordt hygiënisch verpakt en warm geleverd aan huis of geserveerd voor
-  afhaling.
-  <br><br>De koude Tapas bevatten tortilla, jamon serrano, chorizo, olijven en manchego.
-  <br><br>Wij leveren enkel in Groot-Willebroek (postcode 2830).
-  <br>Afhalen in het Parochial Centrum van Blaasveld is uiteraard voor iedereen beschikbaar.
-  <br><em>Voor afhalers voorzien wij een verrassende versnapering.</em>
-  <br><br>Bij voorkeur betalen via overschrijving voor 2 juni op rekening BE39 7895 8983 7719. Cash betalingen moeten met
-  gepast geld gebeuren.
-  <br><br>Hieronder kan je je reservatie online indienen. Op 2 juni sluiten wij de reservaties af.
-  <br><br><em>Uw gegevens worden enkel gebruikt bij de verwerking van uw reservatie.</em>
+<div class="row">
+  <p>
+    Op 5 juni organiseren wij voor de eerste keer ons Paellafestijn in restaurant-vorm in het Parochiaal Centrum van
+    Blaasveld.
+    <br><br>De <strong>Paella</strong> wordt vers klaargemaakt met lekker gekruide rijst met groenten, gamba, scampi, grote mossel, kip,
+    calamares, venus, inktvisjes, chorizo en citroen.
+  </p>
+  <div class="img-container">
+    <img src="https://www.tomate-cerise.be/VP_tomatecerise/wp-content/uploads/2021/08/paella-index-recette-tomate-cerise.jpg" />
+  </div>
 </div>
+<div class="row">
+  <p>
+    <br>Naast Paella kan je ook onze huisgemaakte Albóndigas komen proeven of genieten van een heerlijke Tapa
+    bij een typisch Spaanse aperitief.
+    <br><br>De koude <strong>Tapas</strong> bevatten onder andere jamon serrano, chorizo, olijven en manchego.
+    <br><br><strong>Albóndigas</strong> zijn met halal vlees en veel liefde huisgemaakte gehaktballetjes in een Spaanse tomatensaus en worden geserveerd met lekkere frietjes.
+  </p>
+  <div class="img-container">
+    <img src="https://cdn.pixabay.com/photo/2015/02/08/10/31/albondigas-628290_1280.jpg" />
+  </div>
+</div>
+<p>
+  Je kan ter plaatse betalen met cash of Payconiq.
+  <br><br>Hieronder kan je je reservatie online indienen. Op 31 mei sluiten wij de reservaties af.
+  <br><br><em>Uw gegevens worden enkel gebruikt bij de verwerking van uw reservatie.</em>
+</p>
 
 <app-title title="Online reserveren"></app-title>
 
@@ -26,89 +36,37 @@
 <section *ngIf="!closed">
   <app-info *ngIf="success" type="success" message="Uw reservatie werd verwerkt. U ontvangt dadelijk een bevestiging op {{ reservationForm.value.email }}."></app-info>
 
-  <div [ngStyle]="{ display: success && transfer ? 'flex' : 'none' }" class="payment-details">
-    <div class="message">Gelieve tijdig het totale bedrag over te maken op onze rekening:</div>
-    <div class="manual">
-      <table>
-        <tbody>
-          <tr><td>Begunstigde</td><td>Fanfare Blaasveld</td></tr>
-          <tr><td>Rekening</td><td>BE39 7895 8983 7719 <span class="status" (click)="copyBankNr()">({{ copyBankNrStatus }})</span></td></tr>
-          <tr><td>Bedrag</td><td>€ {{totalAmount}},00</td></tr>
-          <tr><td>Mededeling</td><td>Paella {{name}}</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="qr">
-      <canvas id="qr-code"></canvas>
-    </div>
-
-    <app-info class="qr-warning" [spinningIcon]="true" type="info" message="Deze betaling wordt niet automatisch verwerkt. De gegevens verdwijnen niet wanneer de betaling is uitgevoerd."></app-info>
-  </div>
+  <app-info type="info" *ngIf="!success" [spinningIcon]="true" message="Opgelet: dit jaar bieden wij geen levering of afhaling aan. Enkel ter plaatse komen eten in het PC van Blaasveld is mogelijk."></app-info>
 
   <form *ngIf="!success" class="reservation" [formGroup]="reservationForm">
     <section class="info">
       <app-input-field label="Naam *" formControlName="name"></app-input-field>
       <app-input-field label="E-mailadres *" formControlName="email"></app-input-field>
       <app-input-field label="Telefoonnummer *" formControlName="phone"></app-input-field>
-
-      <div class ="checkboxWithLabel">
-        <app-input-field label="" type="checkbox" formControlName="takeaway"></app-input-field>
-        <label [for]="takeawayId">Haalt af in het PC van Blaasveld</label>
-      </div>
-
-      <div class="checkboxWithLabel">
-        <app-input-field label="" type="checkbox" formControlName="delivery"></app-input-field>
-        <label [for]="deliveryId">Wenst levering aan huis</label>
-      </div>
-
-      <section *ngIf="reservationForm.value.takeaway">
-        <div class="takeaway period">Afhalen <app-select-list formControlName="takeawayPeriod" [values]="['tussen 12u00 en 13u00', 'tussen 17u30 en 18u30']"></app-select-list></div>
-      </section>
-
-      <section *ngIf="reservationForm.value.delivery">
-        <app-input-field label="Straat & huisnummer (bus/index) *" formControlName="street"></app-input-field>
-        <app-select-list formControlName="city" [values]="['2830 Blaasveld', '2830 Heindonk', '2830 Tisselt', '2830 Willebroek']" id="city"></app-select-list>
-
-        <div class="period">Gewenste levering <app-select-list formControlName="deliveryPeriod" [values]="['tussen 12u00 en 13u00', 'tussen 17u30 en 18u30']"></app-select-list></div>
-      </section>
-
-      <app-text-area label="Opmerking" formControlName="remarks"></app-text-area>
+      <br>
+      <div class="period">Aankomst <app-select-list formControlName="arrival" [values]="['tussen 12u00 en 13u00', 'tussen 17u00 en 18u00']"></app-select-list></div>
+      <div class="persons">Met <app-input-field formControlName="persons" type="number" style="display: inline-block;"></app-input-field> personen</div>
     </section>
     <div class="menu">
       <section [formGroup]="reservationForm.get('menu')">
         <strong>Menu</strong>
         <div class="menuItem">
-          <div class="label">portie Paella</div>
-          <div class="price">15,00€</div>
-          <div class="amount"><app-input-field formControlName="paella" type="number"></app-input-field></div>
-        </div>
-        <div class="menuItem">
-          <div class="label">portie Koude Tapas</div>
+          <div class="label">portie Tapas</div>
           <div class="price">6,00€</div>
           <div class="amount"><app-input-field formControlName="tapa" type="number"></app-input-field></div>
         </div>
         <div class="menuItem">
-          <div class="label">fles Cava</div>
-          <div class="price">12,00€</div>
-          <div class="amount"><app-input-field formControlName="cava" type="number"></app-input-field></div>
+          <div class="label">verse Paella</div>
+          <div class="price">18,00€</div>
+          <div class="amount"><app-input-field formControlName="paella" type="number"></app-input-field></div>
         </div>
         <div class="menuItem">
-          <div class="label">fles Witte wijn</div>
-          <div class="price">11,00€</div>
-          <div class="amount"><app-input-field formControlName="wine" type="number"></app-input-field></div>
+          <div class="label">huisgemaakte Albóndigas</div>
+          <div class="price">15,00€</div>
+          <div class="amount"><app-input-field formControlName="albondigas" type="number"></app-input-field></div>
         </div>
       </section>
-      <div class="payment">
-        <div class ="checkboxWithLabel">
-          <app-input-field label="" type="checkbox" formControlName="transfer"></app-input-field>
-          <label [for]="transferId">Schrijft <strong>{{ getTotalAmount() }}€</strong> over naar rekening <strong>BE39 7895 8983 7719</strong> met melding "Paella {{reservationForm.value.name}}"</label>
-        </div>
-        &nbsp;
-        <div class ="checkboxWithLabel">
-          <app-input-field label="" type="checkbox" formControlName="cash"></app-input-field>
-          <label [for]="cashId">Betaalt <strong>{{ getTotalAmount() }}€</strong> cash (gepast) bij afhaling of levering</label>
-        </div>
-      </div>
+      <app-text-area label="Opmerking" formControlName="remarks"></app-text-area>
     </div>
 
     <app-info class="error" *ngIf="showUserError && reservationForm.invalid" [spinningIcon]="true" type="error" message="Het formulier bevat fouten die gecorrigeerd moeten worden."></app-info>
