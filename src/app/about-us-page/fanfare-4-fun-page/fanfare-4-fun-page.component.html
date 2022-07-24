@@ -1,31 +1,20 @@
-<app-hero-image group="F4F" image="/assets/images/hero_fanfare4fun.jpg" quote="Alles behalve een gewone fanfare" buttonLabel="Meespelen?" buttonLink="/over-ons/fanfare-4-fun#meespelen"></app-hero-image>
+<app-hero-image group="F4F" image="/assets/images/hero_fanfare4fun.jpg" quote="Alles behalve een gewone fanfare"></app-hero-image>
 <app-breadcrumb group="f4f" [links]="[{ title: 'Over ons', url: '/over-ons' }, { title: 'Over de Fanfare 4 Fun' }]"></app-breadcrumb>
 <app-title title="Over de Fanfare 4 Fun"></app-title>
 <div>
-  Deze unieke fanfare bestaat uit 3 groepen muzikanten:
-  <ul>
-    <li>1 <strong>dirigent</strong></li>
-    <li>Een groep <strong>muzikanten</strong> uit verschillende verenigingen uit de buurt</li>
-    <li>Een groep <strong>andersvalide slagwerkers</strong> uit onder andere <a class="f4f" href="http://www.demeerpaal-willebroek.be/" rel="noreferrer">De Meerpaal</a>, <a class="f4f" href="https://www.tonzent.eu/">'t Onzent</a> en <a class="f4f" href="https://www.flegado.be/">Flegado Ruisbroek</a></li>
-  </ul>
+  <p>
+    <strong>De repetities van de Fanfare 4 Fun worden helaas niet hervat na de ingelaste pauze door Corona.</strong>
+  </p>
+  <br/>
+  <p>
+    Wat begon als een project dat 2 jaar zou lopen in 2004, maar uitgroeide tot een vaste waarde voor vele muzikanten, moet nu toch jammer genoeg na 16 jaar stilgelegd worden.
+  </p>
+  <br/>
+  <p>
+    Door een combinatie van praktische en creatieve moeilijkheden omtrent de Fanfare 4 Fun voelen wij ons genoodzaakt om de huidige werking ervan stil te leggen.
+    Wij blijven nadenken over mogelijkheden en manieren om de Fanfare 4 Fun nieuw leven in te blazen, maar voorlopig blijven alle repetities en activiteiten afgelast.
+  </p>
 </div>
-<section #meespelen></section>
-<app-title title="Meespelen?"></app-title>
-<div>
-  <strong>Ben je een muzikant uit de buurt en speel je een fanfare-instrument?</strong><br/>
-  Kom dan gerust een kijkje nemen op een repetitie van de Fanfare 4 Fun.
-  Als je je instrument meeneemt kan je zelfs meteen meespelen met deze leuke bende.
-  <br/><br/>
-  <strong>Ben je een andersvalide met interesse in muziek?</strong><br/>
-  Contacteer Jan Potoms via <a class="f4f" href="mailto:potomsjan@hotmail.com">potomsjan@hotmail.com</a>.
-  Wij vragen enkel om je begeleider mee te brengen naar de repetities en concerten.
-</div>
-<app-title title="Repetities"></app-title>
-<div>
-  De Fanfare 4 Fun repeteert om de 6 weken op <strong>dinsdagavond om 19u30</strong> in het Parochiaal Centrum van Blaasveld.
-</div>
-<app-title title="Volgende activiteiten" *ngIf="nextActivities$"></app-title>
-<app-activity *ngFor="let nextActivity of nextActivities$ | async" [activity]="nextActivity"></app-activity>
 <app-title title="Recente fotoalbums"></app-title>
 <div class="photo-albums">
   <app-photo-album *ngFor="let recentAlbum of recentAlbums$ | async" [photoAlbum]="recentAlbum"></app-photo-album>
