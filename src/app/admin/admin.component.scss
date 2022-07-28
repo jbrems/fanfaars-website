@@ -1,0 +1,23 @@
+@import '../colors';
+
+:host {
+  padding: 25px;
+}
+
+mat-tab-group {
+  margin-top: 25px;
+
+  ::ng-deep mat-tab-body {
+    padding: 15px;
+  }
+}
+
+mat-card {
+  background: linear-gradient(to right, azure, aliceBlue);
+
+  mat-card-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+}

@@ -1,0 +1,6 @@
+<ng-container *ngIf="activities$ | async as activities">
+  <button mat-raised-button color="primary" (click)="addActivity()">
+    <mat-icon>add</mat-icon> Activiteit toevoegen
+  </button>
+  <app-admin-activity *ngFor="let activity of activities" [activity]="activity"></app-admin-activity>
+</ng-container>

@@ -1,0 +1,13 @@
+<mat-card *ngIf="loggedInUser | async as user">
+  <mat-card-content>
+    <mat-icon>sentiment_very_satisfied</mat-icon>
+    <span>Welkom {{ user.given_name }}!</span>
+  </mat-card-content>
+</mat-card>
+
+<ng-container *ngIf="loggedInUser | async">
+  <mat-tab-group>
+    <mat-tab label="Activiteiten"><app-activities></app-activities></mat-tab>
+    <mat-tab label="Fotoalbums"><app-photo-albums></app-photo-albums></mat-tab>
+  </mat-tab-group>
+</ng-container>

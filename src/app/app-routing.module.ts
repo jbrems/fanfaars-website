@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'forellenfestijn', loadChildren: () => import('./forellenfestijn-page/forellenfestijn-page.module').then(m => m.ForellenfestijnPageModule) },
   { path: 'paella', loadChildren: () => import('./paella-page/paella-page.module').then(m => m.PaellaPageModule) },
   { path: 'online-repetitie', loadChildren: () => import('./online-rehearsal/online-rehearsal.module').then(m => m.OnlineRehearsalModule) },
+  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   { path: '**', redirectTo: '/' },
 ];
 

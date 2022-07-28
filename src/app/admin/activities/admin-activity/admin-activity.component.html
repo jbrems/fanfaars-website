@@ -1,0 +1,45 @@
+<mat-card [class]="activity.group.toLowerCase()" [ngClass]="{ active: activity.date >= today}">
+  <mat-card-title>{{ activity.title }}</mat-card-title>
+  <mat-card-subtitle>{{ activity.id }}</mat-card-subtitle>
+  <mat-card-content *ngIf="!editting">
+    <p>{{ activity.date }} - {{ activity.time }}</p>
+    <p>{{ activity.description }}</p>
+    <p>{{ activity.group }} - {{ activity.place }}</p>
+  </mat-card-content>
+  <mat-card-content *ngIf="editting" [formGroup]="activityForm">
+    <mat-form-field *ngIf="!activity.id" appearance="outline" class="full-width">
+      <mat-label>ID</mat-label>
+      <input matInput formControlName="id">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="half-width">
+      <mat-label>Date</mat-label>
+      <input matInput formControlName="date">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="half-width">
+      <mat-label>Time</mat-label>
+      <input matInput formControlName="time">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="half-width">
+      <mat-label>group</mat-label>
+      <input matInput formControlName="group">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="half-width">
+      <mat-label>Place</mat-label>
+      <input matInput formControlName="place">
+    </mat-form-field>
+  </mat-card-content>
+  <mat-card-actions>
+    <button *ngIf="!editting" mat-mini-fab color="basic" (click)="editting = true;"><mat-icon>edit</mat-icon></button>
+    <button *ngIf="!editting" mat-mini-fab color="warn" (click)="delete();"><mat-icon>delete</mat-icon></button>
+    <button *ngIf="editting" mat-mini-fab color="primary" (click)="save();"><mat-icon>save</mat-icon></button>
+    <button *ngIf="editting" mat-mini-fab color="warn" (click)="editting = false;"><mat-icon>close</mat-icon></button>
+  </mat-card-actions>
+</mat-card>

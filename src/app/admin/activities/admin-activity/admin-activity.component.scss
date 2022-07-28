@@ -1,0 +1,64 @@
+@import '../../../colors';
+
+mat-card {
+  position: relative;
+
+  margin: 15px 0;
+  border-left: solid 5px #dddddd;
+
+  p {
+    padding: 5px 0;
+  }
+
+  &.active {
+    border-left-color: $mm-green-dark;
+  }
+
+  &.ff {
+    background: linear-gradient(to right, $white, $ff-red);
+  }
+
+  &.mm {
+    background: linear-gradient(to right, $white, $mm-green);
+  }
+
+  &.mr {
+    background: linear-gradient(to right, $white, $mr-orange);
+  }
+
+  &.f4f {
+    background: linear-gradient(to right, $white, $f4f-purple);
+  }
+
+  mat-card-actions {
+    position: absolute;
+    display: none;
+
+    top: 0px;
+    right: 20px;
+
+    button {
+      margin-left: 5px;
+    }
+  }
+
+  &:hover mat-card-actions {
+    display: inline-block;
+  }
+}
+
+mat-form-field {
+  margin: 0 2% 0 0;
+
+  &.full-width {
+    width: 96%;
+  }
+
+  &.half-width {
+    width: 47%;
+  }
+}
+
+textarea {
+  height: 75px;
+}

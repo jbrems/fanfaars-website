@@ -3,6 +3,7 @@ import { AngularFirestore, QuerySnapshot } from '@angular/fire/compat/firestore'
 import { map, tap } from 'rxjs/operators';
 import { Activity } from './activity';
 import { Observable, of } from 'rxjs';
+import { documentId } from 'firebase/firestore';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +12,25 @@ export class ActivityService {
   private activities: Activity[];
 
   constructor(private firestore: AngularFirestore) {}
+
+  public getAllActivities(): Observable<Activity[]> {
+    return this.firestore
+      .collection('activities', query => query
+        .orderBy(documentId(), 'asc')
+      )
+      .get()
+      .pipe(
+        map(this.mapQuerySnapshotToActivities),
+      );
+  }
+
+  public async saveActivity(activity: Activity): Promise<void> {
+    return this.firestore.doc<Activity>(`activities/${activity.id}`).update(activity);
+  }
+
+  public async deleteActivity(activity: Activity): Promise<void> {
+    return this.firestore.doc<Activity>(`activities/${activity.id}`).delete();
+  }
 
   /**
    * Get future activities for the given group with the given limit.
@@ -59,7 +79,7 @@ export class ActivityService {
    */
   private mapQuerySnapshotToActivities(querySnapshot: QuerySnapshot<Activity>): Activity[] {
     const activities: Activity[] = [];
-    querySnapshot.forEach(doc => activities.push(doc.data() as Activity));
+    querySnapshot.forEach(doc => activities.push({ id: doc.id, ...doc.data() } as Activity));
     return activities;
   }
 }
