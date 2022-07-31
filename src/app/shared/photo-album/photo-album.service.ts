@@ -52,6 +52,14 @@ export class PhotoAlbumService {
       );
   }
 
+  public async savePhotoAlbum(photoAlbum: PhotoAlbum): Promise<void> {
+    return this.firestore.doc<PhotoAlbum>(`photoalbums/${photoAlbum.id}`).set(photoAlbum);
+  }
+
+  public async deletePhotoAlbum(photoAlbum: PhotoAlbum): Promise<void> {
+    return this.firestore.doc<PhotoAlbum>(`photoalbums/${photoAlbum.id}`).delete();
+  }
+
   /**
    * Maps the querySnapshot returned by Firestore to a list of PhotoAlbum.
    */

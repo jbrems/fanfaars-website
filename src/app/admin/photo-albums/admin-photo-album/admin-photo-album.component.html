@@ -1,0 +1,44 @@
+<mat-card [class]="photoAlbum.group?.toLocaleLowerCase()">
+  <mat-card-title>{{photoAlbum.title}}</mat-card-title>
+  <mat-card-subtitle>{{photoAlbum.id}}</mat-card-subtitle>
+  <mat-card-content *ngIf="!editting">
+    <a [href]="photoAlbum.image" target="_blank"><img [attr.src]="photoAlbum.image" alt="Album image"></a>
+    <div>
+      <p>{{photoAlbum.date}}</p>
+      <p><a [href]="photoAlbum.url">{{photoAlbum.url}}</a></p>
+      <p>{{photoAlbum.group}}</p>
+    </div>
+  </mat-card-content>
+  <mat-card-content *ngIf="editting" [formGroup]="photoAlbumForm" class="editting">
+    <mat-form-field *ngIf="!photoAlbum.id" appearance="outline" class="full-width">
+      <mat-label>ID</mat-label>
+      <input matInput formControlName="id">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Image</mat-label>
+      <input matInput formControlName="image">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>URL</mat-label>
+      <input matInput formControlName="url">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="half-width">
+      <mat-label>group</mat-label>
+      <input matInput formControlName="group">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="half-width">
+      <mat-label>Date</mat-label>
+      <input matInput formControlName="date">
+    </mat-form-field>
+  </mat-card-content>
+  <mat-card-actions>
+    <button *ngIf="!editting" mat-mini-fab color="basic" (click)="editting = true;"><mat-icon>edit</mat-icon></button>
+    <button *ngIf="!editting" mat-mini-fab color="warn" (click)="delete();"><mat-icon>delete</mat-icon></button>
+    <button *ngIf="editting" mat-mini-fab color="primary" (click)="save();"><mat-icon>save</mat-icon></button>
+    <button *ngIf="editting" mat-mini-fab color="warn" (click)="editting = false;"><mat-icon>close</mat-icon></button>
+  </mat-card-actions>
+</mat-card>

@@ -1,1 +1,4 @@
-<p>photo-albums works!</p>
+<button mat-raised-button color="primary" (click)="addPhotoAlbum()">
+  <mat-icon>add</mat-icon> Fotoalbum toevoegen
+</button>
+<app-admin-photo-album *ngFor="let photoAlbum of photoAlbums$ | async" [photoAlbum]="photoAlbum"></app-admin-photo-album>

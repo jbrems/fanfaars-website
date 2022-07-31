@@ -25,7 +25,7 @@ export class ActivityService {
   }
 
   public async saveActivity(activity: Activity): Promise<void> {
-    return this.firestore.doc<Activity>(`activities/${activity.id}`).update(activity);
+    return this.firestore.doc<Activity>(`activities/${activity.id}`).set(activity);
   }
 
   public async deleteActivity(activity: Activity): Promise<void> {
