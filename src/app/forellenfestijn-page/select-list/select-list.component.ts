@@ -21,7 +21,7 @@ export class SelectListComponent implements ControlValueAccessor {
 
   selectedValue: string;
 
-  @ViewChild('selectList') selectList: ElementRef;
+  @ViewChild('selectList', { static: true }) selectList: ElementRef;
 
   onChangeListener: any = () => {};
   onTouchedListener: any = () => {};

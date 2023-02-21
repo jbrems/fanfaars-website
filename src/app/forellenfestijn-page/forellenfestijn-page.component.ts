@@ -76,7 +76,7 @@ export class ForellenfestijnPageComponent implements OnInit {
       name: new UntypedFormControl('', [Validators.required, Validators.minLength(5)]),
       email: new UntypedFormControl('', [Validators.required, Validators.email]),
       persons: new UntypedFormControl(2, [Validators.min(1), Validators.max(99)]),
-      arrival: new UntypedFormControl('11u30'),
+      arrival: new UntypedFormControl('11u30', [Validators.pattern('[^-]*')]),
       remarks: new UntypedFormControl(''),
       menu: new UntypedFormGroup({
         soup: new UntypedFormControl(0, [Validators.min(0), Validators.max(99)]),
@@ -90,7 +90,7 @@ export class ForellenfestijnPageComponent implements OnInit {
       }),
     });
 
-    this.arrivalValues = ['11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '17:00', '17:30', '18:00', '18:30', '19:00'];
+    this.arrivalValues = ['11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '--------', '17:00', '17:30', '18:00', '18:30', '19:00'];
 
     return form;
   }

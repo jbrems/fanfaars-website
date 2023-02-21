@@ -17,7 +17,7 @@ export class InputFieldComponent implements ControlValueAccessor {
   fieldId = Math.random().toString().slice(2, 10);
   labelOnTop = false;
 
-  @ViewChild('inputField') inputField: ElementRef;
+  @ViewChild('inputField', { static: true }) inputField: ElementRef;
 
   @Input() label?: string;
   @Input() type?: string = 'text';
@@ -35,6 +35,8 @@ export class InputFieldComponent implements ControlValueAccessor {
   }
 
   onChange() {
+    if (!this.inputField) return;
+
     if (this.type === 'number' && this.inputField.nativeElement.value) {
       this.inputField.nativeElement.value = Math.ceil(this.inputField.nativeElement.value);
     }
@@ -56,6 +58,8 @@ export class InputFieldComponent implements ControlValueAccessor {
   }
 
   writeValue(value: string | number | boolean): void {
+    if (!this.inputField) return;
+
     if (this.type === 'checkbox') {
       this.inputField.nativeElement.checked = value;
       return;

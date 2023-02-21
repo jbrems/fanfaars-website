@@ -16,7 +16,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 export class TextAreaComponent implements ControlValueAccessor {
   @Input() label?: string;
 
-  @ViewChild('textArea') textArea: ElementRef;
+  @ViewChild('textArea', { static: true }) textArea: ElementRef;
 
   onChangeListener: any = () => {};
   onTouchedListener: any = () => {};
