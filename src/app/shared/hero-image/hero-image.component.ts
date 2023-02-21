@@ -17,6 +17,7 @@ export class HeroImageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    if (!this.buttonLink) return;
     const buttonLinkParts = this.buttonLink.split('#');
     this.buttonLink = buttonLinkParts[0];
     this.buttonFragment = buttonLinkParts[1];
