@@ -23,8 +23,6 @@ export class ForellenfestijnPageComponent implements OnInit {
   constructor(private forellenfestijnService: ForellenfestijnService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
-    this.router.navigate(['/paella']);
-
     this.catchDateMocking();
     this.date = this.calculateDate();
     this.reservationFrom = this.calculateShowReservationFormFrom();
@@ -110,11 +108,8 @@ export class ForellenfestijnPageComponent implements OnInit {
 
   private catchDateMocking() {
     this.route.queryParamMap.subscribe((params) => {
-      console.log(params);
       if (params.has('mockDate')) {
         this.today = new Date(params.get('mockDate'));
-      } else {
-        this.today = new Date();
       }
     });
   }
