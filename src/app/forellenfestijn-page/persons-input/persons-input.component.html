@@ -1,0 +1,13 @@
+<span class="prefix">Komt met</span>
+
+<div class="center">
+  <div class="people-container">
+    <div [class]="'row row-' + (i + 1) + '-of-' + peopleArray(input.value).length" *ngFor="let peopleRow of peopleArray(input.value); let i = index;">
+      <app-icon [name]="icon" [size]="personSize(input.value)" *ngFor="let icon of peopleRow"></app-icon>
+    </div>
+    <app-icon name="plus" class="plus-icon" *ngIf="input.value.length == 2 && input.value !== '10' && !input.value.startsWith('-')"></app-icon>
+  </div>
+  <input #input type="number" min="0" max="99" step="1" (change)="onChange($event)"/>
+</div>
+
+<span class="suffix">personen</span>

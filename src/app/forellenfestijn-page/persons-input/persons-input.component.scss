@@ -1,0 +1,71 @@
+:host {
+  display: inline-block;
+  padding: 10px;
+  border: solid 1px black;
+  border-radius: 15px;
+  //background: linear-gradient(45deg, #db0000, #9e0b0f);
+
+  div.center {
+    display: flex;
+    align-items: center;
+  }
+
+  .people-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 125px;
+    height: 80px;
+    margin-right: 10px;
+
+    .plus-icon {
+      position: absolute;
+      top: 0;
+      right: 5px;
+    }
+
+    .row-1-of-1,
+    .row-2-of-2,
+    .row-3-of-3 {
+      fill: black;
+    }
+
+    .row-1-of-2,
+    .row-2-of-3 {
+      fill: grey;
+    }
+
+    .row-1-of-3 {
+      fill: darkgray;
+    }
+
+    .row-2-of-2,
+    .row-3-of-3 {
+      margin-top: -10px;
+    }
+
+    .row-2-of-3 {
+      margin-top: -15px;
+    }
+  }
+
+  input {
+    padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 1.5em;
+    width: 50px;
+
+    -moz-appearance: textfield;
+
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+}
+
+
+

@@ -17,6 +17,7 @@
     <app-input-field label="Naam *" formControlName="name"></app-input-field>
     <app-input-field label="E-mailadres *" formControlName="email"></app-input-field>
     <div class="persons">Komt met <app-input-field formControlName="persons" type="number"></app-input-field> personen</div>
+    <app-persons-input formControlName="persons"></app-persons-input>
     <div class="arrival">Omstreeks <app-select-list formControlName="arrival" [values]="arrivalValues"></app-select-list> uur</div>
     <app-text-area label="Opmerking" formControlName="remarks"></app-text-area>
   </section>
