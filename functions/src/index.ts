@@ -1,6 +1,10 @@
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
-admin.initializeApp();
+try {
+  admin.initializeApp();
+} catch (error) {
+
+}
 import { updatePhotoAlbumsFromFlickr } from './photo-albums';
 import { processForellenfestijnReservation } from './forellenfestijn';
 import {processPaellafestijnReservation} from './paellafestijn';
