@@ -7,6 +7,17 @@
     margin: 0 15px 15px 15px;
   }
 
+  .date-display {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin: 20px 0;
+
+    ::ng-deep app-calendar .calendar.ff .logo {
+      background-image: initial;
+    }
+  }
+
   .error {
     display: flex;
     align-items: center;
@@ -118,7 +129,7 @@
       justify-content: center;
       width: 100%;
       max-width: 300px;
-      margin: 10px auto 10px auto;
+      margin: 30px auto 10px auto;
       padding: 10px 15px;
 
       color: $white;

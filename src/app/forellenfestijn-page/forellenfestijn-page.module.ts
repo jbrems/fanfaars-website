@@ -8,6 +8,7 @@ import { IconModule } from '../shared/icon/icon.module';
 import {InputFieldModule} from './input-field/input-field.module';
 import {SelectListModule} from './select-list/select-list.module';
 import {TextAreaModule} from './text-area/text-area.module';
+import { ActivityModule } from '../shared/activity/activity.module';
 
 @NgModule({
   declarations: [ForellenfestijnPageComponent],
@@ -20,6 +21,7 @@ import {TextAreaModule} from './text-area/text-area.module';
     SelectListModule,
     TextAreaModule,
     TitleModule,
+    ActivityModule,
   ],
 })
 export class ForellenfestijnPageModule {}

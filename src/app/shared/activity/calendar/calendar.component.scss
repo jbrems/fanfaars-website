@@ -51,4 +51,18 @@
     background-size: 35px;
     border-radius: 50%;
   }
+
+  &.ff {
+    .month {
+      background-color: $ff-red;
+    }
+
+    .logo {
+      background-image: url("../../../../assets/images/logo_fanfare.png");
+    }
+
+    .content {
+      border-color: $ff-red;
+    }
+  }
 }

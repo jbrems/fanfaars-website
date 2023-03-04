@@ -1,4 +1,4 @@
-<div class="calendar">
+<div class="calendar" [class]="group.toLocaleLowerCase()">
   <div class="logo"></div>
   <div class="content">
     <div class="month">{{ date | date:'MMMM':'':'nl-BE' | titlecase }}</div>

@@ -66,22 +66,6 @@
       color: $ff-red-dark;
     }
   }
-
-  app-calendar {
-    ::ng-deep .calendar {
-      .month {
-        background-color: $ff-red;
-      }
-
-      .logo {
-        background-image: url("../../../assets/images/logo_fanfare.png");
-      }
-
-      .content {
-        border-color: $ff-red;
-      }
-    }
-  }
 }
 
 .activity.MM {

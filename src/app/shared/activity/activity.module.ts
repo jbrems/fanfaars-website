@@ -10,6 +10,6 @@ import { IconModule } from '../icon/icon.module';
     CommonModule,
     IconModule
   ],
-  exports: [ActivityComponent],
+  exports: [ActivityComponent, CalendarComponent],
 })
 export class ActivityModule {}
