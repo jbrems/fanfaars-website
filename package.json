@@ -6,6 +6,7 @@
     "build": "ng build --configuration production",
     "serve": "npm run build && firebase serve",
     "deploy": "npm run build && firebase deploy",
+    "deploy:hosting": "npm run build && firebase deploy --only=hosting",
     "functions": "cd functions && npm run serve"
   },
   "private": true,
