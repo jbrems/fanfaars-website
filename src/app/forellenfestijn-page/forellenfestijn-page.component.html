@@ -1,17 +1,30 @@
 <app-title title="Forellenfestijn {{date | date:'yyyy'}}"></app-title>
 <div>
-  Ons jaarlijks Forellenfestijn zal in {{ date | date:'yyyy' }} doorgaan op <strong>{{ date | date:'EEEE d MMMM':'':'nl-BE' }}</strong>.
-  <section *ngIf="today < reservationFrom"><br/><br/>Vanaf <strong>{{ reservationFrom | date:'d MMMM':'':'nl-BE' }}</strong> kan je hier online reserveren.</section>
-  <br/><br/>
+  Na 3 jaar afwezigheid door een pandemie en een experimenteel Paellafestijn zijn wij eindelijk terug met een nieuwe editie van ons Forellenfestijn!
+
+  <div class="date-display">
+    <app-calendar [date]="date.toISOString()" group="FF"></app-calendar>
+    <span>Het Forellenfestijn zal in {{ date | date:'yyyy' }} doorgaan op <strong>{{ date | date:'EEEE d MMMM':'':'nl-BE' }}</strong>.</span>
+  </div>
+
   Op {{ date | date:'d MMMM':'':'nl-BE' }} kan je tussen 11u30 en 21u00 (reserveren mogelijk tot 19u) in het Parochiaal Centrum van Blaasveld
-  genieten van een heerlijke forel of vol-au-vent, met veel liefde bereid door onze bijna honderd vrijwilligers. Al onze hoofdgerechten worden geserveerd met frietjes
-  (standaard) of brood (op aanvraag) en kunnen vergezeld worden van een bijpassende wijn, aperitief van het huis of ander drankje.
+  genieten van een heerlijke <strong>forel of vol-au-vent</strong>, met veel liefde bereid door onze bijna honderd vrijwilligers.
+  <br><br>
+  Al onze hoofdgerechten worden geserveerd <strong>met frietjes (standaard) of brood (op aanvraag)</strong> en kunnen vergezeld worden van een bijpassende wijn, aperitief van het huis of ander drankje.
+  <br><br>
+  Als dessert kan je genieten van een verkoelend ijsje of een dame blanche met slagroom.
+  <br><br>
+
+  <section *ngIf="today < reservationFrom"><br/><br/>Vanaf <strong>{{ reservationFrom | date:'d MMMM':'':'nl-BE' }}</strong> kan je hier online reserveren.</section>
+  <br>
 </div>
+
 <app-title title="Online reserveren" *ngIf="today >= reservationFrom"></app-title>
 <div *ngIf="success" class="success">
   <app-icon name="check"></app-icon>
   <span>Uw reservatie werd verwerkt. U ontvangt dadelijk een bevestiging op {{ reservationForm.value.email }}.</span>
 </div>
+
 <form *ngIf="today >= reservationFrom && !success" class="reservation" [formGroup]="reservationForm">
   <section class="info">
     <app-input-field label="Naam *" formControlName="name"></app-input-field>

@@ -9,5 +9,6 @@
 yarn-error.log
 
 /src/app/firebase-config.ts
+/functions/src/gmail-auth.ts
 
 firebase-debug.log

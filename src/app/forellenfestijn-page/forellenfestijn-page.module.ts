@@ -8,9 +8,7 @@ import { IconModule } from '../shared/icon/icon.module';
 import {InputFieldModule} from './input-field/input-field.module';
 import {SelectListModule} from './select-list/select-list.module';
 import {TextAreaModule} from './text-area/text-area.module';
-import {
-  PersonsInputModule
-} from "./persons-input/persons-input.module";
+import { ActivityModule } from '../shared/activity/activity.module';
 
 @NgModule({
   declarations: [ForellenfestijnPageComponent],
@@ -19,11 +17,11 @@ import {
     ForellenfestijnPageRoutingModule,
     IconModule,
     InputFieldModule,
-    PersonsInputModule,
     ReactiveFormsModule,
     SelectListModule,
     TextAreaModule,
     TitleModule,
+    ActivityModule,
   ],
 })
 export class ForellenfestijnPageModule {}

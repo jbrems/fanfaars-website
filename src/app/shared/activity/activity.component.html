@@ -1,5 +1,5 @@
 <div class="activity {{ activity.group }}">
-  <app-calendar [date]="activity.date"></app-calendar>
+  <app-calendar [date]="activity.date" [group]="activity.group"></app-calendar>
   <div class="activity-title">{{ activity.title }}</div>
   <div class="activity-description" [innerHTML]="activity.description"></div>
   <div class="activity-details">

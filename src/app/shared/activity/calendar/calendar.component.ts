@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CalendarComponent implements OnInit {
   @Input() date: string;
+  @Input() group = 'FF';
 
   constructor() { }
 
