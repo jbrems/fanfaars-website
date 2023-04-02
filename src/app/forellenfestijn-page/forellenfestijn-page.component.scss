@@ -64,22 +64,14 @@
       margin-bottom: 20px;
     }
 
-    .persons, .arrival {
+    .fancy-inputs {
       display: flex;
       align-items: center;
-      height: 36px;
-      margin: 15px 0 10px 0;
-    }
+      gap: 15px;
+      margin: 0;
 
-    .persons {
-      app-input-field ::ng-deep .inputField {
-        margin: 0 10px;
-      }
-    }
-
-    .arrival {
-      app-select-list ::ng-deep .selectList {
-        margin: 0 10px;
+      & > * {
+        flex-grow: 1;
       }
     }
 
@@ -169,6 +161,16 @@
           animation: fly 5s linear infinite;
         }
       }
+    }
+  }
+}
+
+@media (max-width: 419px) {
+  .fancy-inputs {
+    flex-direction: column;
+
+    & > * {
+      width: calc(100% - 20px);
     }
   }
 }

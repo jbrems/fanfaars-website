@@ -34,6 +34,14 @@
             "tsConfig": "src/tsconfig.app.json"
           },
           "configurations": {
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -65,8 +73,11 @@
             "browserTarget": "fanfaars:build"
           },
           "configurations": {
+            "development": {
+              "browserTarget": "fanfaars:build:development"
+            },
             "production": {
-              "browserTarget": "fanfaars:build"
+              "browserTarget": "fanfaars:build:production"
             }
           }
         },

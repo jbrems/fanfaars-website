@@ -76,7 +76,7 @@ export class ForellenfestijnPageComponent implements OnInit {
       name: new UntypedFormControl('', [Validators.required, Validators.minLength(5)]),
       email: new UntypedFormControl('', [Validators.required, Validators.email]),
       persons: new UntypedFormControl(2, [Validators.min(1), Validators.max(99)]),
-      arrival: new UntypedFormControl('11u30', [Validators.pattern('[^-]*')]),
+      arrival: new UntypedFormControl('11:30', [Validators.pattern('[^-]*')]),
       remarks: new UntypedFormControl(''),
       menu: new UntypedFormGroup({
         soup: new UntypedFormControl(0, [Validators.min(0), Validators.max(99)]),

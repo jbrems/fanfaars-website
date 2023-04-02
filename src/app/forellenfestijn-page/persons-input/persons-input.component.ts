@@ -2,12 +2,20 @@ import {
   Component,
   ElementRef,
   forwardRef,
+  Injector,
+  Optional,
+  Self,
   ViewChild
 } from "@angular/core";
 import {
   ControlValueAccessor,
-  NG_VALUE_ACCESSOR
+  FormControl,
+  NG_VALUE_ACCESSOR,
+  NgControl
 } from "@angular/forms";
+import {
+  InputFieldComponent
+} from "../input-field/input-field.component";
 
 @Component({
   selector: 'app-persons-input',
@@ -22,10 +30,13 @@ import {
   ],
 })
 export class PersonsInputComponent implements ControlValueAccessor {
-  @ViewChild('input', { static: true }) private input: ElementRef;
+  @ViewChild(InputFieldComponent, { static: true }) private inputField: InputFieldComponent;
 
   private onChangeListener: any;
   private onTouchedListener: any;
+
+  constructor(private injector: Injector) {
+  }
 
   registerOnChange(fn: any): void {
     this.onChangeListener = fn;
@@ -36,8 +47,7 @@ export class PersonsInputComponent implements ControlValueAccessor {
   }
 
   writeValue(obj: any): void {
-    console.log('Setting value', obj);
-    this.input.nativeElement.value = obj;
+    this.inputField.writeValue(obj);
   }
 
   public onChange(event: Event) {
@@ -66,7 +76,25 @@ export class PersonsInputComponent implements ControlValueAccessor {
   }
 
   public personSize(value: string): number {
-    return 36 / this.peopleArray(value).length + 18;
+    let size = 21 / this.peopleArray(value).length + 24;
+    if (Number(value) === 5) size -= 2;
+    if (Number(value) >= 9) size -= 6;
+    return size;
+  }
+
+  public get control (): FormControl {
+    return this.injector.get(NgControl).control as FormControl;
+  }
+
+  public increment (): void {
+    console.log(this.control);
+    if (this.control.value >= 99) return;
+    this.control.setValue(Number(this.control.value) + 1);
+  }
+
+  public substract (): void {
+    if (this.control.value <= 1) return;
+    this.control.setValue(Number(this.control.value) - 1);
   }
 
 }

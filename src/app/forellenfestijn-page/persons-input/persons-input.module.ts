@@ -13,10 +13,13 @@ import {
 import {
   IconModule
 } from "../../shared/icon/icon.module";
+import {
+  InputFieldModule
+} from "../input-field/input-field.module";
 
 @NgModule({
   declarations: [PersonsInputComponent],
-  imports: [CommonModule, ReactiveFormsModule, IconModule],
+  imports: [CommonModule, ReactiveFormsModule, IconModule, InputFieldModule],
   exports: [
     PersonsInputComponent
   ]
