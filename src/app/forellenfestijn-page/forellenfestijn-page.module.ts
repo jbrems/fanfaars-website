@@ -9,6 +9,12 @@ import {InputFieldModule} from './input-field/input-field.module';
 import {SelectListModule} from './select-list/select-list.module';
 import {TextAreaModule} from './text-area/text-area.module';
 import { ActivityModule } from '../shared/activity/activity.module';
+import {
+  PersonsInputModule
+} from "./persons-input/persons-input.module";
+import {
+  TimeInputModule
+} from "./time-input/time-input.module";
 
 @NgModule({
   declarations: [ForellenfestijnPageComponent],
@@ -22,6 +28,8 @@ import { ActivityModule } from '../shared/activity/activity.module';
     TextAreaModule,
     TitleModule,
     ActivityModule,
+    PersonsInputModule,
+    TimeInputModule,
   ],
 })
 export class ForellenfestijnPageModule {}

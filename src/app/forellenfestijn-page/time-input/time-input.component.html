@@ -1,0 +1,30 @@
+<div class="clock-container">
+  <svg *ngIf="!control?.value.startsWith('-'); else error" viewbox="0 0 100 100" width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="50" cy="50" r="40" stroke="#112136" stroke-width="2" fill="none" />
+    <circle cx="50" cy="50" r="2.5" fill="#265895" />
+
+    <line *ngFor="let degree of hourBlips; let i = index;" [attr.x1]="getCircleCoords(40, degree).x" [attr.y1]="getCircleCoords(40, degree).y" [attr.x2]="getCircleCoords(i % 3 ? 35 : 30, degree).x" [attr.y2]="getCircleCoords(i % 3 ? 35 : 30, degree).y" stroke="#112136"></line>
+
+    <ng-container *ngIf="getMinutePointerCoords(40) as minuteCoords">
+      <line x1="50" y1="50" [attr.x2]="minuteCoords.x" [attr.y2]="minuteCoords.y" stroke="#5683b9" stroke-width="3"></line>
+    </ng-container>
+
+    <ng-container *ngIf="getHourPointerCoords(25) as hourCoords">
+      <line x1="50" y1="50" [attr.x2]="hourCoords.x" [attr.y2]="hourCoords.y" stroke="#265895" stroke-width="5"></line>
+      <circle [attr.cx]="hourCoords.x" [attr.cy]="hourCoords.y" r="2.5" fill="#265895" />
+    </ng-container>
+
+
+  </svg>
+  <ng-template #error>
+    <div class="error">
+      <app-icon *ngIf="control?.value.startsWith('-')" name="error" size="45"></app-icon>
+    </div>
+  </ng-template>
+</div>
+
+<div class="time-input">
+  <span>Om</span>
+  <app-select-list [formControl]="control" [values]="arrivalValues"></app-select-list>
+  <span>uur</span>
+</div>

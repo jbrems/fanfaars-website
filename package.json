@@ -2,7 +2,7 @@
   "name": "fanfaars-website",
   "version": "1.0.0",
   "scripts": {
-    "start": "ng serve",
+    "start": "ng serve --configuration development",
     "build": "ng build --configuration production",
     "serve": "npm run build && firebase serve",
     "deploy": "npm run build && firebase deploy",

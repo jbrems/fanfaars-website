@@ -27,12 +27,31 @@ function generateMailContent(reservation: any) {
       ${ reservation.menu.volAuVentChild ? '<br/>Vol-au-vent kindermenu: <strong>' + reservation.menu.volAuVentChild + '</strong>' : '' }
     </div>
     <br/>
-    Om deze reservatie te wijzigen kan u allen beantwoorden op deze mail.
+    Deze reservatie wijzigen kan via <a href="mailto:fanfaars@gmail.com?subject=Wijziging reservatie ${reservation.name}">fanfaars@gmail.com</a> (of door "allen beantwoorden" op deze mail).
     <br/><br/>
     Wij kijken er alvast naar uit om u te mogen ontvangen op ons Forellenfestijn!
     <br/><br/>
     Met muzikale groeten,
     <br/>Koninklijke Fanfare De Vrienden van 't Recht VZW Blaasveld
+    <br/><br/><br/>
+    <table style="color:gray; font-size: 0.65em; border: solid 1px gray;"><tr>
+      <td>${reservation.name}</td>
+      <td>${reservation.email}</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>${reservation.persons}</td>
+      <td>${reservation.arrival}</td>
+      <td>${reservation.menu.soup}</td>
+      <td>${reservation.menu.melon}</td>
+      <td>${reservation.menu.troutNature}</td>
+      <td>${reservation.menu.troutAlmond}</td>
+      <td>${reservation.menu.troutWine}</td>
+      <td>${reservation.menu.troutArdennaise}</td>
+      <td>${reservation.menu.volAuVent}</td>
+      <td>${reservation.menu.volAuVentChild}</td>
+      <td>${reservation.remarks}</td>
+    </tr></table>
   `;
 }
 

@@ -1,0 +1,19 @@
+<div class="prefix">Komt met</div>
+
+<div class="center">
+  <div class="people-container">
+    <div [class]="'row row-' + (i + 1) + '-of-' + peopleArray(control?.value).length" *ngFor="let peopleRow of peopleArray(control?.value); let i = index;">
+      <app-icon [name]="icon" [size]="personSize(control?.value)" *ngFor="let icon of peopleRow"></app-icon>
+    </div>
+    <app-icon name="plus" class="plus-icon" *ngIf="control?.value > 10 && control.value < 100"></app-icon>
+  </div>
+  <div class="number-field">
+    <app-icon name="chevron-up" size="24" viewbox="6 6 12 12" (click)="increment()"></app-icon>
+    <app-input-field #input [formControl]="control" type="number" min="1" max="99" step="1" (change)="onChange($event)" (input)="onChange($event)"></app-input-field>
+    <app-icon name="chevron-up" size="24" viewbox="6 6 12 12" class="rotate-180" (click)="substract()"></app-icon>
+  </div>
+</div>
+
+
+<div *ngIf="control.value === 1; else plural" class="suffix">persoon</div>
+<ng-template #plural><div class="suffix">personen</div></ng-template>

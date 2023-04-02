@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 export class IconComponent {
   @Input() size = 24;
   @Input() name: string;
+  @Input() viewbox = '0 0 24 24';
 }
