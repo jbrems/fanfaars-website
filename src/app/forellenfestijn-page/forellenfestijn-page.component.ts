@@ -54,7 +54,7 @@ export class ForellenfestijnPageComponent implements OnInit {
   }
 
   private calculateDate(year: number = this.today.getFullYear()): Date {
-    const date = new Date(year, 5, 1, 0, 0, 0, 0);
+    const date = new Date(year, 5, 4, 0, 0, 0, 0);
     while (date.getDay() !== 0) {
       date.setDate(date.getDate() + 1);
     }
@@ -66,7 +66,7 @@ export class ForellenfestijnPageComponent implements OnInit {
 
   private calculateShowReservationFormFrom(): Date {
     const showReservationFormFrom = this.calculateDate();
-    showReservationFormFrom.setMonth(4);
+    showReservationFormFrom.setMonth(3);
     showReservationFormFrom.setDate(1);
     return showReservationFormFrom;
   }
@@ -75,6 +75,10 @@ export class ForellenfestijnPageComponent implements OnInit {
     const form = new UntypedFormGroup({
       name: new UntypedFormControl('', [Validators.required, Validators.minLength(5)]),
       email: new UntypedFormControl('', [Validators.required, Validators.email]),
+      address1: new UntypedFormControl(''),
+      address2: new UntypedFormControl(''),
+      phone: new UntypedFormControl(''),
+      consent: new UntypedFormControl(false),
       persons: new UntypedFormControl(2, [Validators.min(1), Validators.max(99)]),
       arrival: new UntypedFormControl('11:30', [Validators.pattern('[^-]*')]),
       remarks: new UntypedFormControl(''),

@@ -37,9 +37,9 @@ function generateMailContent(reservation: any) {
     <table style="color:gray; font-size: 0.65em; border: solid 1px gray;"><tr>
       <td>${reservation.name}</td>
       <td>${reservation.email}</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
+      <td>${reservation.address1}</td>
+      <td>${reservation.address2}</td>
+      <td>${reservation.phone}</td>
       <td>${reservation.persons}</td>
       <td>${reservation.arrival}</td>
       <td>${reservation.menu.soup}</td>
@@ -51,6 +51,7 @@ function generateMailContent(reservation: any) {
       <td>${reservation.menu.volAuVent}</td>
       <td>${reservation.menu.volAuVentChild}</td>
       <td>${reservation.remarks}</td>
+      <td>${reservation.consent ? '-' : 'NO CONSENT' }</td>
     </tr></table>
   `;
 }

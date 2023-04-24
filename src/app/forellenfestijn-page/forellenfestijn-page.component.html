@@ -29,6 +29,10 @@
   <section class="info">
     <app-input-field label="Naam *" formControlName="name"></app-input-field>
     <app-input-field label="E-mailadres *" formControlName="email"></app-input-field>
+    <app-input-field label="Straat + nummer" formControlName="address1"></app-input-field>
+    <app-input-field label="Postcode + gemeente" formControlName="address2"></app-input-field>
+    <app-input-field label="Telefoon" formControlName="phone"></app-input-field>
+    <span style="font-size: smaller; display: inline-flex; gap: 10px; margin-top: -10px; margin-bottom: 20px;"><input type="checkbox" formControlName="consent" id="consent" style="cursor: pointer;"><label for="consent" style="cursor: pointer;">De fanfare mag bovenstaande gegevens gebruiken om mij te contacteren buiten de verwerking van deze reservatie.</label></span>
     <div class="fancy-inputs">
       <app-persons-input formControlName="persons"></app-persons-input>
       <app-time-input formControlName="arrival"></app-time-input>
@@ -39,42 +43,42 @@
     <strong>Menu</strong>
     <div class="menuItem">
       <div class="label">Zachte paprikasoep</div>
-      <div class="price">4,00€</div>
+      <div class="price">5,00€</div>
       <div class="amount"><app-input-field formControlName="soup" type="number"></app-input-field></div>
     </div>
     <div class="menuItem">
       <div class="label">Meloen met gerookte ham</div>
-      <div class="price">6,50€</div>
+      <div class="price">8,00€</div>
       <div class="amount"><app-input-field formControlName="melon" type="number"></app-input-field></div>
     </div>
     <div class="menuItem">
       <div class="label">Forel natuur</div>
-      <div class="price">16,00€</div>
+      <div class="price">20,00€</div>
       <div class="amount"><app-input-field formControlName="troutNature" type="number"></app-input-field></div>
     </div>
     <div class="menuItem">
       <div class="label">Forel met amandelen</div>
-      <div class="price">16,00€</div>
+      <div class="price">20,00€</div>
       <div class="amount"><app-input-field formControlName="troutAlmond" type="number"></app-input-field></div>
     </div>
     <div class="menuItem">
       <div class="label">Forel in witte wijnsaus</div>
-      <div class="price">16,00€</div>
+      <div class="price">20,00€</div>
       <div class="amount"><app-input-field formControlName="troutWine" type="number"></app-input-field></div>
     </div>
     <div class="menuItem">
       <div class="label">Forel ardennaise</div>
-      <div class="price">16,00€</div>
+      <div class="price">20,00€</div>
       <div class="amount"><app-input-field formControlName="troutArdennaise" type="number"></app-input-field></div>
     </div>
     <div class="menuItem">
       <div class="label">Vol-au-vent</div>
-      <div class="price">12,00€</div>
+      <div class="price">15,00€</div>
       <div class="amount"><app-input-field formControlName="volAuVent" type="number"></app-input-field></div>
     </div>
     <div class="menuItem">
       <div class="label">Vol-au-vent kindermenu</div>
-      <div class="price">7,00€</div>
+      <div class="price">10,00€</div>
       <div class="amount"><app-input-field formControlName="volAuVentChild" type="number"></app-input-field></div>
     </div>
   </div>
