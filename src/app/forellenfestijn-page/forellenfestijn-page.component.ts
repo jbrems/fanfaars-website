@@ -54,7 +54,7 @@ export class ForellenfestijnPageComponent implements OnInit {
   }
 
   private calculateDate(year: number = this.today.getFullYear()): Date {
-    const date = new Date(year, 5, 4, 0, 0, 0, 0);
+    const date = new Date(year, 5, 1, 0, 0, 0, 0);
     while (date.getDay() !== 0) {
       date.setDate(date.getDate() + 1);
     }

@@ -1,7 +1,5 @@
 <app-title title="Forellenfestijn {{date | date:'yyyy'}}"></app-title>
 <div>
-  Na 3 jaar afwezigheid door een pandemie en een experimenteel Paellafestijn zijn wij eindelijk terug met een nieuwe editie van ons Forellenfestijn!
-
   <div class="date-display">
     <app-calendar [date]="date.toISOString()" group="FF"></app-calendar>
     <span>Het Forellenfestijn zal in {{ date | date:'yyyy' }} doorgaan op <strong>{{ date | date:'EEEE d MMMM':'':'nl-BE' }}</strong>.</span>
@@ -20,6 +18,11 @@
 </div>
 
 <app-title title="Online reserveren" *ngIf="today >= reservationFrom"></app-title>
+<!--<div class="warning">-->
+<!--  <app-icon name="warning"></app-icon>-->
+<!--  <span>Online reserveren is helaas niet meer mogelijk. Voor vragen of informatie kan je telefonisch terecht bij Lex op <a href="tel:+32496386479">0496 38 64 79</a>.</span>-->
+<!--</div>-->
+
 <div *ngIf="success" class="success">
   <app-icon name="check"></app-icon>
   <span>Uw reservatie werd verwerkt. U ontvangt dadelijk een bevestiging op {{ reservationForm.value.email }}.</span>
