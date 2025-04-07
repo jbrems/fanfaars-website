@@ -1,4 +1,4 @@
 <div class="inputField">
   <label *ngIf="label" [for]="fieldId" [ngClass]="{ top: labelOnTop }">{{ label }}</label>
-  <input #inputField [type]="type" [id]="fieldId" (focus)="onFocus()" (blur)="onBlur()" (input)="onChange()">
+  <input #inputField [type]="type" [id]="fieldId" (focus)="onFocus()" (blur)="onBlur()" (input)="onChange()" [min]="min" [max]="max" step="1" />
 </div>

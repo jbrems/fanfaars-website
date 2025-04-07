@@ -11,6 +11,7 @@ export class ForellenfestijnPageComponent implements OnInit {
   today = new Date();
   date: Date;
   reservationFrom: Date;
+  reservationUntil: Date;
 
   reservationForm: UntypedFormGroup;
   arrivalValues: string[];
@@ -26,6 +27,7 @@ export class ForellenfestijnPageComponent implements OnInit {
     this.catchDateMocking();
     this.date = this.calculateDate();
     this.reservationFrom = this.calculateShowReservationFormFrom();
+    this.reservationUntil = this.calculateShowReservationFormUntil();
     this.reservationForm = this.setupReservationForm();
   }
 
@@ -66,9 +68,17 @@ export class ForellenfestijnPageComponent implements OnInit {
 
   private calculateShowReservationFormFrom(): Date {
     const showReservationFormFrom = this.calculateDate();
-    showReservationFormFrom.setMonth(3);
+    showReservationFormFrom.setMonth(4);
     showReservationFormFrom.setDate(1);
     return showReservationFormFrom;
+  }
+
+  private calculateShowReservationFormUntil(): Date {
+    const showReservationFormUntil = this.calculateDate();
+    showReservationFormUntil.setFullYear(this.today.getFullYear())
+    showReservationFormUntil.setMonth(4);
+    showReservationFormUntil.setDate(25);
+    return showReservationFormUntil;
   }
 
   private setupReservationForm(): UntypedFormGroup {
@@ -79,18 +89,18 @@ export class ForellenfestijnPageComponent implements OnInit {
       address2: new UntypedFormControl(''),
       phone: new UntypedFormControl(''),
       consent: new UntypedFormControl(false),
-      persons: new UntypedFormControl(2, [Validators.min(1), Validators.max(99)]),
+      persons: new UntypedFormControl(2, [Validators.min(1), Validators.max(30)]),
       arrival: new UntypedFormControl('11:30', [Validators.pattern('[^-]*')]),
       remarks: new UntypedFormControl(''),
       menu: new UntypedFormGroup({
-        soup: new UntypedFormControl(0, [Validators.min(0), Validators.max(99)]),
-        melon: new UntypedFormControl(0, [Validators.min(0), Validators.max(99)]),
-        troutNature: new UntypedFormControl(0, [Validators.min(0), Validators.max(99)]),
-        troutAlmond: new UntypedFormControl(0, [Validators.min(0), Validators.max(99)]),
-        troutWine: new UntypedFormControl(0, [Validators.min(0), Validators.max(99)]),
-        troutArdennaise: new UntypedFormControl(0, [Validators.min(0), Validators.max(99)]),
-        volAuVent: new UntypedFormControl(0, [Validators.min(0), Validators.max(99)]),
-        volAuVentChild: new UntypedFormControl(0, [Validators.min(0), Validators.max(99)]),
+        soup: new UntypedFormControl(0, [Validators.min(0), Validators.max(30)]),
+        melon: new UntypedFormControl(0, [Validators.min(0), Validators.max(30)]),
+        troutNature: new UntypedFormControl(0, [Validators.min(0), Validators.max(30)]),
+        troutAlmond: new UntypedFormControl(0, [Validators.min(0), Validators.max(30)]),
+        troutWine: new UntypedFormControl(0, [Validators.min(0), Validators.max(30)]),
+        troutArdennaise: new UntypedFormControl(0, [Validators.min(0), Validators.max(30)]),
+        volAuVent: new UntypedFormControl(0, [Validators.min(0), Validators.max(30)]),
+        volAuVentChild: new UntypedFormControl(0, [Validators.min(0), Validators.max(30)]),
       }),
     });
 

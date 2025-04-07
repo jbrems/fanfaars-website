@@ -21,6 +21,9 @@ export class InputFieldComponent implements ControlValueAccessor {
 
   @Input() label?: string;
   @Input() type?: string = 'text';
+  @Input() min?: number = 0
+  @Input() max?: number = 30
+
 
   onChangeListener: any = () => {};
   onTouchedListener: any = () => {};
