@@ -5,15 +5,16 @@
     <span>Het Forellenfestijn zal in {{ date | date:'yyyy' }} doorgaan op <strong>{{ date | date:'EEEE d MMMM':'':'nl-BE' }}</strong>.</span>
   </div>
 
-  Op {{ date | date:'d MMMM':'':'nl-BE' }} kan je tussen 11u30 en 21u00 in het Parochiaal Centrum van Blaasveld
+  Op {{ date | date:'d MMMM':'':'nl-BE' }} kan je vanaf 11u30 in het Parochiaal Centrum van Blaasveld
   genieten van een heerlijke <strong>forel of vol-au-vent</strong>, met veel liefde bereid door onze talloze vrijwilligers.
   <br><br>
-  Al onze hoofdgerechten worden geserveerd <strong>met frietjes (standaard) of brood (op aanvraag)</strong> en kunnen vergezeld worden van een bijpassende wijn, aperitief van het huis of ander drankje.
+  Al onze hoofdgerechten worden geserveerd <strong>met frietjes</strong> en kunnen vergezeld worden van een bijpassende wijn, aperitief van het huis of ander drankje.
   <br><br>
   Als dessert kan je genieten van een verkoelend kinderijsje, dame blanche met slagroom of coupe aardbei.
   <br><br>
 
-  <section *ngIf="today < reservationFrom"><br/><br/>Vanaf <strong>{{ reservationFrom | date:'d MMMM':'':'nl-BE' }}</strong> kan je hier online reserveren.</section>
+  <section *ngIf="today < reservationFrom"><br/><br/>Vanaf <strong>{{ reservationFrom | date:'d MMMM':'':'nl-BE' }}</strong> kan je hier online reserveren.
+  <br><br>Wees er op tijd bij want de plaatsen zijn beperkt!</section>
   <br>
 </div>
 
