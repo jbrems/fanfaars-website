@@ -27,7 +27,7 @@ export class ForellenfestijnPageComponent implements OnInit {
     this.catchDateMocking();
     this.date = this.calculateDate();
     this.reservationFrom = this.calculateShowReservationFormFrom();
-    this.reservationUntil = this.calculateShowReservationFormUntil();
+    this.reservationUntil = this.calculateShowReservationFormUntil(this.date);
     this.reservationForm = this.setupReservationForm();
   }
 
@@ -73,11 +73,8 @@ export class ForellenfestijnPageComponent implements OnInit {
     return showReservationFormFrom;
   }
 
-  private calculateShowReservationFormUntil(): Date {
-    const showReservationFormUntil = this.calculateDate();
-    showReservationFormUntil.setFullYear(this.today.getFullYear())
-    showReservationFormUntil.setMonth(4);
-    showReservationFormUntil.setDate(25);
+  private calculateShowReservationFormUntil(date: Date): Date {
+    const showReservationFormUntil = new Date(this.calculateDate().getTime() - 3 * 24 * 60 * 60 * 1000 - 4 * 60 * 60 * 1000); // 4 days before the festival at 20:00 (- 3 days and 4 hours)
     return showReservationFormUntil;
   }
 
