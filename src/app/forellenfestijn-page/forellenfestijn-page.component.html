@@ -2,19 +2,29 @@
 <div>
   <div class="date-display">
     <app-calendar [date]="date.toISOString()" group="FF"></app-calendar>
-    <span>Het Forellenfestijn zal in {{ date | date:'yyyy' }} doorgaan op <strong>{{ date | date:'EEEE d MMMM':'':'nl-BE' }}</strong>.</span>
+    <span>Het Forellenfestijn zal in {{ date | date:'yyyy' }} doorgaan op <strong>{{ date | date:'EEEE d
+        MMMM':'':'nl-BE' }}</strong>.</span>
   </div>
 
   Op {{ date | date:'d MMMM':'':'nl-BE' }} kan je vanaf 11u30 in het Parochiaal Centrum van Blaasveld
-  genieten van een heerlijke <strong>forel of vol-au-vent</strong>, met veel liefde bereid door onze talloze vrijwilligers.
+  genieten van een heerlijke <strong>forel of vol-au-vent</strong>, met veel liefde bereid door onze talloze
+  vrijwilligers.
   <br><br>
-  Al onze hoofdgerechten worden geserveerd <strong>met frietjes</strong> en kunnen vergezeld worden van een bijpassende wijn, aperitief van het huis of ander drankje.
+  Al onze hoofdgerechten worden geserveerd <strong>met frietjes</strong> en kunnen vergezeld worden van een bijpassende
+  wijn, aperitief van het huis of ander drankje.
   <br><br>
   Als dessert kan je genieten van een verkoelend kinderijsje, dame blanche met slagroom of coupe aardbei.
   <br><br>
 
-  <section *ngIf="today < reservationFrom"><br/><br/>Vanaf <strong>{{ reservationFrom | date:'d MMMM':'':'nl-BE' }}</strong> kan je hier online reserveren.
-  <br><br>Wees er op tijd bij want de plaatsen zijn beperkt!</section>
+  <div class="warning">
+    Om lange wachttijden te vermijden en u de beste kwaliteit te kunnen bieden, werken wij dit jaar met een beperkt
+    aantal plaatsen. Sommige tijdsloten kunnen daardoor niet reserveerbaar zijn.
+  </div>
+
+  <section *ngIf="today < reservationFrom"><br /><br />Vanaf <strong>{{ reservationFrom | date:'d MMMM':'':'nl-BE'
+      }}</strong> kan je hier online reserveren.
+    <br><br>Wees er op tijd bij want de plaatsen zijn beperkt!
+  </section>
   <br>
 </div>
 
@@ -22,7 +32,8 @@
 
 <div class="warning" *ngIf="today >= reservationUntil">
   <app-icon name="warning"></app-icon>
-  <span>Online reserveren is helaas niet meer mogelijk. Voor vragen of informatie kan je terecht op <a href="mailto:fanfaars@gmail.com">fanfaars@gmail.com</a>.</span>
+  <span>Online reserveren is helaas niet meer mogelijk. Voor vragen of informatie kan je terecht op <a
+      href="mailto:fanfaars@gmail.com">fanfaars@gmail.com</a>.</span>
 </div>
 
 <div *ngIf="success" class="success">
@@ -30,17 +41,21 @@
   <span>Uw reservatie werd verwerkt. U ontvangt dadelijk een bevestiging op {{ reservationForm.value.email }}.</span>
 </div>
 
-<form *ngIf="today >= reservationFrom && today <= reservationUntil && !success" class="reservation" [formGroup]="reservationForm">
+<form *ngIf="today >= reservationFrom && today <= reservationUntil && !success" class="reservation"
+  [formGroup]="reservationForm">
   <section class="info">
     <app-input-field label="Naam *" formControlName="name"></app-input-field>
     <app-input-field label="E-mailadres *" formControlName="email"></app-input-field>
     <app-input-field label="Straat + nummer" formControlName="address1"></app-input-field>
     <app-input-field label="Postcode + gemeente" formControlName="address2"></app-input-field>
     <app-input-field label="Telefoon" formControlName="phone"></app-input-field>
-    <span style="font-size: smaller; display: inline-flex; gap: 10px; margin-top: -10px; margin-bottom: 20px;"><input type="checkbox" formControlName="consent" id="consent" style="cursor: pointer;"><label for="consent" style="cursor: pointer;">De fanfare mag bovenstaande gegevens gebruiken om mij te contacteren buiten de verwerking van deze reservatie.</label></span>
+    <span style="font-size: smaller; display: inline-flex; gap: 10px; margin-top: -10px; margin-bottom: 20px;"><input
+        type="checkbox" formControlName="consent" id="consent" style="cursor: pointer;"><label for="consent"
+        style="cursor: pointer;">De fanfare mag bovenstaande gegevens gebruiken om mij te contacteren buiten de
+        verwerking van deze reservatie.</label></span>
     <div class="fancy-inputs">
       <app-persons-input formControlName="persons"></app-persons-input>
-      <app-time-input formControlName="arrival"></app-time-input>
+      <app-time-input formControlName="arrival" [timeslots]="timeslots"></app-time-input>
     </div>
     <app-text-area label="Opmerking" formControlName="remarks"></app-text-area>
   </section>
@@ -58,22 +73,22 @@
     </div>
     <div class="menuItem">
       <div class="label">Forel natuur</div>
-      <div class="price">24,00€</div>
+      <div class="price">25,00€</div>
       <div class="amount"><app-input-field formControlName="troutNature" type="number"></app-input-field></div>
     </div>
     <div class="menuItem">
       <div class="label">Forel met amandelen</div>
-      <div class="price">24,00€</div>
+      <div class="price">25,00€</div>
       <div class="amount"><app-input-field formControlName="troutAlmond" type="number"></app-input-field></div>
     </div>
     <div class="menuItem">
       <div class="label">Forel in witte wijnsaus</div>
-      <div class="price">24,00€</div>
+      <div class="price">25,00€</div>
       <div class="amount"><app-input-field formControlName="troutWine" type="number"></app-input-field></div>
     </div>
     <div class="menuItem">
       <div class="label">Forel ardennaise</div>
-      <div class="price">24,00€</div>
+      <div class="price">25,00€</div>
       <div class="amount"><app-input-field formControlName="troutArdennaise" type="number"></app-input-field></div>
     </div>
     <div class="menuItem">
@@ -86,6 +101,11 @@
       <div class="price">12,00€</div>
       <div class="amount"><app-input-field formControlName="volAuVentChild" type="number"></app-input-field></div>
     </div>
+    <div class="menuItem">
+      <div class="label">Veggieschotel</div>
+      <div class="price">18,00€</div>
+      <div class="amount"><app-input-field formControlName="veggie" type="number"></app-input-field></div>
+    </div>
   </div>
   <div *ngIf="showUserError && reservationForm.invalid" class="error">
     <app-icon name="error"></app-icon>
@@ -93,7 +113,9 @@
   </div>
   <div *ngIf="error" class="error">
     <app-icon name="error"></app-icon>
-    <span>Uw reservatie kon niet worden verwerkt. Probeer het later opnieuw of contacteer <a href="mailto:fanfaars@gmail.com">fanfaars@gmail.com</a>.</span>
+    <span>Uw reservatie kon niet worden verwerkt. Probeer het later opnieuw of contacteer <a
+        href="mailto:fanfaars@gmail.com">fanfaars@gmail.com</a>.</span>
   </div>
-  <button type="submit" (click)="sendReservation()" [ngClass]="{ processing: processing }"><app-icon name="plane"></app-icon><span>Reservatie versturen</span></button>
+  <button type="submit" (click)="sendReservation()" [ngClass]="{ processing: processing }"><app-icon
+      name="plane"></app-icon><span>Reservatie versturen</span></button>
 </form>

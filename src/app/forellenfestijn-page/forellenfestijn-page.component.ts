@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, UntypedFormControl, UntypedFormGroup, RequiredValidator, Validators } from '@angular/forms';
 import { ForellenfestijnService } from './forellenfestijn.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { TimeslotService } from './timeslot/timeslot.service';
+import { Timeslots } from './timeslot/timeslot';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   templateUrl: './forellenfestijn-page.component.html',
@@ -13,6 +16,9 @@ export class ForellenfestijnPageComponent implements OnInit {
   reservationFrom: Date;
   reservationUntil: Date;
 
+  timeslots: Timeslots;
+  timeslotsSubscription: Subscription
+
   reservationForm: UntypedFormGroup;
   arrivalValues: string[];
   submitted = false;
@@ -21,7 +27,7 @@ export class ForellenfestijnPageComponent implements OnInit {
   success = false;
   error = false;
 
-  constructor(private forellenfestijnService: ForellenfestijnService, private route: ActivatedRoute, private router: Router) {}
+  constructor(private forellenfestijnService: ForellenfestijnService, private timeslotService: TimeslotService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.catchDateMocking();
@@ -29,6 +35,11 @@ export class ForellenfestijnPageComponent implements OnInit {
     this.reservationFrom = this.calculateShowReservationFormFrom();
     this.reservationUntil = this.calculateShowReservationFormUntil(this.date);
     this.reservationForm = this.setupReservationForm();
+    this.timeslotsSubscription = this.timeslotService.getTimeslots().subscribe((timeslots: Timeslots) => { this.timeslots = timeslots })
+  }
+
+  ngOnDestroy(): void {
+    this.timeslotsSubscription?.unsubscribe()
   }
 
   public async sendReservation() {
@@ -87,7 +98,7 @@ export class ForellenfestijnPageComponent implements OnInit {
       phone: new UntypedFormControl(''),
       consent: new UntypedFormControl(false),
       persons: new UntypedFormControl(2, [Validators.min(1), Validators.max(30)]),
-      arrival: new UntypedFormControl('11:30', [Validators.pattern('[^-]*')]),
+      arrival: new UntypedFormControl('', [Validators.required, Validators.pattern('[^-]*')]),
       remarks: new UntypedFormControl(''),
       menu: new UntypedFormGroup({
         soup: new UntypedFormControl(0, [Validators.min(0), Validators.max(30)]),
@@ -98,6 +109,7 @@ export class ForellenfestijnPageComponent implements OnInit {
         troutArdennaise: new UntypedFormControl(0, [Validators.min(0), Validators.max(30)]),
         volAuVent: new UntypedFormControl(0, [Validators.min(0), Validators.max(30)]),
         volAuVentChild: new UntypedFormControl(0, [Validators.min(0), Validators.max(30)]),
+        veggie: new UntypedFormControl(0, [Validators.min(0), Validators.max(30)]),
       }),
     });
 

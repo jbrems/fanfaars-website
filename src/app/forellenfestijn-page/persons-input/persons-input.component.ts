@@ -51,7 +51,6 @@ export class PersonsInputComponent implements ControlValueAccessor {
   }
 
   public onChange(event: Event) {
-    console.log('Value changed', (event.target as HTMLInputElement).value);
     this.onChangeListener((event.target as HTMLInputElement).value || 0);
   }
 
@@ -64,14 +63,14 @@ export class PersonsInputComponent implements ControlValueAccessor {
     if (n < 1) return [['error']];
     if (n === 1) return [['person']];
     if (n === 2) return [['person', 'person']];
-    if (n === 3) return [['person', 'person'],['person']];
-    if (n === 4) return [['person', 'person'],['person', 'person']];
-    if (n === 5) return [['person', 'person', 'person'],['person', 'person']];
-    if (n === 6) return [['person', 'person', 'person'],['person', 'person'],['person']];
-    if (n === 7) return [['person', 'person'],['person', 'person', 'person'],['person', 'person']];
-    if (n === 8) return [['person', 'person', 'person'],['person', 'person', 'person'],['person', 'person']];
-    if (n === 9) return [['person', 'person', 'person', 'person'],['person', 'person', 'person'],['person', 'person']];
-    if (n > 9 && n <= 99) return [['person', 'person', 'person'],['person', 'person', 'person', 'person'],['person', 'person', 'person']];
+    if (n === 3) return [['person', 'person'], ['person']];
+    if (n === 4) return [['person', 'person'], ['person', 'person']];
+    if (n === 5) return [['person', 'person', 'person'], ['person', 'person']];
+    if (n === 6) return [['person', 'person', 'person'], ['person', 'person'], ['person']];
+    if (n === 7) return [['person', 'person'], ['person', 'person', 'person'], ['person', 'person']];
+    if (n === 8) return [['person', 'person', 'person'], ['person', 'person', 'person'], ['person', 'person']];
+    if (n === 9) return [['person', 'person', 'person', 'person'], ['person', 'person', 'person'], ['person', 'person']];
+    if (n > 9 && n <= 99) return [['person', 'person', 'person'], ['person', 'person', 'person', 'person'], ['person', 'person', 'person']];
     if (n > 99) return [['error']];
   }
 
@@ -82,17 +81,16 @@ export class PersonsInputComponent implements ControlValueAccessor {
     return size;
   }
 
-  public get control (): FormControl {
+  public get control(): FormControl {
     return this.injector.get(NgControl).control as FormControl;
   }
 
-  public increment (): void {
-    console.log(this.control);
+  public increment(): void {
     if (this.control.value >= 99) return;
     this.control.setValue(Number(this.control.value) + 1);
   }
 
-  public substract (): void {
+  public substract(): void {
     if (this.control.value <= 1) return;
     this.control.setValue(Number(this.control.value) - 1);
   }

@@ -15,16 +15,17 @@ function generateMailContent(reservation: any) {
     <div style="margin: 10px 0; padding: 10px; border: solid 1px #bd0000; border-radius: 5px;">
       Naam: <strong>${reservation.name}</strong>
       <br/>Komt met <strong>${reservation.persons}</strong> personen omstreeks <strong>${reservation.arrival}</strong> uur.
-      ${ reservation.remarks ? '<br/>Met opmerking: <strong>' + reservation.remarks + '</strong>' : '' }
+      ${reservation.remarks ? '<br/>Met opmerking: <strong>' + reservation.remarks + '</strong>' : ''}
       <br/>
-      ${ reservation.menu.soup ? '<br/>Zachte paprikasoep: <strong>' + reservation.menu.soup + '</strong>' : '' }
-      ${ reservation.menu.melon ? '<br/>Meloen met gerookte ham: <strong>' + reservation.menu.melon + '</strong>' : '' }
-      ${ reservation.menu.troutNature ? '<br/>Forel natuur: <strong>' + reservation.menu.troutNature + '</strong>' : '' }
-      ${ reservation.menu.troutAlmond ? '<br/>Forel met amandelen: <strong>' + reservation.menu.troutAlmond + '</strong>' : '' }
-      ${ reservation.menu.troutWine ? '<br/>Forel in witte wijnsaus: <strong>' + reservation.menu.troutWine + '</strong>' : '' }
-      ${ reservation.menu.troutArdennaise ? '<br/>Forel ardennaise: <strong>' + reservation.menu.troutArdennaise + '</strong>' : '' }
-      ${ reservation.menu.volAuVent ? '<br/>Vol-au-vent: <strong>' + reservation.menu.volAuVent + '</strong>' : '' }
-      ${ reservation.menu.volAuVentChild ? '<br/>Vol-au-vent kindermenu: <strong>' + reservation.menu.volAuVentChild + '</strong>' : '' }
+      ${reservation.menu.soup ? '<br/>Zachte paprikasoep: <strong>' + reservation.menu.soup + '</strong>' : ''}
+      ${reservation.menu.melon ? '<br/>Meloen met gerookte ham: <strong>' + reservation.menu.melon + '</strong>' : ''}
+      ${reservation.menu.troutNature ? '<br/>Forel natuur: <strong>' + reservation.menu.troutNature + '</strong>' : ''}
+      ${reservation.menu.troutAlmond ? '<br/>Forel met amandelen: <strong>' + reservation.menu.troutAlmond + '</strong>' : ''}
+      ${reservation.menu.troutWine ? '<br/>Forel in witte wijnsaus: <strong>' + reservation.menu.troutWine + '</strong>' : ''}
+      ${reservation.menu.troutArdennaise ? '<br/>Forel ardennaise: <strong>' + reservation.menu.troutArdennaise + '</strong>' : ''}
+      ${reservation.menu.volAuVent ? '<br/>Vol-au-vent: <strong>' + reservation.menu.volAuVent + '</strong>' : ''}
+      ${reservation.menu.volAuVentChild ? '<br/>Vol-au-vent kindermenu: <strong>' + reservation.menu.volAuVentChild + '</strong>' : ''}
+      ${reservation.menu.veggie ? '<br/>Veggieschotel: <strong>' + reservation.menu.veggie + '</strong>' : ''}
     </div>
     <br/>
     Deze reservatie wijzigen kan via <a href="mailto:fanfaars@gmail.com?subject=Wijziging reservatie ${reservation.name}">fanfaars@gmail.com</a> (of door "allen beantwoorden" op deze mail).
@@ -40,7 +41,7 @@ function generateMailContent(reservation: any) {
       <td>${reservation.address1}</td>
       <td>${reservation.address2}</td>
       <td>${reservation.phone}</td>
-      <td>${reservation.consent ? '-' : 'NO CONSENT' }</td>
+      <td>${reservation.consent ? '-' : 'NO CONSENT'}</td>
       <td>${reservation.persons}</td>
       <td>${reservation.arrival}</td>
       <td>${reservation.menu.soup}</td>
@@ -51,6 +52,7 @@ function generateMailContent(reservation: any) {
       <td>${reservation.menu.troutArdennaise}</td>
       <td>${reservation.menu.volAuVent}</td>
       <td>${reservation.menu.volAuVentChild}</td>
+      <td>${reservation.menu.veggie}</td>
       <td>${reservation.remarks}</td>
     </tr></table>
   `;
@@ -66,7 +68,7 @@ async function sendEmail(to: string, subject: string, html: string) {
 
   const options = {
     from: 'Fanfare Blaasveld <forellenfestijn@gmail.com>',
-    to: [to, 'fanfaars@gmail.com'],
+    to: [to, 'fanfaars@gmail.com', 'jonasbrems@gmail.com'],
     subject,
     html,
   };

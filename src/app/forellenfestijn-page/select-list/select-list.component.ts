@@ -1,4 +1,4 @@
-import { Component, ElementRef, forwardRef, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, forwardRef, Input, SimpleChanges, ViewChild } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -18,13 +18,22 @@ export class SelectListComponent implements ControlValueAccessor {
 
   @Input() label: string;
   @Input() values: string[];
+  @Input() disabledValues: string[];
 
   selectedValue: string;
 
   @ViewChild('selectList', { static: true }) selectList: ElementRef;
 
-  onChangeListener: any = () => {};
-  onTouchedListener: any = () => {};
+  onChangeListener: any = () => { };
+  onTouchedListener: any = () => { };
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['disabledValues'] && changes['disabledValues'].currentValue.includes(this.selectedValue)) {
+      alert('Het gekozen uur van aankomst is niet meer beschikbaar.')
+      this.selectedValue = '';
+      this.onChangeListener('');
+    }
+  }
 
   registerOnChange(fn: any): void {
     this.onChangeListener = fn;
@@ -44,6 +53,7 @@ export class SelectListComponent implements ControlValueAccessor {
 
   onChange() {
     this.selectedValue = this.selectList.nativeElement.value;
-    this.onChangeListener(this.selectList.nativeElement.value);
+    if (this.selectedValue === '(uur van aankomst)') this.selectedValue = ''
+    this.onChangeListener(this.selectedValue);
   }
 }

@@ -1,0 +1,1 @@
+export type Timeslots = Record<string, boolean>

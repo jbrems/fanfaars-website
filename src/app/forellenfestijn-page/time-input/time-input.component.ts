@@ -3,7 +3,9 @@ import {
   Component,
   forwardRef,
   Injector,
-  OnInit
+  Input,
+  OnInit,
+  SimpleChanges
 } from "@angular/core";
 import {
   ControlValueAccessor,
@@ -11,6 +13,7 @@ import {
   NG_VALUE_ACCESSOR,
   NgControl
 } from "@angular/forms";
+import { Timeslots } from "../timeslot/timeslot";
 
 @Component({
   selector: 'app-time-input',
@@ -28,11 +31,21 @@ export class TimeInputComponent implements ControlValueAccessor, AfterViewInit {
   public ngControl: NgControl;
   public control: FormControl;
   public arrivalValues = ['11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '--------', '17:00', '17:30', '18:00', '18:30', '19:00'];
+  public disabledArrivalValues = []
 
   private onChangeListener: any;
   private onTouchedListener: any;
 
-  constructor(private injector: Injector) {}
+  @Input() public timeslots: Timeslots;
+
+  constructor(private injector: Injector) { }
+
+  public ngOnChanges(changes: SimpleChanges): void {
+    if (changes['timeslots']) {
+      const timeslots = changes['timeslots'].currentValue
+      this.disabledArrivalValues = Object.entries(timeslots || {}).filter(([_, enabled]) => !enabled).map(([timeslot]) => timeslot)
+    }
+  }
 
   public ngAfterViewInit() {
     this.ngControl = this.injector.get(NgControl);
@@ -62,6 +75,7 @@ export class TimeInputComponent implements ControlValueAccessor, AfterViewInit {
   }
 
   public getHourPointerCoords(radius: number): { x: number, y: number } | undefined {
+    console.log(this.control.value)
     if (!this.control?.value) return;
 
     const [hour, minutes] = this.control.value.split(':').map(Number);
