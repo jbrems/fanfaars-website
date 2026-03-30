@@ -39,7 +39,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^18.0.6",
     "ajv": "^7.2.4",
-    "firebase-tools": "^11.3.0",
+    "firebase-tools": "^15.12.0",
     "jasmine-core": "^4.3.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "^6.4.0",
