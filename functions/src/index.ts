@@ -1,4 +1,3 @@
-import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
 try {
   admin.initializeApp();
@@ -7,9 +6,11 @@ try {
 }
 import { updatePhotoAlbumsFromFlickr } from './photo-albums';
 import { processForellenfestijnReservation } from './forellenfestijn';
-import {processPaellafestijnReservation} from './paellafestijn';
+import { processPaellafestijnReservation } from './paellafestijn';
+import { onDocumentCreated } from 'firebase-functions/firestore';
+import { onRequest } from 'firebase-functions/https';
 
-export const updatePhotoAlbums = functions.https.onRequest(async (req, res) => {
+export const updatePhotoAlbumsV2 = onRequest({ cors: true }, async (req, res) => {
   try {
     const message = await updatePhotoAlbumsFromFlickr();
     res.send(message);
@@ -19,20 +20,15 @@ export const updatePhotoAlbums = functions.https.onRequest(async (req, res) => {
   }
 });
 
-export const processPaellaReservation = functions.firestore
-  .document('paella/{reservationId}')
-  .onCreate((snapshot, context) => {
-    return processPaellafestijnReservation(snapshot.data());
-  });
+export const processPaellaReservationV2 = onDocumentCreated('paella/{reservationId}', (event) => {
+  return processPaellafestijnReservation(event.data?.data());
+});
 
-export const processReservation = functions.firestore
-  .document('forellenfestijn/{reservationId}')
-  .onCreate((snapshot, context) => {
-    return processForellenfestijnReservation(snapshot.data());
-  });
+export const processReservationV2 = onDocumentCreated('forellenfestijn/{reservationId}', (event) => {
+  return processForellenfestijnReservation(event.data?.data());
+});
 
-
-export const testProcessReservation = functions.https.onRequest(async (req, res) => {
+export const testProcessReservationV2 = onRequest({ cors: true }, async (req, res) => {
   try {
     await processForellenfestijnReservation({
       name: 'Jonas Brems',
